@@ -28,7 +28,7 @@ a {
   color: white;
   overflow: hidden; /* Prevent overflowing content */
   width: 100%;
-  padding: 05%;
+  padding-bottom: 05%;
 }
 
 .button-container {
@@ -98,5 +98,5 @@ a {
 }
 
 .swat-button img:hover {
-  filter: grayscale(60%); /* Removes grayscale on hover */
+  filter: grayscale(40%); /* Removes grayscale on hover */
 }
