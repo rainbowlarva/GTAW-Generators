@@ -62,7 +62,7 @@ html, body {
   }
   
   .image-button img:hover {
-    box-shadow: 0 0 10px #494949; /* Black shadow on hover */
+    box-shadow: 0 0 10px #6078FF; /* Black shadow on hover */
   }
   
   .image-button p {
