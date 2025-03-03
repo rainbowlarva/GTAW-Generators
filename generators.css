@@ -2,9 +2,11 @@ html, body {
   height: 100%;
   width: 100%;
   margin: 0; /* Remove default margins */
+  overflow-y: auto; /* Allow vertical scrolling */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Allow content to flow down */
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center; /* Center horizontally */
   position: relative;
 }
 
