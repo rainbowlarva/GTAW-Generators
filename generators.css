@@ -39,8 +39,7 @@ html, body {
     height: 208px;
     border: 2px solid black; /* Add a black border */
     border-radius: 5px; /* Optional: Rounds the corners of the border */
-    transition: transform 0.3s ease; /* Smooth scale effect */
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .image-button img:hover {
