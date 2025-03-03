@@ -126,3 +126,13 @@ a {
 .db-button img:hover {
   filter: grayscale(70%); /* Removes grayscale on hover */
 }
+
+.centered-image {
+  text-align: center;
+  margin-top: 20px; /* Adjust spacing as needed */
+}
+
+.centered-image img {
+  width: 300px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
