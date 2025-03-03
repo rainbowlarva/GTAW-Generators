@@ -44,6 +44,6 @@ html, body {
   
   .image-button img:hover {
     transform: scale(1.1); /* Slightly enlarge the image when hovered */
-    box-shadow: 0 0 10px black; /* Black shadow on hover */
+    box-shadow: 0 0 10px #494949; /* Black shadow on hover */
   }
   
