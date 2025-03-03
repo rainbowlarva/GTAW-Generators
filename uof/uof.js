@@ -5,6 +5,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const removeEmployeeButton = document.getElementById('removeEmployee');
     const employeeInputs = document.getElementById('employeeInputs');
 
+    // Load saved data from localStorage
+    function loadSavedData() {
+        document.getElementById('reportingEmployee').value = localStorage.getItem('reportingEmployee') || '';
+        document.getElementById('incidentDateTime').value = localStorage.getItem('incidentDateTime') || '';
+        document.getElementById('incidentLocation').value = localStorage.getItem('incidentLocation') || '';
+        document.getElementById('typeOfUOF').value = localStorage.getItem('typeOfUOF') || '';
+        document.getElementById('firearmSubmitted').value = localStorage.getItem('firearmSubmitted') || '';
+        document.getElementById('narrative').value = localStorage.getItem('narrative') || '';
+        document.getElementById('evidence').value = localStorage.getItem('evidence') || '';
+
+        // Load involved employees from localStorage
+        const savedEmployees = JSON.parse(localStorage.getItem('involvedEmployees')) || [];
+        savedEmployees.forEach(employee => {
+            const newEmployeeInput = document.createElement('div');
+            newEmployeeInput.classList.add('employeeInput');
+            newEmployeeInput.innerHTML = `
+                <input type="text" class="employeeField" name="involvedEmployee[]" value="${employee}" placeholder="Involved Employee">
+            `;
+            employeeInputs.appendChild(newEmployeeInput);
+        });
+    }
+
+    // Save form data to localStorage
+    function saveData() {
+        localStorage.setItem('reportingEmployee', document.getElementById('reportingEmployee').value);
+        localStorage.setItem('incidentDateTime', document.getElementById('incidentDateTime').value);
+        localStorage.setItem('incidentLocation', document.getElementById('incidentLocation').value);
+        localStorage.setItem('typeOfUOF', document.getElementById('typeOfUOF').value);
+        localStorage.setItem('firearmSubmitted', document.getElementById('firearmSubmitted').value);
+        localStorage.setItem('narrative', document.getElementById('narrative').value);
+        localStorage.setItem('evidence', document.getElementById('evidence').value);
+
+        // Save involved employees to localStorage
+        const involvedEmployees = Array.from(document.getElementsByClassName('employeeField'))
+            .map(input => input.value)
+            .filter(value => value.trim() !== ''); // Filter out empty inputs
+        localStorage.setItem('involvedEmployees', JSON.stringify(involvedEmployees));
+    }
+
     // Function to add a new employee input field
     addEmployeeButton.addEventListener('click', function() {
         const newEmployeeInput = document.createElement('div');
@@ -83,5 +122,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Display the generated BBCode
         bbcodeText.value = bbcodeTemplate;
+
+        // Save the form data after generating BBCode
+        saveData();
     });
+
+    // Load saved data when the page loads
+    loadSavedData();
 });
