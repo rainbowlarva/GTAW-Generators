@@ -3,76 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UOF Report Generator</title>
-    <link rel="stylesheet" href="uof.css">
+    <title>Use of Force Report Generator</title>
+    <link rel="stylesheet" href="uof.css"> <!-- Link to your CSS file -->
 </head>
-<body>
+<body class="background">
     <div class="container">
         <h1>Use of Force Report Generator</h1>
-
-        <!-- Back Button -->
+        
         <a href="https://rainbowlarva.github.io/GTAW-Generators/">
-            <img class="back-button" src="../arrow.png" alt="Back">
+            <img src="../arrow.png" alt="Back" class="back-button">
         </a>
-
-        <!-- Form for input fields -->
+        
+        <!-- User Input Form -->
         <form id="uofForm">
             <div>
                 <label for="reportingEmployee">Reporting Employee:</label>
-                <input type="text" id="reportingEmployee" name="reportingEmployee" placeholder="Enter your name">
+                <input type="text" id="reportingEmployee" name="reportingEmployee" placeholder="Enter name">
             </div>
-            <div class="form-group">
-                <label for="incidentDateTime">DATE AND TIME OF INCIDENT:</label>
+            <div>
+                <label for="incidentDateTime">Date and Time of Incident:</label>
                 <input type="text" id="incidentDateTime" name="incidentDateTime" placeholder="Enter date and time">
             </div>
             <div>
                 <label for="incidentLocation">Location of Incident:</label>
-                <input type="text" id="incidentLocation" name="incidentLocation" placeholder="Enter the location of the incident">
+                <input type="text" id="incidentLocation" name="incidentLocation" placeholder="Enter location">
             </div>
             <div>
-                <label for="typeOfUOF">Type of UOF:</label>
-                <input type="text" id="typeOfUOF" name="typeOfUOF" placeholder="Officer Involved Shooting / In-Custody Death / Other">
+                <label for="uofType">Type of Use of Force:</label>
+                <input type="text" id="uofType" name="uofType" placeholder="Enter type of UOF">
             </div>
             <div>
-                <label for="firearmSubmitted">Service Firearm Submitted to Armory:</label>
-                <input type="text" id="firearmSubmitted" name="firearmSubmitted" placeholder="Y / N (Include reason if no)">
+                <label for="firearmSubmission">Service Firearm Submitted to Armory:</label>
+                <input type="text" id="firearmSubmission" name="firearmSubmission" placeholder="Yes / No">
             </div>
-            
-            <!-- Add Involved Employee Section -->
-            <div id="employeeSection">
-                <label>Involved Employees:</label>
-                <div id="employeeInputs">
-                    <div class="employeeInput">
-                        <input type="text" class="employeeField" name="involvedEmployee[]" placeholder="Involved Employee">
-                    </div>
-                </div>
-                <div class="buttonContainer">
-                    <button type="button" id="addEmployee" class="half-width">Add Involved Employee</button>
-                    <button type="button" id="removeEmployee" class="half-width">Remove Last Employee</button>
-                </div>
-                <label for="supervisor">Supervisor:</label>
-                <input type="text" id="supervisor" name="supervisor" placeholder="Enter supervisor name">                
-            </div>
-
-            
             <div>
                 <label for="narrative">Narrative:</label>
-                <textarea id="narrative" name="narrative" placeholder="Enter narrative"></textarea>
+                <textarea id="narrative" name="narrative" placeholder="Enter details"></textarea>
             </div>
 
+            <!-- Involved Subjects -->
+            <h2>Involved Subjects</h2>
+            <div>
+                <label for="subjectName">Subject Name:</label>
+                <input type="text" id="subjectName" name="subjectName" placeholder="Enter subject name">
+            </div>
+            <div>
+                <label for="mdcRecord">MDC Record:</label>
+                <input type="text" id="mdcRecord" name="mdcRecord" placeholder="Enter MDC link">
+            </div>
+            <div>
+                <label for="subjectStatus">Status:</label>
+                <input type="text" id="subjectStatus" name="subjectStatus" placeholder="Enter status">
+            </div>
+            <div>
+                <label for="subjectNotes">Notes:</label>
+                <textarea id="subjectNotes" name="subjectNotes" placeholder="Enter notes"></textarea>
+            </div>
+
+            <!-- Involved Employees (Dynamic List) -->
+            <h2>Involved Employee(s)</h2>
+            <div id="employeeList">
+                <div class="employee-entry">
+                    <input type="text" name="involvedEmployee" placeholder="Enter employee name">
+                    <button type="button" class="removeEmployee">Remove</button>
+                </div>
+            </div>
+            <button type="button" id="addEmployee">Add Employee</button>
+
+            <!-- Supervisor -->
+            <div>
+                <label for="supervisor">Supervisor:</label>
+                <input type="text" id="supervisor" name="supervisor" placeholder="Enter supervisor name">
+            </div>
+
+            <!-- Evidence -->
             <div>
                 <label for="evidence">Evidence:</label>
-                <textarea id="evidence" name="evidence" placeholder="Enter evidence"></textarea>
+                <textarea id="evidence" name="evidence" placeholder="Enter evidence details"></textarea>
             </div>
 
             <button type="submit">Generate BBCode</button>
         </form>
 
-        <!-- Output area for the generated BBCode -->
-        <h2>Generated BBCode:</h2>
-        <textarea id="bbcodeText"></textarea>
+        <!-- Output Area -->
+        <div id="bbcodeOutput">
+            <h2>Generated BBCode:</h2>
+            <pre id="bbcodeText"></pre>
+        </div>
     </div>
 
-    <script src="uof.js"></script>
+    <script src="uof.js"></script> <!-- Link to JavaScript file -->
 </body>
 </html>
