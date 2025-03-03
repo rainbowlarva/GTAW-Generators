@@ -67,6 +67,8 @@ html, body {
   
   .image-button p {
     color: white;
+    white-space: normal; /* Allow the text to wrap */
+    max-width: 200px; /* You can adjust this to control the width of the text */
     transition: transform 0.3s ease; /* Smooth scale effect for the text */
   }
 
