@@ -37,6 +37,11 @@ html, body {
     justify-content: center; /* Center the buttons horizontally */
     gap: 20px; /* Add space between buttons */
   }
+
+  /* Add some margin between rows */
+  .button-container + .button-container {
+    margin-top: 20px; /* Adjust the space between the first and second rows */
+  }
   
   .image-button img {
     width: 200px;
