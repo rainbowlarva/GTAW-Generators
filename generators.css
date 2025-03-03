@@ -128,15 +128,15 @@ a {
 }
 
 .db-container {
-  display: flex; /* Use flexbox to arrange images in a row */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Align items in the center */
   text-align: center;
   color: white;
-  overflow: hidden; /* Prevent overflowing content */
+  overflow: hidden;
   width: 100%;
-  padding-bottom: 05%;
-  justify-content: center; /* Center the buttons horizontally */
-  align-items: center;
-  gap: 20px; /* Add space between buttons */
+  padding-bottom: 5%;
 }
 
 .db-container p {
