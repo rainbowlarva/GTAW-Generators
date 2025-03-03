@@ -37,7 +37,6 @@ html, body {
   .image-button img {
     width: 200px;
     height: 208px;
-    color: white;
     border: 2px solid black; /* Add a black border */
     border-radius: 5px; /* Optional: Rounds the corners of the border */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -48,3 +47,10 @@ html, body {
     box-shadow: 0 0 10px #494949; /* Black shadow on hover */
   }
   
+  .image-button p {
+    color: white;
+  }
+
+  .image-button:hover p {
+    color: #494949;
+  }
