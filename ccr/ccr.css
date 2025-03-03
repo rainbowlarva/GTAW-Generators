@@ -15,7 +15,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: white;
 }
 
 form {
@@ -30,14 +30,14 @@ form div {
 label {
     font-size: 1rem;
     margin-bottom: 5px;
-    color: #333;
+    color: white;
 }
 
 input, textarea {
     width: 100%;
     padding: 05px;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #545454;
     border-radius: 5px;
 }
 
