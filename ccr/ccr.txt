@@ -21,25 +21,25 @@ LOS SANTOS
 [b]CRIME COMPLAINT REPORT #XXX[/b]
 
 [b]PERSONNEL INFORMATION[/b]
-Full name(s):
-Departmental rank(s):
-Badge number(s): 
-Duty callsign:
+Full name(s): NAMEHERE
+Departmental rank(s): NAMEHERE
+Badge number(s): NAMEHERE
+Duty callsign: NAMEHERE
 
 [hr][/hr]
 
 [b]TIME AND LOCATION[/b]
-Time and date: <HH:MM  (24 HOUR TIME, NOT ANALOGUE)- DD/MMM/YYYY>
-Street: <3224 West Mirror Drive>
-Area: <Mirror Park>
-IF CASINGS COLLECTED ADD LABEL HERE: -LABEL-
+Time and date: NAMEHERE
+Street: NAMEHERE
+Area: NAMEHERE
+IF CASINGS COLLECTED ADD LABEL HERE: NAMEHERE
 
 [hr][/hr]
 
 [b]NARRATIVE[/b]
-<Insert your narrative here>
+NAMEHERE
 
 [hr][/hr]
 
 [b]EVIDENCE[/b]
-<Insert any evidence here>[/divbox2]
+NAMEHERE[/divbox2]
