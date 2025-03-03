@@ -36,6 +36,7 @@ html, body {
     display: flex; /* Use flexbox to arrange images in a row */
     justify-content: center; /* Center the buttons horizontally */
     gap: 20px; /* Add space between buttons */
+    transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
   }
 
   /* Add some margin between rows */
