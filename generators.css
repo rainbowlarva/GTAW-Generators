@@ -49,8 +49,10 @@ html, body {
   
   .image-button p {
     color: white;
+    text-decoration: none;
   }
 
   .image-button:hover p {
     color: #494949;
+    transform: scale(1.1);
   }
