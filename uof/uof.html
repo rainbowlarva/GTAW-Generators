@@ -38,6 +38,7 @@
                 <input type="text" id="firearmSubmitted" name="firearmSubmitted" required>
             </div>
             
+            <!-- Add Involved Employee Section -->
             <div id="employeeSection">
                 <label>Involved Employees:</label>
                 <div id="employeeInputs">
@@ -45,8 +46,12 @@
                         <input type="text" class="employeeField" name="involvedEmployee[]" placeholder="Involved Employee">
                     </div>
                 </div>
-                <button type="button" id="addEmployee">Add Involved Employee</button>
+                <div class="buttonContainer">
+                    <button type="button" id="addEmployee" class="half-width">Add Involved Employee</button>
+                    <button type="button" id="removeEmployee" class="half-width">Remove Last Employee</button>
+                </div>
             </div>
+
             
             <div>
                 <label for="narrative">Narrative:</label>
