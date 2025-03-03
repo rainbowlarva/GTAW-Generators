@@ -5,7 +5,7 @@ function autoResizeTextarea(event) {
     textarea.style.height = 'auto';
     // Set the height to the scrollHeight of the textarea to expand as needed
     textarea.style.height = textarea.scrollHeight + 'px';
-  }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('uofForm');
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('firearmSubmitted', document.getElementById('firearmSubmitted').value);
         localStorage.setItem('narrative', document.getElementById('narrative').value);
         localStorage.setItem('evidence', document.getElementById('evidence').value);
+        localStorage.setItem('supervisor', document.getElementById('supervisor').value); // Save supervisor
 
         // Save involved employees to localStorage
         const involvedEmployees = Array.from(document.getElementsByClassName('employeeField'))
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('firearmSubmitted').value = localStorage.getItem('firearmSubmitted') || '';
         document.getElementById('narrative').value = localStorage.getItem('narrative') || '';
         document.getElementById('evidence').value = localStorage.getItem('evidence') || '';
+        document.getElementById('supervisor').value = localStorage.getItem('supervisor') || ''; // Load supervisor
 
         // Load involved employees from localStorage
         const savedEmployees = JSON.parse(localStorage.getItem('involvedEmployees')) || [];
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('firearmSubmitted');
         localStorage.removeItem('narrative');
         localStorage.removeItem('evidence');
+        localStorage.removeItem('supervisor');
         localStorage.removeItem('involvedEmployees');
 
         // Reset the input fields
@@ -72,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('firearmSubmitted').value = '';
         document.getElementById('narrative').value = '';
         document.getElementById('evidence').value = '';
+        document.getElementById('supervisor').value = ''; // Reset supervisor field
     }
 
     // Add event listeners to save data when user types in the fields
@@ -82,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('firearmSubmitted').addEventListener('input', saveData);
     document.getElementById('narrative').addEventListener('input', saveData);
     document.getElementById('evidence').addEventListener('input', saveData);
+    document.getElementById('supervisor').addEventListener('input', saveData); // Add event listener for supervisor
 
     // Add event listener to add new employee input field
     addEmployeeButton.addEventListener('click', function() {
@@ -113,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const firearmSubmitted = document.getElementById('firearmSubmitted').value;
         const narrative = document.getElementById('narrative').value;
         const evidence = document.getElementById('evidence').value;
+        const supervisor = document.getElementById('supervisor').value; // Get supervisor value
 
         // Get involved employees
         const involvedEmployees = Array.from(document.getElementsByClassName('employeeField'))
@@ -144,15 +150,13 @@ document.addEventListener('DOMContentLoaded', function() {
 [LIST]`;
 
         involvedEmployees.forEach(employee => {
-            bbcodeTemplate += `
-[*] ${employee}
-`;
+            bbcodeTemplate += `[*] ${employee}\n`;
         });
 
         bbcodeTemplate += `
 [/LIST]
 [b]Supervisor:[/b]
-[LIST] NAMEHERE [/LIST]
+[LIST] ${supervisor} [/LIST]
 [/divbox]
 [hr][/hr]
 [divbox=#083a6b][b][color=#FFFFFF]3. EVIDENCE (if applicable)[/color][/b] NAMEHERE [/divbox]
