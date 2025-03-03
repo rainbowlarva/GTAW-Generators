@@ -92,6 +92,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Function to auto-expand textareas
+    function autoExpandTextarea() {
+        this.style.height = 'auto'; // Reset the height to auto
+        this.style.height = (this.scrollHeight) + 'px'; // Set the height to scrollHeight
+    }
+
+    // Attach autoExpandTextarea to all textareas that should expand
+    const textareas = document.querySelectorAll('textarea');
+    textareas.forEach(textarea => {
+        textarea.addEventListener('input', autoExpandTextarea);
+        autoExpandTextarea.call(textarea); // Trigger once on page load for initial content
+    });
+
     // Generate BBCode when the form is submitted
     form.addEventListener('submit', function(event) {
         event.preventDefault();
