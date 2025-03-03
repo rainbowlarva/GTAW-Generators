@@ -1,80 +1,81 @@
 html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0; /* Remove default margins */
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow-x: hidden; /* Prevent horizontal overflow */
-  }
+  height: 100%;
+  width: 100%;
+  margin: 0; /* Remove default margins */
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
 
-  .background {
-    background-color: #212121;
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
-  }
+.background {
+  background-color: #212121;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
-  a {
-    text-decoration: none; /* Remove underline from links globally */
-  }
+a {
+  text-decoration: none; /* Remove underline from links globally */
+}
 
-  .prdcontainer {
-    text-align: center;
-    color: white;
-    overflow: hidden; /* Prevent overflowing content */
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
-  .button-container {
-    display: flex; /* Use flexbox to arrange images in a row */
-    justify-content: center; /* Center the buttons horizontally */
-    gap: 20px; /* Add space between buttons */
-  }
+.prdcontainer {
+  text-align: center;
+  color: white;
+  overflow: hidden; /* Prevent overflowing content */
+  padding-top: 20px;
+}
 
-  /* Add some margin between rows */
-  .button-container + .button-container {
-    margin-top: 20px; /* Adjust the space between the first and second rows */
-  }
-  
-  .image-button {
-    transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
-    filter: grayscale(100%); /* Makes the image black and white */
-  }
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
 
-  .image-button:hover {
-    transform: scale(1.1); /* Scale both the image and text */
-    filter: grayscale(0%); /* Removes grayscale on hover */
-  }
+.button-container {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add space between buttons */
+}
 
-  .image-button img {
-    width: 200px;
-    height: 208px;
-    border: 2px solid black; /* Add a black border */
-    border-radius: 5px; /* Optional: Rounds the corners of the border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .image-button img:hover {
-    box-shadow: 0 0 20px #6078FF; /* Black shadow on hover */
-  }
-  
-  .image-button p {
-    color: white;
-    white-space: normal; /* Allow the text to wrap */
-    max-width: 200px; /* You can adjust this to control the width of the text */
-    transition: transform 0.3s ease; /* Smooth scale effect for the text */
-  }
+/* Add some margin between rows */
+.button-container + .button-container {
+  margin-top: 20px; /* Adjust the space between the first and second rows */
+}
 
-  .image-button:hover p {
-    color: #DBDBDB;
-  }
+.image-button {
+  transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
+  filter: grayscale(100%); /* Makes the image black and white */
+}
+
+.image-button:hover {
+  transform: scale(1.1); /* Scale both the image and text */
+  filter: grayscale(0%); /* Removes grayscale on hover */
+}
+
+.image-button img {
+  width: 200px;
+  height: 208px;
+  border: 2px solid black; /* Add a black border */
+  border-radius: 5px; /* Optional: Rounds the corners of the border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-button img:hover {
+  box-shadow: 0 0 20px #6078FF; /* Black shadow on hover */
+}
+
+.image-button p {
+  color: white;
+  white-space: normal; /* Allow the text to wrap */
+  max-width: 200px; /* You can adjust this to control the width of the text */
+  transition: transform 0.3s ease; /* Smooth scale effect for the text */
+}
+
+.image-button:hover p {
+  color: #DBDBDB;
+}
