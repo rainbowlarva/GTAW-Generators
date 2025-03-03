@@ -18,6 +18,10 @@ html, body {
       "wdth" 100;
   }
 
+  a {
+    text-decoration: none; /* Remove underline from links globally */
+  }
+
   .prdcontainer {
     text-align: center;
     color: white;
@@ -52,10 +56,6 @@ html, body {
   }
 
   .image-button:hover p {
-    color: #494949;
+    color: #DBDBDB;
     transform: scale(1.1);
-  }
-
-  .image-button a {
-    text-decoration: none; /* Remove underline from links */
   }
