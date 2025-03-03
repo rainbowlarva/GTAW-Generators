@@ -3,18 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>CCR</title>
-
-<!--Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-<!--CSS Style Sheet-->
-    <link rel="stylesheet" href="../generators.css">
+    <title>BBCode Generator</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
-
 <body class="background">
     <div class="container">
         <h1>Crime Complaint Report Generator</h1>
@@ -58,4 +49,20 @@
                 <textarea id="narrative" name="narrative" placeholder="Enter narrative"></textarea>
             </div>
             <div>
-                <label for="evidence">Evidence:</la
+                <label for="evidence">Evidence:</label>
+                <textarea id="evidence" name="evidence" placeholder="Enter evidence"></textarea>
+            </div>
+            
+            <button type="submit">Generate BBCode</button>
+        </form>
+
+        <!-- Output Area -->
+        <div id="bbcodeOutput">
+            <h2>Generated BBCode:</h2>
+            <pre id="bbcodeText"></pre>
+        </div>
+    </div>
+
+    <script src="app.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
