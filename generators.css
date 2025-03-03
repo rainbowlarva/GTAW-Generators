@@ -28,6 +28,7 @@ a {
   color: white;
   overflow: hidden; /* Prevent overflowing content */
   width: 100%;
+  padding: 05%;
 }
 
 .button-container {
@@ -94,4 +95,8 @@ a {
   max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
   text-align: center; /* Center the text below the image */
   margin-top: 10px; /* Add some space between image and text */
+}
+
+.swat-button img:hover {
+  filter: grayscale(60%); /* Removes grayscale on hover */
 }
