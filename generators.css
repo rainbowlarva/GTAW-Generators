@@ -40,9 +40,11 @@ html, body {
     border: 2px solid black; /* Add a black border */
     border-radius: 5px; /* Optional: Rounds the corners of the border */
     transition: transform 0.3s ease; /* Smooth scale effect */
+    transition: box-shadow 0.3s ease;
   }
   
   .image-button img:hover {
     transform: scale(1.1); /* Slightly enlarge the image when hovered */
+    box-shadow: 0 0 10px black; /* Black shadow on hover */
   }
   
