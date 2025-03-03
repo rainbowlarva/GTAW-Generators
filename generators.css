@@ -37,10 +37,12 @@ html, body {
   .image-button img {
     width: 200px;
     height: 208px;
-    border-radius: 5px; /* Optional: Round the corners of the images */
+    border: 2px solid black; /* Add a black border */
+    border-radius: 5px; /* Optional: Rounds the corners of the border */
     transition: transform 0.3s ease; /* Smooth scale effect */
   }
   
   .image-button img:hover {
     transform: scale(1.1); /* Slightly enlarge the image when hovered */
   }
+  
