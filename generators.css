@@ -28,7 +28,7 @@ a {
   text-align: center;
   color: white;
   overflow: hidden; /* Prevent overflowing content */
-  padding-top: 10%;
+  height: 100vh;
 }
 
 .button-container {
