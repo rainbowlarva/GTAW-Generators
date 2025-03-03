@@ -81,37 +81,3 @@ pre {
     height: auto; /* Maintain aspect ratio */
     cursor: pointer; /* Change cursor to indicate it's clickable */
 }
-
-/* Container for the Add and Remove buttons */
-.buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px; /* Add space between buttons */
-    margin-top: 10px;
-}
-
-/* Half-width buttons */
-.half-width {
-    width: 48%; /* This will make the buttons half the width of their container */
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.half-width:hover {
-    background-color: #45a049;
-}
-
-#bbcodeText {
-    width: 100%;
-    min-height: 150px; /* Set a minimum height */
-    height: auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    resize: none; /* Disable resizing manually */
-}
