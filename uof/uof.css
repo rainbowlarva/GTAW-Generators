@@ -105,3 +105,16 @@ pre {
 .half-width:hover {
     background-color: #45a049;
 }
+
+#bbcodeText {
+    width: 100%;
+    min-height: 150px; /* Set a minimum height */
+    height: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: none; /* Disable resizing manually */
+    overflow: hidden; /* Hide overflow */
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    word-wrap: break-word; /* Ensure long lines break and wrap inside the box */
+}
