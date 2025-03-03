@@ -135,3 +135,11 @@ a {
   left: 50%;
   transform: translate(-50%, -50%); /* Centers the element exactly */
 }
+
+.centered-image p {
+  color: white;
+  white-space: normal; /* Allow the text to wrap */
+  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
+  text-align: center; /* Center the text below the image */
+  margin-top: 10px; /* Add some space between image and text */
+}
