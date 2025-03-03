@@ -18,6 +18,10 @@ h1 {
     color: white;
 }
 
+h2 {
+    color: white
+}
+
 form {
     display: flex;
     flex-direction: column;
