@@ -11,3 +11,29 @@ html, body {
   .background {
     background-color: #212121;
   }
+
+  .container {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    display: flex; /* Use flexbox to arrange images in a row */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 20px; /* Add space between buttons */
+  }
+  
+  .image-button img {
+    width: 200px;
+    height: 208px;
+    border-radius: 5px; /* Optional: Round the corners of the images */
+    transition: transform 0.3s ease; /* Smooth scale effect */
+  }
+  
+  .image-button img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image when hovered */
+  }
