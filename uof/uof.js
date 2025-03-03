@@ -128,5 +128,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load saved data when the page loads
-    loadSavedData();
+    window.onload = loadData;
 });
