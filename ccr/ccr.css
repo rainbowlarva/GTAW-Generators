@@ -72,3 +72,12 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+.back-button {
+    position: absolute;
+    top: 10px; /* Adjust for the distance from the top */
+    left: 10px; /* Adjust for the distance from the left */
+    width: 120px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
