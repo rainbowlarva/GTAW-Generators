@@ -127,10 +127,9 @@ a {
   filter: grayscale(70%); /* Removes grayscale on hover */
 }
 
-.centered-image {
-  display: flex;
-}
-
-.centered-image img {
+.db-container {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
   align-items: center;
+  gap: 20px; /* Add space between buttons */
 }
