@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('uofForm');
     const bbcodeText = document.getElementById('bbcodeText');
     const addEmployeeButton = document.getElementById('addEmployee');
+    const removeEmployeeButton = document.getElementById('removeEmployee');
     const employeeInputs = document.getElementById('employeeInputs');
 
     // Function to add a new employee input field
@@ -12,6 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <input type="text" class="employeeField" name="involvedEmployee[]" placeholder="Involved Employee">
         `;
         employeeInputs.appendChild(newEmployeeInput);
+    });
+
+    // Function to remove the last employee input field
+    removeEmployeeButton.addEventListener('click', function() {
+        const lastEmployeeInput = employeeInputs.lastElementChild;
+        if (lastEmployeeInput) {
+            employeeInputs.removeChild(lastEmployeeInput);
+        }
     });
 
     // Function to generate BBCode
