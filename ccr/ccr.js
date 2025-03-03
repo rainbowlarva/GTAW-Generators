@@ -76,7 +76,6 @@ document.getElementById('area').addEventListener('input', saveData);
 document.getElementById('casings').addEventListener('input', saveData);
 document.getElementById('narrative').addEventListener('input', saveData);
 document.getElementById('evidence').addEventListener('input', saveData);
-document.getElementById('resetButton').addEventListener('click', clearData);
 
 // Load the data when the page loads
 window.onload = loadData;
