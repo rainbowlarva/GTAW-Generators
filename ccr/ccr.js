@@ -11,6 +11,75 @@ function autoResizeTextarea(event) {
   document.getElementById('narrative').addEventListener('input', autoResizeTextarea);
   document.getElementById('evidence').addEventListener('input', autoResizeTextarea);
   
+// Save data to localStorage when user types in the fields
+function saveData() {
+    localStorage.setItem('fullname', document.getElementById('fullname').value);
+    localStorage.setItem('rank', document.getElementById('rank').value);
+    localStorage.setItem('badge', document.getElementById('badge').value);
+    localStorage.setItem('callsign', document.getElementById('callsign').value);
+    localStorage.setItem('time', document.getElementById('time').value);
+    localStorage.setItem('street', document.getElementById('street').value);
+    localStorage.setItem('area', document.getElementById('area').value);
+    localStorage.setItem('casings', document.getElementById('casings').value);
+    localStorage.setItem('narrative', document.getElementById('narrative').value);
+    localStorage.setItem('evidence', document.getElementById('evidence').value);
+  }
+  
+  // Load data from localStorage when the page loads
+  function loadData() {
+    document.getElementById('fullname').value = localStorage.getItem('fullname') || '';
+    document.getElementById('rank').value = localStorage.getItem('rank') || '';
+    document.getElementById('badge').value = localStorage.getItem('badge') || '';
+    document.getElementById('callsign').value = localStorage.getItem('callsign') || '';
+    document.getElementById('time').value = localStorage.getItem('time') || '';
+    document.getElementById('street').value = localStorage.getItem('street') || '';
+    document.getElementById('area').value = localStorage.getItem('area') || '';
+    document.getElementById('casings').value = localStorage.getItem('casings') || '';
+    document.getElementById('narrative').value = localStorage.getItem('narrative') || '';
+    document.getElementById('evidence').value = localStorage.getItem('evidence') || '';
+  }
+  
+  // Clear data from localStorage and reset textareas/inputs
+  function clearData() {
+    localStorage.removeItem('fullname');
+    localStorage.removeItem('rank');
+    localStorage.removeItem('badge');
+    localStorage.removeItem('callsign');
+    localStorage.removeItem('time');
+    localStorage.removeItem('street');
+    localStorage.removeItem('area');
+    localStorage.removeItem('casings');
+    localStorage.removeItem('narrative');
+    localStorage.removeItem('evidence');
+  
+    // Reset the input fields
+    document.getElementById('fullname').value = '';
+    document.getElementById('rank').value = '';
+    document.getElementById('badge').value = '';
+    document.getElementById('callsign').value = '';
+    document.getElementById('time').value = '';
+    document.getElementById('street').value = '';
+    document.getElementById('area').value = '';
+    document.getElementById('casings').value = '';
+    document.getElementById('narrative').value = '';
+    document.getElementById('evidence').value = '';
+  }
+  
+  // Add event listeners to save data when user types in the fields
+  document.getElementById('fullname').addEventListener('input', saveData);
+  document.getElementById('rank').addEventListener('input', saveData);
+  document.getElementById('badge').addEventListener('input', saveData);
+  document.getElementById('callsign').addEventListener('input', saveData);
+  document.getElementById('time').addEventListener('input', saveData);
+  document.getElementById('street').addEventListener('input', saveData);
+  document.getElementById('area').addEventListener('input', saveData);
+  document.getElementById('casings').addEventListener('input', saveData);
+  document.getElementById('narrative').addEventListener('input', saveData);
+  document.getElementById('evidence').addEventListener('input', saveData);
+  document.getElementById('resetButton').addEventListener('click', clearData);
+  
+  // Load the data when the page loads
+  window.onload = loadData;  
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get the form and output elements
