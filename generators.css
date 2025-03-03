@@ -129,6 +129,11 @@ a {
 
 .db-container {
   display: flex; /* Use flexbox to arrange images in a row */
+  text-align: center;
+  color: white;
+  overflow: hidden; /* Prevent overflowing content */
+  width: 100%;
+  padding-bottom: 05%;
   justify-content: center; /* Center the buttons horizontally */
   align-items: center;
   gap: 20px; /* Add space between buttons */
