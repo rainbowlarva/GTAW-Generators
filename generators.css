@@ -129,5 +129,8 @@ a {
 
 .centered-image {
   display: flex;
+}
+
+.centered-image img {
   align-items: center;
 }
