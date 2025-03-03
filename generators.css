@@ -49,6 +49,7 @@ html, body {
 
   .image-button:hover {
     transform: scale(1.1); /* Scale both the image and text */
+    filter: grayscale(0%); /* Removes grayscale on hover */
   }
 
   .image-button img {
@@ -62,7 +63,6 @@ html, body {
   
   .image-button img:hover {
     box-shadow: 0 0 10px #494949; /* Black shadow on hover */
-    filter: grayscale(0%); /* Removes grayscale on hover */
   }
   
   .image-button p {
