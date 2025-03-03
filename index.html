@@ -1,75 +1,95 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0; /* Remove default margins */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>LSPD Generators</title>
 
-  .background {
-    background-color: #212121;
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
-  }
+<!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-  a {
-    text-decoration: none; /* Remove underline from links globally */
-  }
+<!--CSS Style Sheet-->
+    <link rel="stylesheet" href="generators.css">
+</head>
 
-  .prdcontainer {
-    text-align: center;
-    color: white;
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
-  .button-container {
-    display: flex; /* Use flexbox to arrange images in a row */
-    justify-content: center; /* Center the buttons horizontally */
-    gap: 20px; /* Add space between buttons */
-  }
+<body class="background">
+    <div class="prdcontainer">
+        <h2>POLICE RECORDS DATABASE</h2>
+        <div class="button-container">
+          <!-- Image Buttons -->
+          <a href="page1.html" class="image-button">
+            <img src="thumbnails/ccr.png" alt="CCR">
+                <p>Crime Complaint Report</p>
+          </a>
+          <a href="page2.html" class="image-button">
+            <img src="thumbnails/uof.png" alt="Uof">
+                <p>Use of Force Report</p>
+          </a>
+          <a href="page3.html" class="image-button">
+            <img src="thumbnails/ficard.png" alt="FICard">
+                <p>Field Interview Card</p>
+          </a>
+          <a href="page4.html" class="image-button">
+            <img src="thumbnails/property.png" alt="Property">
+                <p>Property Release Receipt</p>
+          </a>
+          <a href="page5.html" class="image-button">
+            <img src="thumbnails/aar.png" alt="AAR">
+                <p>After Action Report</p>
+          </a>
+        </div>
 
-  /* Add some margin between rows */
-  .button-container + .button-container {
-    margin-top: 20px; /* Adjust the space between the first and second rows */
-  }
-  
-  .image-button {
-    transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
-    filter: grayscale(100%); /* Makes the image black and white */
-  }
+        <h2>MISSION ROW DIVISION</h2>
+            <!-- Second Row of Image Buttons -->
+        <div class="button-container">
+          <a href="page6.html" class="image-button">
+            <img src="thumbnails/vinewood.png" alt="Vinewood">
+            <p>Vinewood Area Notes</p>
+          </a>
+          <a href="page7.html" class="image-button">
+            <img src="thumbnails/westvalley.png" alt="West Valley">
+            <p>West Valley Area Notes</p>
+          </a>
+          <a href="page8.html" class="image-button">
+            <img src="thumbnails/southcentral.png" alt="South Central">
+            <p>South Central Area Notes</p>
+          </a>
+        </div>
 
-  .image-button:hover {
-    transform: scale(1.1); /* Scale both the image and text */
-    filter: grayscale(0%); /* Removes grayscale on hover */
-  }
+        <h2>FIELD TRAINING PROGRAM</h2>
 
-  .image-button img {
-    width: 200px;
-    height: 208px;
-    border: 2px solid black; /* Add a black border */
-    border-radius: 5px; /* Optional: Rounds the corners of the border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .image-button img:hover {
-    box-shadow: 0 0 10px #6078FF; /* Black shadow on hover */
-  }
-  
-  .image-button p {
-    color: white;
-    transition: transform 0.3s ease; /* Smooth scale effect for the text */
-  }
+        <div class="button-container">
+            <!-- Third Row of Buttons -->
+            <a href="page9.html" class="image-button">
+              <img src="thumbnails/orientation.png" alt="Orientation">
+              <p>Orientation Report</p>
+            </a>
+            <a href="page10.html" class="image-button">
+              <img src="thumbnails/dor.png" alt="DOR">
+              <p>Daily Observation Report</p>
+            </a>
+            <a href="page11.html" class="image-button">
+              <img src="thumbnails/fto-record.png" alt="FTO Record">
+              <p>FTO Record</p>
+            </a>
+            <a href="page12.html" class="image-button">
+              <img src="thumbnails/fto-monthly.png" alt="FTO Monthly">
+              <p>FTO Monthly Record</p>
+            </a>
+            <a href="page13.html" class="image-button">
+              <img src="thumbnails/weeklymeeting.png" alt="Weekly Meeting">
+              <p>Weekly Evaluation Report (FTM USE)</p>
+            </a>
+            <a href="page14.html" class="image-button">
+              <img src="thumbnails/sit-in.png" alt="Sit In">
+              <p>Sit-in (FTM USE)</p>
+            </a>
+          </div>
 
-  .image-button:hover p {
-    color: #DBDBDB;
-  }
+      </div>
+</body>
+
+</html>
