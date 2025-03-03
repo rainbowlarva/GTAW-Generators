@@ -17,7 +17,7 @@ function saveData() {
     localStorage.setItem('rank', document.getElementById('rank').value);
     localStorage.setItem('badgeNumber', document.getElementById('badgeNumber').value);
     localStorage.setItem('callsign', document.getElementById('callsign').value);
-    localStorage.setItem('timeData', document.getElementById('timeData').value);
+    localStorage.setItem('timeData', document.getElementById('timeDate').value);
     localStorage.setItem('street', document.getElementById('street').value);
     localStorage.setItem('area', document.getElementById('area').value);
     localStorage.setItem('casings', document.getElementById('casings').value);
@@ -31,7 +31,7 @@ function loadData() {
     document.getElementById('rank').value = localStorage.getItem('rank') || '';
     document.getElementById('badgeNumber').value = localStorage.getItem('badgeNumber') || '';
     document.getElementById('callsign').value = localStorage.getItem('callsign') || '';
-    document.getElementById('timeData').value = localStorage.getItem('timeData') || '';
+    document.getElementById('timeData').value = localStorage.getItem('timeDate') || '';
     document.getElementById('street').value = localStorage.getItem('street') || '';
     document.getElementById('area').value = localStorage.getItem('area') || '';
     document.getElementById('casings').value = localStorage.getItem('casings') || '';
@@ -45,7 +45,7 @@ function clearData() {
     localStorage.removeItem('rank');
     localStorage.removeItem('badgeNumber');
     localStorage.removeItem('callsign');
-    localStorage.removeItem('timeData');
+    localStorage.removeItem('timeDate');
     localStorage.removeItem('street');
     localStorage.removeItem('area');
     localStorage.removeItem('casings');
@@ -57,7 +57,7 @@ function clearData() {
     document.getElementById('rank').value = '';
     document.getElementById('badgeNumber').value = '';
     document.getElementById('callsign').value = '';
-    document.getElementById('timeData').value = '';
+    document.getElementById('timeDate').value = '';
     document.getElementById('street').value = '';
     document.getElementById('area').value = '';
     document.getElementById('casings').value = '';
@@ -70,7 +70,7 @@ document.getElementById('fullName').addEventListener('input', saveData);
 document.getElementById('rank').addEventListener('input', saveData);
 document.getElementById('badgeNumber').addEventListener('input', saveData);
 document.getElementById('callsign').addEventListener('input', saveData);
-document.getElementById('timeData').addEventListener('input', saveData);
+document.getElementById('timeDate').addEventListener('input', saveData);
 document.getElementById('street').addEventListener('input', saveData);
 document.getElementById('area').addEventListener('input', saveData);
 document.getElementById('casings').addEventListener('input', saveData);
