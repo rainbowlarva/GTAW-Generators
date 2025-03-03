@@ -150,8 +150,12 @@ document.addEventListener('DOMContentLoaded', function() {
 [spoiler][/spoiler]
 [/divbox2]`;
 
-        // Display the generated BBCode
+        // Display the generated BBCode in a larger textarea
         bbcodeText.value = bbcodeTemplate;
+
+        // Automatically highlight the text for easy copying
+        bbcodeText.select();
+        document.execCommand('copy');
 
         // Save the form data after generating BBCode
         saveData();
