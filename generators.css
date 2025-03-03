@@ -47,6 +47,10 @@ html, body {
     transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
   }
 
+  .image-button:hover {
+    transform: scale(1.1); /* Scale both the image and text */
+  }
+
   .image-button img {
     width: 200px;
     height: 208px;
