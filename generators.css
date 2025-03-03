@@ -55,11 +55,12 @@ html, body {
   .image-button img:hover {
     transform: scale(1.1); /* Slightly enlarge the image when hovered */
     box-shadow: 0 0 10px #494949; /* Black shadow on hover */
-    filter: grayscale(0%); /* Removes grayscale on hover */
+      filter: grayscale(0%); /* Removes grayscale on hover */
   }
   
   .image-button p {
     color: white;
+    transition: transform 0.3s ease; /* Smooth scale effect for the text */
   }
 
   .image-button:hover p {
