@@ -149,5 +149,12 @@ ${evidence}
 
         // Display the generated BBCode in the output area
         bbcodeText.textContent = bbcodeTemplate;
+
+        // Select the generated BBCode for easy copying
+        const range = document.createRange();
+        range.selectNodeContents(bbcodeText);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
     });
 });
