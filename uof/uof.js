@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('involvedEmployees', JSON.stringify(involvedEmployees));
     }
 
-    // Function to add a new employee input field
+    // Add employee input field
     addEmployeeButton.addEventListener('click', function() {
         const newEmployeeInput = document.createElement('div');
         newEmployeeInput.classList.add('employeeInput');
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         employeeInputs.appendChild(newEmployeeInput);
     });
 
-    // Function to remove the last employee input field
+    // Remove the last employee input field
     removeEmployeeButton.addEventListener('click', function() {
         const lastEmployeeInput = employeeInputs.lastElementChild;
         if (lastEmployeeInput) {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Function to generate BBCode
+    // Generate BBCode and save data on form submission
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .map(input => input.value)
             .filter(value => value.trim() !== ''); // Filter out empty inputs
 
-        // Create the BBCode template
+        // Create BBCode
         let bbcodeTemplate = `
 [divbox2=white][center][img]https://i.ibb.co/60wDx20/UOF.png[/img][/center][hr][/hr]
 [divbox=#083a6b][b][color=#FFFFFF]1. REPORT INFORMATION[/color][/b][/divbox]
@@ -105,13 +105,10 @@ document.addEventListener('DOMContentLoaded', function() {
 [LIST]`;
 
         involvedEmployees.forEach(employee => {
-            bbcodeTemplate += `
-[*] ${employee}
-`;
+            bbcodeTemplate += `[*] ${employee}\n`;
         });
 
-        bbcodeTemplate += `
-[/LIST]
+        bbcodeTemplate += `[/LIST]
 [b]Supervisor:[/b]
 [LIST] NAMEHERE [/LIST]
 [/divbox]
@@ -123,10 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Display the generated BBCode
         bbcodeText.value = bbcodeTemplate;
 
-        // Save the form data after generating BBCode
+        // Save data after generating BBCode
         saveData();
     });
 
     // Load saved data when the page loads
-    window.onload = loadData;
+    loadSavedData();
 });
