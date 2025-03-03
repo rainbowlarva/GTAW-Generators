@@ -98,5 +98,5 @@ a {
 }
 
 .swat-button img:hover {
-  filter: grayscale(80%); /* Removes grayscale on hover */
+  filter: grayscale(70%); /* Removes grayscale on hover */
 }
