@@ -5,8 +5,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const removeEmployeeButton = document.getElementById('removeEmployee');
     const employeeInputs = document.getElementById('employeeInputs');
 
-    // Load saved data from localStorage
-    function loadSavedData() {
+    // Save data to localStorage when user types in the fields
+    function saveData() {
+        localStorage.setItem('reportingEmployee', document.getElementById('reportingEmployee').value);
+        localStorage.setItem('incidentDateTime', document.getElementById('incidentDateTime').value);
+        localStorage.setItem('incidentLocation', document.getElementById('incidentLocation').value);
+        localStorage.setItem('typeOfUOF', document.getElementById('typeOfUOF').value);
+        localStorage.setItem('firearmSubmitted', document.getElementById('firearmSubmitted').value);
+        localStorage.setItem('narrative', document.getElementById('narrative').value);
+        localStorage.setItem('evidence', document.getElementById('evidence').value);
+
+        // Save involved employees to localStorage
+        const involvedEmployees = Array.from(document.getElementsByClassName('employeeField'))
+            .map(input => input.value)
+            .filter(value => value.trim() !== ''); // Filter out empty inputs
+        localStorage.setItem('involvedEmployees', JSON.stringify(involvedEmployees));
+    }
+
+    // Load data from localStorage when the page loads
+    function loadData() {
         document.getElementById('reportingEmployee').value = localStorage.getItem('reportingEmployee') || '';
         document.getElementById('incidentDateTime').value = localStorage.getItem('incidentDateTime') || '';
         document.getElementById('incidentLocation').value = localStorage.getItem('incidentLocation') || '';
@@ -27,24 +44,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Save form data to localStorage
-    function saveData() {
-        localStorage.setItem('reportingEmployee', document.getElementById('reportingEmployee').value);
-        localStorage.setItem('incidentDateTime', document.getElementById('incidentDateTime').value);
-        localStorage.setItem('incidentLocation', document.getElementById('incidentLocation').value);
-        localStorage.setItem('typeOfUOF', document.getElementById('typeOfUOF').value);
-        localStorage.setItem('firearmSubmitted', document.getElementById('firearmSubmitted').value);
-        localStorage.setItem('narrative', document.getElementById('narrative').value);
-        localStorage.setItem('evidence', document.getElementById('evidence').value);
+    // Clear data from localStorage and reset textareas/inputs
+    function clearData() {
+        localStorage.removeItem('reportingEmployee');
+        localStorage.removeItem('incidentDateTime');
+        localStorage.removeItem('incidentLocation');
+        localStorage.removeItem('typeOfUOF');
+        localStorage.removeItem('firearmSubmitted');
+        localStorage.removeItem('narrative');
+        localStorage.removeItem('evidence');
+        localStorage.removeItem('involvedEmployees');
 
-        // Save involved employees to localStorage
-        const involvedEmployees = Array.from(document.getElementsByClassName('employeeField'))
-            .map(input => input.value)
-            .filter(value => value.trim() !== ''); // Filter out empty inputs
-        localStorage.setItem('involvedEmployees', JSON.stringify(involvedEmployees));
+        // Reset the input fields
+        document.getElementById('reportingEmployee').value = '';
+        document.getElementById('incidentDateTime').value = '';
+        document.getElementById('incidentLocation').value = '';
+        document.getElementById('typeOfUOF').value = '';
+        document.getElementById('firearmSubmitted').value = '';
+        document.getElementById('narrative').value = '';
+        document.getElementById('evidence').value = '';
     }
 
-    // Add employee input field
+    // Add event listeners to save data when user types in the fields
+    document.getElementById('reportingEmployee').addEventListener('input', saveData);
+    document.getElementById('incidentDateTime').addEventListener('input', saveData);
+    document.getElementById('incidentLocation').addEventListener('input', saveData);
+    document.getElementById('typeOfUOF').addEventListener('input', saveData);
+    document.getElementById('firearmSubmitted').addEventListener('input', saveData);
+    document.getElementById('narrative').addEventListener('input', saveData);
+    document.getElementById('evidence').addEventListener('input', saveData);
+
+    // Add event listener to add new employee input field
     addEmployeeButton.addEventListener('click', function() {
         const newEmployeeInput = document.createElement('div');
         newEmployeeInput.classList.add('employeeInput');
@@ -54,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         employeeInputs.appendChild(newEmployeeInput);
     });
 
-    // Remove the last employee input field
+    // Add event listener to remove the last employee input field
     removeEmployeeButton.addEventListener('click', function() {
         const lastEmployeeInput = employeeInputs.lastElementChild;
         if (lastEmployeeInput) {
@@ -62,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Generate BBCode and save data on form submission
+    // Generate BBCode when the form is submitted
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -80,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .map(input => input.value)
             .filter(value => value.trim() !== ''); // Filter out empty inputs
 
-        // Create BBCode
+        // Create the BBCode template
         let bbcodeTemplate = `
 [divbox2=white][center][img]https://i.ibb.co/60wDx20/UOF.png[/img][/center][hr][/hr]
 [divbox=#083a6b][b][color=#FFFFFF]1. REPORT INFORMATION[/color][/b][/divbox]
@@ -105,10 +135,13 @@ document.addEventListener('DOMContentLoaded', function() {
 [LIST]`;
 
         involvedEmployees.forEach(employee => {
-            bbcodeTemplate += `[*] ${employee}\n`;
+            bbcodeTemplate += `
+[*] ${employee}
+`;
         });
 
-        bbcodeTemplate += `[/LIST]
+        bbcodeTemplate += `
+[/LIST]
 [b]Supervisor:[/b]
 [LIST] NAMEHERE [/LIST]
 [/divbox]
@@ -120,10 +153,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Display the generated BBCode
         bbcodeText.value = bbcodeTemplate;
 
-        // Save data after generating BBCode
+        // Save the form data after generating BBCode
         saveData();
     });
 
     // Load saved data when the page loads
-    loadSavedData();
+    window.onload = loadData;
 });
