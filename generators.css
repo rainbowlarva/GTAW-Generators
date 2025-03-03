@@ -28,12 +28,7 @@ a {
   text-align: center;
   color: white;
   overflow: hidden; /* Prevent overflowing content */
-  padding-top: 20px;
-}
-
-h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  padding-top: 40px;
 }
 
 .button-container {
