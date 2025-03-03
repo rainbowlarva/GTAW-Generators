@@ -128,11 +128,10 @@ a {
 }
 
 .centered-image {
-  text-align: center;
-  margin-top: 20px; /* Adjust spacing as needed */
-}
-
-.centered-image img {
-  width: 300px; /* Adjust width as needed */
-  height: auto; /* Maintain aspect ratio */
+  display: block;  /* Ensures it behaves like a block for margin auto */
+  margin: 0 auto;  /* Centers horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the element exactly */
 }
