@@ -100,3 +100,29 @@ a {
 .swat-button img:hover {
   filter: grayscale(70%); /* Removes grayscale on hover */
 }
+
+.db-button {
+  width: 1000px; /* Set width to 1000px */
+  display: flex; /* Make sure it's a flex container to align the image and text */
+  flex-direction: column; /* Stack image and text vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.db-button img {
+  width: 100%; /* Ensure the image scales to the width of the button */
+  max-width: 1000px; /* Prevent the image from becoming larger than the button */
+  height: auto; /* Keep the image's aspect ratio */
+}
+
+.db-button p {
+  color: white;
+  white-space: normal; /* Allow the text to wrap */
+  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
+  text-align: center; /* Center the text below the image */
+  margin-top: 10px; /* Add some space between image and text */
+}
+
+.db-button img:hover {
+  filter: grayscale(70%); /* Removes grayscale on hover */
+}
