@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOF Report Generator</title>
+    <link rel="stylesheet" href="uof.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Use of Force Report Generator</h1>
+
+        <!-- Back Button -->
+        <a href="https://rainbowlarva.github.io/GTAW-Generators/">
+            <img class="back-button" src="../arrow.png" alt="Back">
+        </a>
+
+        <!-- Form for input fields -->
+        <form id="uofForm">
+            <div>
+                <label for="reportingEmployee">Reporting Employee:</label>
+                <input type="text" id="reportingEmployee" name="reportingEmployee" required>
+            </div>
+            <div>
+                <label for="incidentDateTime">Date and Time of Incident:</label>
+                <input type="datetime-local" id="incidentDateTime" name="incidentDateTime" required>
+            </div>
+            <div>
+                <label for="incidentLocation">Location of Incident:</label>
+                <input type="text" id="incidentLocation" name="incidentLocation" required>
+            </div>
+            <div>
+                <label for="typeOfUOF">Type of UOF:</label>
+                <input type="text" id="typeOfUOF" name="typeOfUOF" required>
+            </div>
+            <div>
+                <label for="firearmSubmitted">Service Firearm Submitted to Armory:</label>
+                <input type="text" id="firearmSubmitted" name="firearmSubmitted" required>
+            </div>
+            
+            <div id="employeeSection">
+                <label>Involved Employees:</label>
+                <div id="employeeInputs">
+                    <div class="employeeInput">
+                        <input type="text" class="employeeField" name="involvedEmployee[]" placeholder="Involved Employee">
+                    </div>
+                </div>
+                <button type="button" id="addEmployee">Add Involved Employee</button>
+            </div>
+            
+            <div>
+                <label for="narrative">Narrative:</label>
+                <textarea id="narrative" name="narrative" placeholder="Enter narrative"></textarea>
+            </div>
+
+            <div>
+                <label for="evidence">Evidence:</label>
+                <textarea id="evidence" name="evidence" placeholder="Enter evidence"></textarea>
+            </div>
+
+            <button type="submit">Generate BBCode</button>
+        </form>
+
+        <!-- Output area for the generated BBCode -->
+        <h2>Generated BBCode:</h2>
+        <textarea id="bbcodeText" rows="10" cols="50" readonly></textarea>
+    </div>
+
+    <script src="uof.js"></script>
+</body>
+</html>

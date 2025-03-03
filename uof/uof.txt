@@ -1,0 +1,29 @@
+[divbox2=white][center][img]https://i.ibb.co/60wDx20/UOF.png[/img][/center][hr][/hr]
+[divbox=#083a6b][b][color=#FFFFFF]1. REPORT INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[b]REPORTING EMPLOYEE:[/b] NAMEHERE
+[b]DATE AND TIME OF INCIDENT:[/b] NAMEHERE
+[b]LOCATION OF INCIDENT:[/b] NAMEHERE
+[b]TYPE OF UOF:[/b]  NAMEHERE
+[b]SERVICE FIREARM SUBMITTED TO ARMORY:[/b]  NAMEHERE
+[/divbox][hr][/hr]
+[divbox=white][b]NARRATIVE:[/b]
+[LIST] NAMEHERE
+[/LIST][/divbox]
+[hr][/hr]
+[divbox=#083a6b][b][color=#FFFFFF]2. INVOLVED SUBJECTS[/color][/b][/divbox]
+[divbox=white][b]SUBJECT NAME:[/b] NAMEHERE
+[b]MDC RECORD:[/b] [url= NAMEHERE]ACCESS[/url]
+[b]STATUS:[/b] NAMEHERE
+[b]NOTES:[/b] NAMEHERE
+[hr][/hr]
+[b]Involved Employee(s):[/b]
+[LIST] NAMEHERE
+[/LIST]
+[b]Supervisor:[/b]
+[LIST] NAMEHERE
+[/LIST][/divbox]
+[hr][/hr]
+[divbox=#083a6b][b][color=#FFFFFF]3. EVIDENCE (if applicable)[/color][/b] NAMEHERE [/divbox]
+[spoiler][/spoiler]
+[/divbox2]
