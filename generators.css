@@ -73,3 +73,11 @@ a {
 .image-button:hover p {
   color: #DBDBDB;
 }
+
+.swat-button {
+  width: 1000px; /* Set width to 1000px */
+  display: flex; /* Make sure it's a flex container to align the image and text */
+  flex-direction: column; /* Stack image and text vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center horizontally */
+}
