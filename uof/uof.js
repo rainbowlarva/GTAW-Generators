@@ -1,3 +1,12 @@
+// Function to auto-resize textarea as user types
+function autoResizeTextarea(event) {
+    const textarea = event.target;
+    // Reset height to auto to shrink when content is deleted
+    textarea.style.height = 'auto';
+    // Set the height to the scrollHeight of the textarea to expand as needed
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('uofForm');
     const bbcodeText = document.getElementById('bbcodeText');
@@ -90,19 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lastEmployeeInput) {
             employeeInputs.removeChild(lastEmployeeInput);
         }
-    });
-
-    // Function to auto-expand textareas
-    function autoExpandTextarea() {
-        this.style.height = 'auto'; // Reset the height to auto
-        this.style.height = (this.scrollHeight) + 'px'; // Set the height to scrollHeight
-    }
-
-    // Attach autoExpandTextarea to all textareas that should expand
-    const textareas = document.querySelectorAll('textarea');
-    textareas.forEach(textarea => {
-        textarea.addEventListener('input', autoExpandTextarea);
-        autoExpandTextarea.call(textarea); // Trigger once on page load for initial content
     });
 
     // Generate BBCode when the form is submitted
