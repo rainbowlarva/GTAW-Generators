@@ -114,7 +114,4 @@ pre {
     border: 1px solid #ccc;
     box-sizing: border-box;
     resize: none; /* Disable resizing manually */
-    overflow: hidden; /* Hide overflow */
-    white-space: pre-wrap; /* Preserve whitespace and line breaks */
-    word-wrap: break-word; /* Ensure long lines break and wrap inside the box */
 }
