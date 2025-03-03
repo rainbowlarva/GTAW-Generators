@@ -1,3 +1,17 @@
+// Function to auto-resize textarea as user types
+function autoResizeTextarea(event) {
+    const textarea = event.target;
+    // Reset height to auto to shrink when content is deleted
+    textarea.style.height = 'auto';
+    // Set the height to the scrollHeight of the textarea to expand as needed
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
+  
+  // Attach the event listener to both the narrative and evidence textareas
+  document.getElementById('narrative').addEventListener('input', autoResizeTextarea);
+  document.getElementById('evidence').addEventListener('input', autoResizeTextarea);
+  
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get the form and output elements
     const form = document.getElementById('ccrForm');
