@@ -81,3 +81,18 @@ pre {
     height: auto; /* Maintain aspect ratio */
     cursor: pointer; /* Change cursor to indicate it's clickable */
 }
+
+#button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#addEmployee, #removeEmployee {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#removeEmployee {
+    display: none; /* Hide the Remove button by default */
+}
