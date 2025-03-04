@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Interview Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="background">
+    <div class="container">
+        <h1>Field Interview Card Generator</h1>
+
+        <!-- Back Button -->
+        <a href="https://rainbowlarva.github.io/GTAW-Generators/">
+            <img src="../arrow.png" alt="Back" class="back-button">
+        </a>
+
+        <!-- Form to Input Data -->
+        <form id="uofForm">
+            <h2>Subject Information</h2>
+            <div>
+                <label for="name">Name (First, Middle, Last):</label>
+                <input type="text" id="name" placeholder="Enter name">
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" placeholder="Enter phone">
+            </div>
+            <div>
+                <label for="sex">Sex (M/F/O):</label>
+                <input type="text" id="sex" placeholder="Enter sex">
+            </div>
+            <div>
+                <label for="hair">Hair:</label>
+                <input type="text" id="hair" placeholder="Enter hair color">
+            </div>
+            <div>
+                <label for="eyes">Eyes:</label>
+                <input type="text" id="eyes" placeholder="Enter eye color">
+            </div>
+            
+            <h2>Residence & Birth Info</h2>
+            <div>
+                <label for="residence">Residence:</label>
+                <input type="text" id="residence" placeholder="Enter residence">
+            </div>
+            <div>
+                <label for="birthdate">Birthdate:</label>
+                <input type="text" id="birthdate" placeholder="Enter birthdate">
+            </div>
+            <div>
+                <label for="descent">Descent:</label>
+                <input type="text" id="descent" placeholder="Enter descent">
+            </div>
+            <div>
+                <label for="height">Height:</label>
+                <input type="text" id="height" placeholder="Enter height">
+            </div>
+
+            <h2>Clothing & Oddities</h2>
+            <div>
+                <label for="clothing">Clothing:</label>
+                <input type="text" id="clothing" placeholder="Enter clothing description">
+            </div>
+            <div>
+                <label for="personalOddities">Personal Oddities:</label>
+                <input type="text" id="personalOddities" placeholder="Enter oddities">
+            </div>
+
+            <h2>Moniker & Gang</h2>
+            <div>
+                <label for="moniker">Moniker / Alias:</label>
+                <input type="text" id="moniker" placeholder="Enter moniker">
+            </div>
+            <div>
+                <label for="gang">Gang / Club:</label>
+                <input type="text" id="gang" placeholder="Enter gang or club">
+            </div>
+
+            <h2>Subject Info</h2>
+            <div>
+                <label for="loiterer">Loiterer:</label>
+                <input type="checkbox" id="loiterer">
+                <label for="prowler">Prowler:</label>
+                <input type="checkbox" id="prowler">
+                <label for="homeless">Homeless:</label>
+                <input type="checkbox" id="homeless">
+                <label for="witness">Witness:</label>
+                <input type="checkbox" id="witness">
+                <label for="gangActivity">Gang Activity:</label>
+                <input type="checkbox" id="gangActivity">
+                <label for="hasRecord">Has Record:</label>
+                <input type="checkbox" id="hasRecord">
+                <label for="onParole">On Parole:</label>
+                <input type="checkbox" id="onParole">
+                <label for="onProbation">On Probation:</label>
+                <input type="checkbox" id="onProbation">
+                <label for="driver">Driver:</label>
+                <input type="checkbox" id="driver">
+                <label for="passenger">Passenger:</label>
+                <input type="checkbox" id="passenger">
+            </div>
+
+            <h2>Vehicle Info</h2>
+            <div>
+                <label for="vehMake">Vehicle Make:</label>
+                <input type="text" id="vehMake" placeholder="Enter vehicle make">
+            </div>
+            <div>
+                <label for="vehModel">Vehicle Model:</label>
+                <input type="text" id="vehModel" placeholder="Enter vehicle model">
+            </div>
+            <div>
+                <label for="vehType">Vehicle Type:</label>
+                <input type="text" id="vehType" placeholder="Enter vehicle type">
+            </div>
+            <div>
+                <label for="vehColor">Vehicle Color:</label>
+                <input type="text" id="vehColor" placeholder="Enter vehicle color">
+            </div>
+            <div>
+                <label for="vehLic">Vehicle License No.:</label>
+                <input type="text" id="vehLic" placeholder="Enter vehicle license number">
+            </div>
+
+            <h2>Body and Window Info</h2>
+            <div>
+                <label for="bodyDamage">Body Damage:</label>
+                <input type="checkbox" id="bodyDamage">
+                <label for="bodyModified">Body Modified:</label>
+                <input type="checkbox" id="bodyModified">
+                <label for="bodySticker">Body Sticker:</label>
+                <input type="checkbox" id="bodySticker">
+                <label for="bodyLeft">Left Side:</label>
+                <input type="checkbox" id="bodyLeft">
+                <label for="bodyRight">Right Side:</label>
+                <input type="checkbox" id="bodyRight">
+                <label for="bodyFront">Front:</label>
+                <input type="checkbox" id="bodyFront">
+                <label for="bodyRear">Rear:</label>
+                <input type="checkbox" id="bodyRear">
+            </div>
+            <div>
+                <label for="windowDamage">Window Damage:</label>
+                <input type="checkbox" id="windowDamage">
+                <label for="windowTint">Window Tint:</label>
+                <input type="checkbox" id="windowTint">
+                <label for="windowLeft">Left Side:</label>
+                <input type="checkbox" id="windowLeft">
+                <label for="windowRight">Right Side:</label>
+                <input type="checkbox" id="windowRight">
+                <label for="windowFront">Front:</label>
+                <input type="checkbox" id="windowFront">
+                <label for="windowRear">Rear:</label>
+                <input type="checkbox" id="windowRear">
+            </div>
+
+            <h2>Generated BBCode</h2>
+            <pre id="bbcodeOutput"></pre>
+
+            <button type="submit">Generate BBCode</button>
+        </form>
+    </div>
+
+    <script src="generator.js"></script>
+</body>
+</html>
