@@ -48,10 +48,22 @@ document.addEventListener('DOMContentLoaded', function () {
             values[field.id] = field.value || 'NAMEHERE';
         });
 
-        // Collect checkboxes and ensure both checked and unchecked boxes are included
-        const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]')).map(cb => {
-            return cb.checked ? `[cbc]${cb.value}` : `[cb]${cb.value}`;
-        }).join('\n');
+        // Generate checkboxes with correct `[cb]` and `[cbc]` formatting
+        function generateCheckboxOutput(checkboxes) {
+            return checkboxes.map(cb => {
+                return `[size=87]${cb.checked ? '[cbc]' : '[cb]'}${cb.value}[/size]`;
+            }).join('\n');
+        }
+
+        // Subject Information Checkboxes
+        const subjectInfoCheckboxes = generateCheckboxOutput(
+            Array.from(document.querySelectorAll('input[name="cb"]'))
+        );
+
+        // Vehicle Features Checkboxes
+        const vehicleFeatureCheckboxes = generateCheckboxOutput(
+            Array.from(document.querySelectorAll('input[name="vehicle_cb"]'))
+        );
 
         // Collect dynamically added subjects
         const subjects = Array.from(document.querySelectorAll('#subjectContainer div')).map(subject => {
@@ -126,7 +138,15 @@ ${values.height}
 [/tr]
 [/table2]
 
-${checkboxes}
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,30,5]
+[b]SUBJECT INFORMATION[/b]
+[/tdwidth]
+[/tr]
+[/table2]
+
+${subjectInfoCheckboxes}
 
 [table2=1,black,transparent,Arial]
 [tr]
@@ -138,6 +158,16 @@ ${values.additionalInfo}
 [/table2]
 
 ${subjects}
+
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,30,5]
+[b]VEHICLE FEATURES[/b]
+[/tdwidth]
+[/tr]
+[/table2]
+
+${vehicleFeatureCheckboxes}
 
 [table2=1,black,transparent,Arial]
 [tr]
