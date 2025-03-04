@@ -95,6 +95,11 @@ legend {
     color: white;
 }
 
+/* Style placeholders for input fields */
+input::placeholder, textarea::placeholder {
+    color: #bbb;
+}
+
 /* Checkbox Styling as Button */
 .checkbox-container {
     display: grid;
