@@ -140,10 +140,20 @@ input::placeholder, textarea::placeholder {
     color: white;
 }
 
+.checkbox-container.subject-info {
+    grid-template-columns: repeat(5, 1fr);
+}
+
 .checkbox-container.vehicle-info {
+    /* Force four columns */
     grid-template-columns: repeat(4, 1fr);
 }
 
 .checkbox-container.body-info {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
+
+.checkbox-container.window-info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
