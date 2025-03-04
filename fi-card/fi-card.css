@@ -103,6 +103,12 @@ legend {
     gap: 10px;
 }
 
+/* Hide the original checkbox */
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the label as a clickable button */
 .checkbox-container label {
     display: flex;
     align-items: center;
@@ -116,28 +122,15 @@ legend {
     font-size: 1.1rem;
 }
 
-.checkbox-container input[type="checkbox"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid white;
-    border-radius: 3px;
-    margin-right: 10px;
-    background-color: transparent;
-    transition: all 0.3s ease;
-}
-
+/* Mouseover highlight and slight expansion */
 .checkbox-container label:hover {
     background-color: #555;
-    transform: scale(1.05);  /* Added expansion on hover */
+    transform: scale(1.05);
 }
 
-.checkbox-container input[type="checkbox"]:checked {
+/* When the hidden checkbox is checked, style the adjacent label as green */
+.checkbox-container input[type="checkbox"]:checked + label {
     background-color: #4CAF50;
     border-color: #4CAF50;
-}
-
-.checkbox-container label:has(input[type="checkbox"]:checked) {
-    background-color: #4CAF50;
     color: white;
 }
