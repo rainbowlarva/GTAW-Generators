@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const moniker = document.getElementById('moniker').value;
         const gang = document.getElementById('gang').value;
         const additionalInfo = document.getElementById('additionalInfo').value;
-
         const officer = document.getElementById('officer').value;
         const serialNumber = document.getElementById('serialNumber').value;
         const callsign = document.getElementById('callsign').value;
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const detail = document.getElementById('detail').value;
         const supvInit = document.getElementById('supvInit').value;
 
-        // Collect all checked checkboxes
+        // Collect checked checkboxes and format as BBCode
         let checkedBoxes = [];
         document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
             if (cb.checked) {
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Generate BBCode
+        // Generate BBCode Output
         const bbcodeTemplate = `
 [font=Arial][center]LOS SANTOS POLICE DEPARTMENT
 [size=120][color=black][b]FIELD INTERVIEW CARD (FRONT)[/b][/font][/color][/size][/center]
@@ -138,7 +137,11 @@ ${height}
 [table2=1,black,transparent,Arial]
 [tr]
 [tdwidth=1,black,transparent,top,left,30,5]
-[size=87]Personal Oddities[/size]
+[size=87]CLOTHING[/size]
+-
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,30,5]
+[size=87]PERSONAL ODDITIES[/size]
 ${oddities}
 [/tdwidth]
 [/tr]
@@ -147,11 +150,11 @@ ${oddities}
 [table2=1,black,transparent,Arial]
 [tr]
 [tdwidth=1,black,transparent,top,left,30,5]
-[size=87]Moniker / Alias[/size]
+[size=87]MONIKER / ALIAS[/size]
 ${moniker}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,30,5]
-[size=87]Gang / Club[/size]
+[size=87]GANG / CLUB[/size]
 ${gang}
 [/tdwidth]
 [/tr]
@@ -170,51 +173,41 @@ ${checkedBoxes.join('\n')}
 
 [table2=1,black,transparent,Arial]
 [tr]
-[tdwidth=1,black,transparent,top,left,30,5]
-[size=87]Additional Information / Narrative[/size]
-${additionalInfo}
-[/tdwidth]
-[/tr]
-[/table2]
-
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87]Officer[/size]
+[tdwidth=1,black,transparent,top,left,16,5]
+[size=87]OFFICER[/size]
 ${officer}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,8,5]
-[size=87]Serial No.[/size]
+[size=87]SERIAL NO.[/size]
 ${serialNumber}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,8,5]
-[size=87]Callsign[/size]
+[size=87]CALLSIGN[/size]
 ${callsign}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,8,5]
-[size=87]Incident No.[/size]
+[size=87]INCIDENT NO.[/size]
 ${incidentNumber}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,8,5]
-[size=87]Division[/size]
+[size=87]DIVISION[/size]
 ${division}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,8,5]
-[size=87]Detail[/size]
+[size=87]DETAIL[/size]
 ${detail}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,8,5]
-[size=87]Supv. Init.[/size]
+[size=87]SUPV. INIT.[/size]
 ${supvInit}
 [/tdwidth]
 [/tr]
-[/table2]
-`;
+[/table2]`;
 
-        // Display the generated BBCode in the output area
+        // Display the generated BBCode
         bbcodeText.textContent = bbcodeTemplate;
 
-        // Automatically highlight text for copying
+        // Auto-select the BBCode for copying
         const range = document.createRange();
         range.selectNodeContents(bbcodeText);
         const selection = window.getSelection();
