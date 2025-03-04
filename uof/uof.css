@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-    color: white
+    color: white;
 }
 
 form {
@@ -47,7 +47,7 @@ input, textarea {
 }
 
 button {
-    width: 101%;
+    width: 100%; /* Adjusted width to take full width of form */
     padding: 10px;
     font-size: 1rem;
     background-color: #4CAF50;
@@ -82,17 +82,24 @@ pre {
     cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
-#button-container {
+/* Style for the Involved Employee controls */
+#employeeControls {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    gap: 10px; /* Adjust space between buttons */
+    margin-bottom: 20px;
 }
 
-#addEmployee, #removeEmployee {
-    padding: 10px;
+#employeeControls button {
+    padding: 10px 20px;
+    font-size: 1rem;
     cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
 }
 
-#removeEmployee {
-    display: none; /* Hide the Remove button by default */
+#employeeControls button:hover {
+    background-color: #45a049;
 }
