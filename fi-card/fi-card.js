@@ -48,10 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
             values[field.id] = field.value || 'NAMEHERE';
         });
 
-        const checkedBoxes = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-            .map(cb => cb.outerHTML.replace('[cb]', '[cbc]'))
-            .join('');
+        // Collect checkboxes and ensure both checked and unchecked boxes are included
+        const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]')).map(cb => {
+            return cb.checked ? `[cbc]${cb.value}` : `[cb]${cb.value}`;
+        }).join('\n');
 
+        // Collect dynamically added subjects
         const subjects = Array.from(document.querySelectorAll('#subjectContainer div')).map(subject => {
             return `[table2=1,black,transparent,Arial]
 [tr]
@@ -124,7 +126,7 @@ ${values.height}
 [/tr]
 [/table2]
 
-${checkedBoxes}
+${checkboxes}
 
 [table2=1,black,transparent,Arial]
 [tr]
@@ -154,31 +156,6 @@ ${values.callsign}
 [tdwidth=1,black,transparent,top,left,8,5]
 [size=87]INCIDENT NO.[/size]
 ${values.incidentNo}
-[/tdwidth]
-[/tr]
-[/table2]
-
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87][b]CALLSIGN[/b][/size]
-${values.callsign}
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,16,5]
-[size=87][b]INCIDENT NO.[/b][/size]
-${values.incidentNo}
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87]DIVISION[/size]
-${values.division}
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87]DETAIL[/size]
-${values.detail}
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87]SUPV. INIT.[/size]
-${values.supervisor}
 [/tdwidth]
 [/tr]
 [/table2]
