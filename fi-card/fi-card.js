@@ -1,81 +1,155 @@
-// Generate BBCode based on the form inputs
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('uofForm');
-    const bbcodeOutput = document.getElementById('bbcodeOutput');
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('ficardForm');
+    const bbcodeText = document.getElementById('bbcodeText');
 
-    form.addEventListener('submit', function(event) {
+    // Auto-resize textareas
+    function autoResizeTextarea(event) {
+        const textarea = event.target;
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+
+    document.querySelectorAll('textarea').forEach(textarea => {
+        textarea.addEventListener('input', autoResizeTextarea);
+    });
+
+    // Save data to localStorage
+    function saveData() {
+        document.querySelectorAll('input, textarea').forEach(input => {
+            localStorage.setItem(input.id, input.value);
+        });
+
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+    }
+
+    // Load saved data
+    function loadData() {
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.value = localStorage.getItem(input.id) || '';
+        });
+
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = localStorage.getItem(checkbox.id) === 'true';
+        });
+    }
+
+    // Clear all saved data
+    function clearData() {
+        localStorage.clear();
+        document.querySelectorAll('input, textarea').forEach(input => input.value = '');
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    }
+
+    // Add event listeners for saving data
+    document.querySelectorAll('input, textarea').forEach(input => input.addEventListener('input', saveData));
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.addEventListener('change', saveData));
+
+    // Load saved data when page loads
+    window.onload = loadData;
+
+    // Form submission - Generate BBCode
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Define bbcodeTemplate here to ensure it's initialized before use
-        const bbcodeTemplate = `[divbox2=white][color=transparent]spacer[/color]
-[aligntable=right,0,0,15,0,0,transparent]FIELD INTERVIEW CARD[/aligntable]
+        const fullName = document.getElementById('fullName').value;
+        const phone = document.getElementById('phone').value;
+        const sex = document.getElementById('sex').value;
+        const hair = document.getElementById('hair').value;
+        const eyes = document.getElementById('eyes').value;
+        const residence = document.getElementById('residence').value;
+        const birthdate = document.getElementById('birthdate').value;
+        const descent = document.getElementById('descent').value;
+        const height = document.getElementById('height').value;
+        const additionalInfo = document.getElementById('additionalInfo').value;
 
-[b]SUBJECT INFORMATION[/b]
-Name: ${document.getElementById('name').value}
-Phone: ${document.getElementById('phone').value}
-Sex: ${document.getElementById('sex').value}
-Hair: ${document.getElementById('hair').value}
-Eyes: ${document.getElementById('eyes').value}
+        // Collect all checked checkboxes
+        let checkedBoxes = [];
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            if (cb.checked) {
+                checkedBoxes.push(`[cb] ${cb.parentNode.textContent.trim()}`);
+            }
+        });
 
-[b]RESIDENCE & BIRTH INFO[/b]
-Residence: ${document.getElementById('residence').value}
-Birthdate: ${document.getElementById('birthdate').value}
-Descent: ${document.getElementById('descent').value}
-Height: ${document.getElementById('height').value}
+        // Generate BBCode
+        const bbcodeTemplate = `
+[font=Arial][center]LOS SANTOS POLICE DEPARTMENT
+[size=120][color=black][b]FIELD INTERVIEW CARD (FRONT)[/b][/font][/color][/size][/center]
 
-[b]CLOTHING & ODDITIES[/b]
-Clothing: ${document.getElementById('clothing').value}
-Personal Oddities: ${document.getElementById('personalOddities').value}
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,30,5]
+[size=87]NAME (FIRST, MIDDLE, LAST)[/size]
+${fullName}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,13,5]
+[size=87]PHONE[/size]
+${phone}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]SEX (M/F/O)[/size]
+${sex}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]HAIR[/size]
+${hair}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]EYES[/size]
+${eyes}
+[/tdwidth]
+[/tr]
+[/table2]
 
-[b]MONIKER & GANG[/b]
-Moniker / Alias: ${document.getElementById('moniker').value}
-Gang / Club: ${document.getElementById('gang').value}
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,35,5]
+[size=87]RESIDENCE[/size]
+${residence}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]BIRTHDATE[/size]
+${birthdate}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]DESCENT[/size]
+${descent}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]HEIGHT[/size]
+${height}
+[/tdwidth]
+[/tr]
+[/table2]
 
-[b]SUBJECT INFO[/b]
-Loiterer: ${document.getElementById('loiterer').checked ? 'Yes' : 'No'}
-Prowler: ${document.getElementById('prowler').checked ? 'Yes' : 'No'}
-Homeless: ${document.getElementById('homeless').checked ? 'Yes' : 'No'}
-Witness: ${document.getElementById('witness').checked ? 'Yes' : 'No'}
-Gang Activity: ${document.getElementById('gangActivity').checked ? 'Yes' : 'No'}
-Has Record: ${document.getElementById('hasRecord').checked ? 'Yes' : 'No'}
-On Parole: ${document.getElementById('onParole').checked ? 'Yes' : 'No'}
-On Probation: ${document.getElementById('onProbation').checked ? 'Yes' : 'No'}
-Driver: ${document.getElementById('driver').checked ? 'Yes' : 'No'}
-Passenger: ${document.getElementById('passenger').checked ? 'Yes' : 'No'}
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,30,5]
+[size=87]Additional Information / Narrative[/size]
+${additionalInfo}
+[/tdwidth]
+[/tr]
+[/table2]
 
-[b]VEHICLE INFO[/b]
-Vehicle Make: ${document.getElementById('vehMake').value}
-Vehicle Model: ${document.getElementById('vehModel').value}
-Vehicle Type: ${document.getElementById('vehType').value}
-Vehicle Color: ${document.getElementById('vehColor').value}
-Vehicle License No.: ${document.getElementById('vehLic').value}
-
-[b]BODY AND WINDOW INFO[/b]
-Body Damage: ${document.getElementById('bodyDamage').checked ? 'Yes' : 'No'}
-Body Modified: ${document.getElementById('bodyModified').checked ? 'Yes' : 'No'}
-Body Sticker: ${document.getElementById('bodySticker').checked ? 'Yes' : 'No'}
-Left Side: ${document.getElementById('bodyLeft').checked ? 'Yes' : 'No'}
-Right Side: ${document.getElementById('bodyRight').checked ? 'Yes' : 'No'}
-Front: ${document.getElementById('bodyFront').checked ? 'Yes' : 'No'}
-Rear: ${document.getElementById('bodyRear').checked ? 'Yes' : 'No'}
-
-Window Damage: ${document.getElementById('windowDamage').checked ? 'Yes' : 'No'}
-Window Tint: ${document.getElementById('windowTint').checked ? 'Yes' : 'No'}
-Left Side: ${document.getElementById('windowLeft').checked ? 'Yes' : 'No'}
-Right Side: ${document.getElementById('windowRight').checked ? 'Yes' : 'No'}
-Front: ${document.getElementById('windowFront').checked ? 'Yes' : 'No'}
-Rear: ${document.getElementById('windowRear').checked ? 'Yes' : 'No'}
-
-[b]GENERATED BBCode[/b]
-[bbcode]${bbcodeTemplate}[/bbcode]
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,30,5]
+[size=87]SUBJECT INFO[/size]
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,30,5]
+${checkedBoxes.join('\n')}
+[/tdwidth]
+[/tr]
+[/table2]
 `;
 
-        // Display the generated BBCode
-        bbcodeOutput.textContent = bbcodeTemplate;
+        // Display the generated BBCode in the output area
+        bbcodeText.textContent = bbcodeTemplate;
 
-        // Select the generated BBCode for easy copying
+        // Automatically highlight text for copying
         const range = document.createRange();
-        range.selectNodeContents(bbcodeOutput);
+        range.selectNodeContents(bbcodeText);
         const selection = window.getSelection();
         selection.removeAllRanges();
         selection.addRange(range);
