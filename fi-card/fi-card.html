@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Field Interview Card Generator</title>
-    <link rel="stylesheet" href="fi-card.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="fi-card.css"> <!-- Link to CSS -->
 </head>
 <body class="background">
     <div class="container">
         <h1>Field Interview Card Generator</h1>
-        
+
         <a href="https://rainbowlarva.github.io/GTAW-Generators/">
             <img src="../arrow.png" alt="Back" class="back-button">
         </a>
 
         <!-- User Input Form -->
-        <form id="ficardForm">
-            <h2>Basic Information</h2>
+        <form id="ficForm">
+            <h2>Subject Information</h2>
             <div>
-                <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" placeholder="Enter full name">
+                <label for="name">Name (First, Middle, Last):</label>
+                <input type="text" id="name" name="name" placeholder="Enter name">
             </div>
             <div>
                 <label for="phone">Phone:</label>
@@ -27,18 +27,18 @@
             </div>
             <div>
                 <label for="sex">Sex (M/F/O):</label>
-                <input type="text" id="sex" name="sex" placeholder="Enter sex">
+                <input type="text" id="sex" name="sex" placeholder="M / F / O">
             </div>
             <div>
-                <label for="hair">Hair Color:</label>
+                <label for="hair">Hair:</label>
                 <input type="text" id="hair" name="hair" placeholder="Enter hair color">
             </div>
             <div>
-                <label for="eyes">Eye Color:</label>
+                <label for="eyes">Eyes:</label>
                 <input type="text" id="eyes" name="eyes" placeholder="Enter eye color">
             </div>
 
-            <h2>Residence & Description</h2>
+            <h2>Address & Physical Description</h2>
             <div>
                 <label for="residence">Residence:</label>
                 <input type="text" id="residence" name="residence" placeholder="Enter residence">
@@ -55,8 +55,22 @@
                 <label for="height">Height:</label>
                 <input type="text" id="height" name="height" placeholder="Enter height">
             </div>
+            
+            <h2>Additional Details</h2>
+            <div>
+                <label for="oddities">Personal Oddities:</label>
+                <input type="text" id="oddities" name="oddities" placeholder="Enter any personal oddities">
+            </div>
+            <div>
+                <label for="moniker">Moniker / Alias:</label>
+                <input type="text" id="moniker" name="moniker" placeholder="Enter moniker/alias">
+            </div>
+            <div>
+                <label for="gang">Gang / Club:</label>
+                <input type="text" id="gang" name="gang" placeholder="Enter gang or club">
+            </div>
 
-            <h2>Checkboxes - Subject Info</h2>
+            <h2>Subject Information</h2>
             <div class="checkbox-group">
                 <label><input type="checkbox" id="loiterer"> Loiterer</label>
                 <label><input type="checkbox" id="prowler"> Prowler</label>
@@ -70,10 +84,52 @@
                 <label><input type="checkbox" id="passenger"> Passenger</label>
             </div>
 
-            <h2>Additional Information</h2>
+            <h2>Vehicle Information</h2>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="bucketSeat"> Bucket Seat</label>
+                <label><input type="checkbox" id="damagedInside"> Damaged Inside</label>
+                <label><input type="checkbox" id="customWheels"> Custom Wheels</label>
+                <label><input type="checkbox" id="paintedMural"> Painted Mural</label>
+                <label><input type="checkbox" id="levelAlter"> Level Altered</label>
+                <label><input type="checkbox" id="rustPrimer"> Rust/Primer</label>
+                <label><input type="checkbox" id="customPaint"> Custom Paint</label>
+                <label><input type="checkbox" id="vinylTop"> Vinyl Top</label>
+            </div>
+
+            <h2>Additional Info</h2>
             <div>
-                <label for="additionalInfo">Additional Information / Narrative:</label>
-                <textarea id="additionalInfo" name="additionalInfo" placeholder="Enter additional details"></textarea>
+                <label for="additionalInfo">Additional Info / Narrative:</label>
+                <textarea id="additionalInfo" name="additionalInfo" placeholder="Enter additional information"></textarea>
+            </div>
+
+            <h2>Officer Details</h2>
+            <div>
+                <label for="officer">Officer Name:</label>
+                <input type="text" id="officer" name="officer" placeholder="Enter officer name">
+            </div>
+            <div>
+                <label for="serialNumber">Serial Number:</label>
+                <input type="text" id="serialNumber" name="serialNumber" placeholder="Enter serial number">
+            </div>
+            <div>
+                <label for="callsign">Callsign:</label>
+                <input type="text" id="callsign" name="callsign" placeholder="Enter callsign">
+            </div>
+            <div>
+                <label for="incidentNumber">Incident Number:</label>
+                <input type="text" id="incidentNumber" name="incidentNumber" placeholder="Enter incident number">
+            </div>
+            <div>
+                <label for="division">Division:</label>
+                <input type="text" id="division" name="division" placeholder="Enter division">
+            </div>
+            <div>
+                <label for="detail">Detail:</label>
+                <input type="text" id="detail" name="detail" placeholder="Enter detail">
+            </div>
+            <div>
+                <label for="supvInit">Supv. Init.:</label>
+                <input type="text" id="supvInit" name="supvInit" placeholder="Enter supervisor initiation">
             </div>
 
             <button type="submit">Generate BBCode</button>
