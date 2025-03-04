@@ -48,11 +48,16 @@ document.addEventListener('DOMContentLoaded', function () {
             values[field.id] = field.value || 'NAMEHERE';
         });
 
-        // Generate checkboxes with correct `[cb]` and `[cbc]` formatting
+        // Function to format checkboxes properly
         function generateCheckboxOutput(checkboxes) {
-            return checkboxes.map(cb => {
-                return `[size=87]${cb.checked ? '[cbc]' : '[cb]'}${cb.value}[/size]`;
-            }).join('\n');
+            let output = '[tdwidth=1,transparent,transparent,top,left,5,5]\n[size=87]';
+
+            checkboxes.forEach(cb => {
+                output += `\n${cb.checked ? '[cbc]' : '[cb]'} ${cb.parentElement.textContent.trim()}`;
+            });
+
+            output += '[/size]\n\n[/tdwidth]';
+            return output;
         }
 
         // Subject Information Checkboxes
@@ -138,14 +143,6 @@ ${values.height}
 [/tr]
 [/table2]
 
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,30,5]
-[b]SUBJECT INFORMATION[/b]
-[/tdwidth]
-[/tr]
-[/table2]
-
 ${subjectInfoCheckboxes}
 
 [table2=1,black,transparent,Arial]
@@ -158,14 +155,6 @@ ${values.additionalInfo}
 [/table2]
 
 ${subjects}
-
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,30,5]
-[b]VEHICLE FEATURES[/b]
-[/tdwidth]
-[/tr]
-[/table2]
 
 ${vehicleFeatureCheckboxes}
 
