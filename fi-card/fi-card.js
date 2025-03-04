@@ -158,6 +158,31 @@ ${values.incidentNo}
 [/tr]
 [/table2]
 
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87][b]CALLSIGN[/b][/size]
+${values.callsign}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,16,5]
+[size=87][b]INCIDENT NO.[/b][/size]
+${values.incidentNo}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]DIVISION[/size]
+${values.division}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]DETAIL[/size]
+${values.detail}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]SUPV. INIT.[/size]
+${values.supervisor}
+[/tdwidth]
+[/tr]
+[/table2]
+
 [/font]`;
 
         document.getElementById('bbcodeText').textContent = bbcodeOutput;
