@@ -139,3 +139,7 @@ input::placeholder, textarea::placeholder {
     border-color: #4CAF50;
     color: white;
 }
+
+.checkbox-container.vehicle-info {
+    grid-template-columns: repeat(4, 1fr);
+}
