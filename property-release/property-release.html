@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Property Transfer Receipt Generator</title>
+  <link rel="stylesheet" href="property-release.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Property Transfer Receipt Generator</h1>
+    <form id="bbcodeForm" onsubmit="generateBBCode(); return false;">
+      
+      <h2>Transfer Information</h2>
+      <label for="field1">RELEASE AUTHORIZATION BY:</label>
+      <input type="text" id="field1">
+      
+      <label for="field2">SERIAL NO:</label>
+      <input type="text" id="field2">
+      
+      <label for="field3">DIVISION / ASSIGNMENT:</label>
+      <input type="text" id="field3">
+      
+      <label for="field4">PERSON RECEIVING PROPERTY:</label>
+      <input type="text" id="field4">
+      
+      <label for="field5">AGENCY (IF APPLICABLE):</label>
+      <input type="text" id="field5">
+      
+      <label for="field6">SERIAL NO. (Agency):</label>
+      <input type="text" id="field6">
+      
+      <label for="field7">DATE RELEASED:</label>
+      <input type="text" id="field7">
+      
+      <h2>Court Information</h2>
+      <label for="field8">CASE OF PEOPLE VS.:</label>
+      <input type="text" id="field8">
+      
+      <label for="field9">RECEIVED BY (COURT CLERK):</label>
+      <input type="text" id="field9">
+      
+      <h2>Items to Transfer</h2>
+      
+      <h3>Item 1</h3>
+      <label for="field10">EL NO.:</label>
+      <input type="text" id="field10">
+      
+      <label for="field11">Description of Article:</label>
+      <input type="text" id="field11">
+      
+      <label for="field12">Quantity:</label>
+      <input type="text" id="field12">
+      
+      <h3>Item 2</h3>
+      <label for="field13">EL NO.:</label>
+      <input type="text" id="field13">
+      
+      <label for="field14">Description of Article:</label>
+      <input type="text" id="field14">
+      
+      <label for="field15">Quantity:</label>
+      <input type="text" id="field15">
+      
+      <h3>Item 3</h3>
+      <label for="field16">EL NO.:</label>
+      <input type="text" id="field16">
+      
+      <label for="field17">Description of Article:</label>
+      <input type="text" id="field17">
+      
+      <label for="field18">Quantity:</label>
+      <input type="text" id="field18">
+      
+      <button type="submit">Generate BBCode</button>
+    </form>
+    
+    <h2>Generated BBCode</h2>
+    <pre id="bbcodeOutput"></pre>
+  </div>
+  
+  <script src="property-release.js"></script>
+</body>
+</html>
