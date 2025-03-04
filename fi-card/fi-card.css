@@ -52,23 +52,43 @@ textarea {
     min-height: 50px; /* Ensures a minimum starting height */
 }
 
-/* Style checkboxes and labels */
+/* Grid layout for checkboxes */
 .checkbox-group {
-    display: flex;
-    flex-direction: column; /* Ensures checkboxes appear in a column */
-    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Dynamic grid based on available space */
+    gap: 10px;
     padding: 5px;
 }
 
-.checkbox-group label {
+/* Checkbox container with a box around both the checkmark and text */
+.checkbox-container {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1rem; /* Slightly larger text */
+    justify-content: center;
+    background-color: #2A2A2A;
+    padding: 8px;
+    border: 1px solid #545454;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
-input[type="checkbox"] {
-    transform: scale(1.4); /* Makes checkboxes slightly larger */
+/* Hover effect for better clarity */
+.checkbox-container:hover {
+    background-color: #1F1F1F;
+}
+
+/* Style the checkbox itself */
+.checkbox-container input[type="checkbox"] {
+    transform: scale(1.3); /* Increase checkbox size */
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Text size & alignment inside checkbox container */
+.checkbox-container label {
+    font-size: 1rem;
+    color: white;
     cursor: pointer;
 }
 
