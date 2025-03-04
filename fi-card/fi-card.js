@@ -48,16 +48,15 @@ document.addEventListener('DOMContentLoaded', function () {
             values[field.id] = field.value || 'NAMEHERE';
         });
 
-        // Function to format checkboxes properly
+        // Function to format each checkbox in its own `[tdwidth]` block
         function generateCheckboxOutput(checkboxes) {
-            let output = '[tdwidth=1,transparent,transparent,top,left,5,5]\n[size=87]';
+            return checkboxes.map(cb => {
+                const label = cb.parentElement.textContent.trim();
+                return `[tdwidth=1,transparent,transparent,top,left,5,5]
+[size=87]${cb.checked ? '[cbc]' : '[cb]'} ${label}[/size]
 
-            checkboxes.forEach(cb => {
-                output += `\n${cb.checked ? '[cbc]' : '[cb]'} ${cb.parentElement.textContent.trim()}`;
-            });
-
-            output += '[/size]\n\n[/tdwidth]';
-            return output;
+[/tdwidth]`;
+            }).join('\n');
         }
 
         // Subject Information Checkboxes
