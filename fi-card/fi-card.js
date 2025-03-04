@@ -1,105 +1,3 @@
-// Function to auto-resize textarea as user types
-function autoResizeTextarea(event) {
-    const textarea = event.target;
-    // Reset height to auto to shrink when content is deleted
-    textarea.style.height = 'auto';
-    // Set the height to the scrollHeight of the textarea to expand as needed
-    textarea.style.height = textarea.scrollHeight + 'px';
-}
-
-// Attach the event listener to all textareas (if any) that need auto-resizing
-const textareas = document.querySelectorAll('textarea');
-textareas.forEach((textarea) => {
-    textarea.addEventListener('input', autoResizeTextarea);
-});
-
-// Save data to localStorage when user types in the fields
-function saveData() {
-    const fields = [
-        'name', 'phone', 'sex', 'hair', 'eyes',
-        'residence', 'birthdate', 'descent', 'height',
-        'clothing', 'personalOddities',
-        'moniker', 'gang',
-        'loiterer', 'prowler', 'homeless', 'witness', 
-        'gangActivity', 'hasRecord', 'onParole', 'onProbation', 
-        'driver', 'passenger',
-        'vehMake', 'vehModel', 'vehType', 'vehColor', 'vehLic',
-        'bodyDamage', 'bodyModified', 'bodySticker', 'bodyLeft', 'bodyRight', 'bodyFront', 'bodyRear',
-        'windowDamage', 'windowTint', 'windowLeft', 'windowRight', 'windowFront', 'windowRear'
-    ];
-
-    fields.forEach(field => {
-        const input = document.getElementById(field);
-        if (input) {
-            localStorage.setItem(field, input.type === "checkbox" ? input.checked : input.value);
-        }
-    });
-}
-
-// Load data from localStorage when the page loads
-function loadData() {
-    const fields = [
-        'name', 'phone', 'sex', 'hair', 'eyes',
-        'residence', 'birthdate', 'descent', 'height',
-        'clothing', 'personalOddities',
-        'moniker', 'gang',
-        'loiterer', 'prowler', 'homeless', 'witness', 
-        'gangActivity', 'hasRecord', 'onParole', 'onProbation', 
-        'driver', 'passenger',
-        'vehMake', 'vehModel', 'vehType', 'vehColor', 'vehLic',
-        'bodyDamage', 'bodyModified', 'bodySticker', 'bodyLeft', 'bodyRight', 'bodyFront', 'bodyRear',
-        'windowDamage', 'windowTint', 'windowLeft', 'windowRight', 'windowFront', 'windowRear'
-    ];
-
-    fields.forEach(field => {
-        const input = document.getElementById(field);
-        if (input) {
-            if (input.type === "checkbox") {
-                input.checked = localStorage.getItem(field) === "true";
-            } else {
-                input.value = localStorage.getItem(field) || '';
-            }
-        }
-    });
-}
-
-// Clear data from localStorage and reset input fields
-function clearData() {
-    const fields = [
-        'name', 'phone', 'sex', 'hair', 'eyes',
-        'residence', 'birthdate', 'descent', 'height',
-        'clothing', 'personalOddities',
-        'moniker', 'gang',
-        'loiterer', 'prowler', 'homeless', 'witness', 
-        'gangActivity', 'hasRecord', 'onParole', 'onProbation', 
-        'driver', 'passenger',
-        'vehMake', 'vehModel', 'vehType', 'vehColor', 'vehLic',
-        'bodyDamage', 'bodyModified', 'bodySticker', 'bodyLeft', 'bodyRight', 'bodyFront', 'bodyRear',
-        'windowDamage', 'windowTint', 'windowLeft', 'windowRight', 'windowFront', 'windowRear'
-    ];
-
-    fields.forEach(field => {
-        localStorage.removeItem(field);
-        const input = document.getElementById(field);
-        if (input) {
-            if (input.type === "checkbox") {
-                input.checked = false;
-            } else {
-                input.value = '';
-            }
-        }
-    });
-}
-
-// Load the data when the page loads
-window.onload = loadData;
-
-// Add event listeners to save data when user types in the fields
-const inputs = document.querySelectorAll('input, textarea');
-inputs.forEach(input => {
-    input.addEventListener('input', saveData);
-});
-
 // Generate BBCode based on the form inputs
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('uofForm');
@@ -108,20 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const fields = [
-            'name', 'phone', 'sex', 'hair', 'eyes',
-            'residence', 'birthdate', 'descent', 'height',
-            'clothing', 'personalOddities',
-            'moniker', 'gang',
-            'loiterer', 'prowler', 'homeless', 'witness', 
-            'gangActivity', 'hasRecord', 'onParole', 'onProbation', 
-            'driver', 'passenger',
-            'vehMake', 'vehModel', 'vehType', 'vehColor', 'vehLic',
-            'bodyDamage', 'bodyModified', 'bodySticker', 'bodyLeft', 'bodyRight', 'bodyFront', 'bodyRear',
-            'windowDamage', 'windowTint', 'windowLeft', 'windowRight', 'windowFront', 'windowRear'
-        ];
-
-        let bbcodeTemplate = `[divbox2=white][color=transparent]spacer[/color]
+        // Define bbcodeTemplate here to ensure it's initialized before use
+        const bbcodeTemplate = `[divbox2=white][color=transparent]spacer[/color]
 [aligntable=right,0,0,15,0,0,transparent]FIELD INTERVIEW CARD[/aligntable]
 
 [b]SUBJECT INFORMATION[/b]
