@@ -396,13 +396,14 @@ document.addEventListener("DOMContentLoaded", function() {
       output = output.replace("NAMEHERE", value);
     }
   
-    // Replace each occurrence of "[cb]" sequentially with "[cbc]" if the corresponding checkbox is checked.
-    for (let i = 1; i <= 31; i++) {
-      const cb = document.getElementById("cb" + i);
-      if (cb && cb.checked) {
-        output = output.replace("[cb]", "[cbc]");
-      }
-    }
+    // Replace each occurrence of "[cb]" using a regex with a counter that checks the corresponding checkbox
+    let cbCounter = 1;
+    output = output.replace(/\[cb\]/g, function(match) {
+      const checkbox = document.getElementById("cb" + cbCounter);
+      const replacement = (checkbox && checkbox.checked) ? "[cbc]" : "[cb]";
+      cbCounter++;
+      return replacement;
+    });
   
     // Set the generated BBCode into the output element.
     const outputElement = document.getElementById("bbcodeOutput");
@@ -416,4 +417,4 @@ document.addEventListener("DOMContentLoaded", function() {
       sel.removeAllRanges();
       sel.addRange(range);
     }
-  }
+  }  
