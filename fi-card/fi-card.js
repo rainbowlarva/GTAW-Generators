@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             values[field.id] = field.value || 'NAMEHERE';
         });
 
-        // Function to format each checkbox in its own `[tdwidth]` block
+        // Generate checkbox BBCode while preserving formatting
         function generateCheckboxOutput(checkboxes) {
             return checkboxes.map(cb => {
                 const label = cb.parentElement.textContent.trim();
@@ -59,14 +59,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }).join('\n');
         }
 
-        // Subject Information Checkboxes
+        // Checkbox sections
         const subjectInfoCheckboxes = generateCheckboxOutput(
             Array.from(document.querySelectorAll('input[name="cb"]'))
         );
-
-        // Vehicle Features Checkboxes
         const vehicleFeatureCheckboxes = generateCheckboxOutput(
             Array.from(document.querySelectorAll('input[name="vehicle_cb"]'))
+        );
+        const bodyCheckboxes = generateCheckboxOutput(
+            Array.from(document.querySelectorAll('input[name="body_cb"]'))
+        );
+        const windowCheckboxes = generateCheckboxOutput(
+            Array.from(document.querySelectorAll('input[name="window_cb"]'))
         );
 
         // Collect dynamically added subjects
@@ -93,6 +97,7 @@ ${subject.querySelector('.subjectGang').value || 'NAMEHERE'}
 [/table2]`;
         }).join('');
 
+        // Final BBCode Output
         const bbcodeOutput = `[font=Arial][center]LOS SANTOS POLICE DEPARTMENT
 [size=120][color=black][b]FIELD INTERVIEW CARD (FRONT)[/b][/font][/color][/size][/center]
 
@@ -121,27 +126,6 @@ ${values.eyes}
 [/tr]
 [/table2]
 
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,35,5]
-[size=87]RESIDENCE[/size]
-${values.residence}
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87]BIRTHDATE[/size]
-${values.birthdate}
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87]DESCENT[/size]
-${values.descent}
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,8,5]
-[size=87]HEIGHT[/size]
-${values.height}
-[/tdwidth]
-[/tr]
-[/table2]
-
 ${subjectInfoCheckboxes}
 
 [table2=1,black,transparent,Arial]
@@ -153,9 +137,14 @@ ${values.additionalInfo}
 [/tr]
 [/table2]
 
+[font=Arial][center]LOS SANTOS POLICE DEPARTMENT
+[size=120][color=black][b]FIELD INTERVIEW CARD (BACK)[/b][/font][/color][/size][/center]
+
 ${subjects}
 
 ${vehicleFeatureCheckboxes}
+${bodyCheckboxes}
+${windowCheckboxes}
 
 [table2=1,black,transparent,Arial]
 [tr]
