@@ -83,23 +83,12 @@ document.addEventListener('DOMContentLoaded', function () {
         input.addEventListener('input', saveData);
         div.appendChild(input);
         employeeList.appendChild(div);
-        toggleRemoveButton();  // Update remove button visibility
     }
 
     function removeEmployee() {
         if (employeeList.lastChild) {
             employeeList.removeChild(employeeList.lastChild);
             saveData();
-            toggleRemoveButton();  // Update remove button visibility
-        }
-    }
-
-    // Toggle remove button visibility based on employee count
-    function toggleRemoveButton() {
-        if (employeeList.children.length > 0) {
-            removeEmployeeBtn.style.display = 'inline-block';
-        } else {
-            removeEmployeeBtn.style.display = 'none';
         }
     }
 
