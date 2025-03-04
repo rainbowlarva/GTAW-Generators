@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #212121;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #3D3D3D;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #545454;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* Auto-expanding textareas */
+textarea {
+    overflow-y: hidden;
+    min-height: 50px; /* Ensures a minimum starting height */
+}
+
+/* Style checkboxes and labels */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Align Add/Remove buttons in the employee section */
+.employee-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Make sure the output area is fully visible */
+#bbcodeOutput {
+    margin-top: 20px;
+    max-height: 500px; /* Prevents infinite expansion */
+    overflow-y: auto;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Style the back button */
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
