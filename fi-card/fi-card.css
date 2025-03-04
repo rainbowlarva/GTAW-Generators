@@ -129,6 +129,7 @@ legend {
 
 .checkbox-container label:hover {
     background-color: #555;
+    transform: scale(1.05);  /* Added expansion on hover */
 }
 
 .checkbox-container input[type="checkbox"]:checked {
