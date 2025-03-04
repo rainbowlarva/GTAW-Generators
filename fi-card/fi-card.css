@@ -52,40 +52,44 @@ textarea {
     min-height: 50px; /* Ensures a minimum starting height */
 }
 
-/* Grid layout for checkboxes */
+/* ✅ Checkbox Grid Styling */
 .checkbox-group {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Dynamic grid based on available space */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible grid */
     gap: 10px;
     padding: 5px;
 }
 
-/* Checkbox container with a box around both the checkmark and text */
+/* ✅ Checkbox Container with Clear Outline */
 .checkbox-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #2A2A2A;
-    padding: 8px;
-    border: 1px solid #545454;
+    padding: 10px;
+    border: 2px solid #545454; /* Dark outline for visibility */
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s;
+    min-height: 50px; /* Ensure uniform height */
 }
 
-/* Hover effect for better clarity */
+/* ✅ Checkbox Hover Effect */
 .checkbox-container:hover {
     background-color: #1F1F1F;
+    border-color: #4CAF50; /* Light green outline on hover */
 }
 
-/* Style the checkbox itself */
+/* ✅ Increased Checkbox Size */
 .checkbox-container input[type="checkbox"] {
-    transform: scale(1.3); /* Increase checkbox size */
-    margin-right: 8px;
+    width: 24px; /* Bigger checkbox */
+    height: 24px;
+    accent-color: #4CAF50; /* Matches button color */
     cursor: pointer;
+    margin-right: 10px; /* Space between checkbox & text */
 }
 
-/* Text size & alignment inside checkbox container */
+/* ✅ Checkbox Label Styling */
 .checkbox-container label {
     font-size: 1rem;
     color: white;
@@ -114,7 +118,7 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Make sure the output area is fully visible */
+/* Ensure output area is fully visible */
 #bbcodeOutput {
     margin-top: 20px;
     max-height: 500px; /* Prevents infinite expansion */
