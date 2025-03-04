@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Interview Card Generator</title>
+    <link rel="stylesheet" href="fi-card.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Field Interview Card Generator</h1>
+        
+        <a href="https://rainbowlarva.github.io/GTAW-Generators/">
+            <img src="../arrow.png" alt="Back" class="back-button">
+        </a>
+        
+        <!-- User Input Form -->
+        <form id="fiCardForm">
+            <h2>Field Interview Card (Front)</h2>
+            
+            <div>
+                <label for="name">Name (First, Middle, Last):</label>
+                <input type="text" id="name" name="name" placeholder="Enter name">
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter phone">
+            </div>
+            <div>
+                <label for="sex">Sex (M/F/O):</label>
+                <input type="text" id="sex" name="sex" placeholder="Enter sex">
+            </div>
+            <div>
+                <label for="hair">Hair:</label>
+                <input type="text" id="hair" name="hair" placeholder="Enter hair color">
+            </div>
+            <div>
+                <label for="eyes">Eyes:</label>
+                <input type="text" id="eyes" name="eyes" placeholder="Enter eye color">
+            </div>
+            <div>
+                <label for="residence">Residence:</label>
+                <input type="text" id="residence" name="residence" placeholder="Enter residence">
+            </div>
+            <div>
+                <label for="birthdate">Birthdate:</label>
+                <input type="text" id="birthdate" name="birthdate" placeholder="Enter birthdate">
+            </div>
+            <div>
+                <label for="descent">Descent:</label>
+                <input type="text" id="descent" name="descent" placeholder="Enter descent">
+            </div>
+            <div>
+                <label for="height">Height:</label>
+                <input type="text" id="height" name="height" placeholder="Enter height">
+            </div>
+            
+            <!-- Subject Checkboxes -->
+            <fieldset>
+                <legend>Subject Information:</legend>
+                <label><input type="checkbox" name="cb" value="loiterer"> Loiterer</label>
+                <label><input type="checkbox" name="cb" value="prowler"> Prowler</label>
+                <label><input type="checkbox" name="cb" value="homeless"> Homeless</label>
+                <label><input type="checkbox" name="cb" value="witness"> Witness</label>
+                <label><input type="checkbox" name="cb" value="gangActivity"> Gang Activity</label>
+                <label><input type="checkbox" name="cb" value="hasRecord"> Has Record</label>
+                <label><input type="checkbox" name="cb" value="onParole"> On Parole</label>
+                <label><input type="checkbox" name="cb" value="onProbation"> On Probation</label>
+                <label><input type="checkbox" name="cb" value="driver"> Driver</label>
+                <label><input type="checkbox" name="cb" value="passenger"> Passenger</label>
+            </fieldset>
+            
+            <!-- Vehicle Information -->
+            <h2>Vehicle Information</h2>
+            <div>
+                <label for="vehMake">Vehicle Make:</label>
+                <input type="text" id="vehMake" name="vehMake" placeholder="Enter vehicle make">
+            </div>
+            <div>
+                <label for="vehModel">Vehicle Model:</label>
+                <input type="text" id="vehModel" name="vehModel" placeholder="Enter vehicle model">
+            </div>
+            <div>
+                <label for="vehType">Vehicle Type:</label>
+                <input type="text" id="vehType" name="vehType" placeholder="Enter vehicle type">
+            </div>
+            <div>
+                <label for="vehColor">Vehicle Color:</label>
+                <input type="text" id="vehColor" name="vehColor" placeholder="Enter vehicle color">
+            </div>
+            
+            <fieldset>
+                <legend>Vehicle Features:</legend>
+                <label><input type="checkbox" name="cb" value="bucketSeat"> Bucket Seat</label>
+                <label><input type="checkbox" name="cb" value="damagedInside"> Damaged Inside</label>
+                <label><input type="checkbox" name="cb" value="customWheels"> Custom Wheels</label>
+                <label><input type="checkbox" name="cb" value="paintedMural"> Painted Mural</label>
+                <label><input type="checkbox" name="cb" value="levelAlter"> Level Alteration</label>
+                <label><input type="checkbox" name="cb" value="rustPrimer"> Rust / Primer</label>
+                <label><input type="checkbox" name="cb" value="customPaint"> Custom Paint</label>
+                <label><input type="checkbox" name="cb" value="vinylTop"> Vinyl Top</label>
+            </fieldset>
+            
+            <h2>Field Interview Card (Back)</h2>
+            
+            <div id="subjectContainer">
+                <!-- Subject fields will be added here dynamically -->
+            </div>
+            <button type="button" id="addSubject">Add Subject</button>
+            
+            <div>
+                <label for="additionalInfo">Additional Info / Narrative:</label>
+                <textarea id="additionalInfo" name="additionalInfo" placeholder="Enter additional details"></textarea>
+            </div>
+            <div>
+                <label for="officer">Officer:</label>
+                <input type="text" id="officer" name="officer" placeholder="Enter officer name">
+            </div>
+            <div>
+                <label for="serialNo">Serial No.:</label>
+                <input type="text" id="serialNo" name="serialNo" placeholder="Enter serial number">
+            </div>
+            <div>
+                <label for="callsign">Callsign:</label>
+                <input type="text" id="callsign" name="callsign" placeholder="Enter callsign">
+            </div>
+            <div>
+                <label for="incidentNo">Incident No.:</label>
+                <input type="text" id="incidentNo" name="incidentNo" placeholder="Enter incident number">
+            </div>
+            <div>
+                <label for="division">Division:</label>
+                <input type="text" id="division" name="division" placeholder="Enter division">
+            </div>
+            <div>
+                <label for="detail">Detail:</label>
+                <input type="text" id="detail" name="detail" placeholder="Enter detail">
+            </div>
+            <div>
+                <label for="supervisor">Supervisor Initials:</label>
+                <input type="text" id="supervisor" name="supervisor" placeholder="Enter supervisor initials">
+            </div>
+            
+            <button type="submit">Generate BBCode</button>
+        </form>
+
+        <!-- Output Area -->
+        <div id="bbcodeOutput">
+            <h2>Generated BBCode:</h2>
+            <pre id="bbcodeText"></pre>
+        </div>
+    </div>
+
+    <script src="fi-card.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>

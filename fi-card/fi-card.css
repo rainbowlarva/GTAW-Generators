@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #212121;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #3D3D3D;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: white;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #545454;
+    border-radius: 5px;
+    resize: none;
+    background-color: #2b2b2b;
+    color: white;
+}
+
+button {
+    width: 101%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#bbcodeOutput {
+    margin-top: 20px;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Styling for fieldsets */
+fieldset {
+    border: 1px solid #545454;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #2b2b2b;
+}
+
+legend {
+    font-weight: bold;
+    color: white;
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+/* Additional styling for added subjects */
+#subjectContainer div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#addSubject {
+    background-color: #ff9800;
+}
+
+#addSubject:hover {
+    background-color: #e68900;
+}
