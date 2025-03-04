@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('ficardForm');
+    const form = document.getElementById('ficForm');
     const bbcodeText = document.getElementById('bbcodeText');
 
     // Auto-resize textareas
@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        const fullName = document.getElementById('fullName').value;
+        // Get form values
+        const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
         const sex = document.getElementById('sex').value;
         const hair = document.getElementById('hair').value;
@@ -62,7 +63,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const birthdate = document.getElementById('birthdate').value;
         const descent = document.getElementById('descent').value;
         const height = document.getElementById('height').value;
+        const oddities = document.getElementById('oddities').value;
+        const moniker = document.getElementById('moniker').value;
+        const gang = document.getElementById('gang').value;
         const additionalInfo = document.getElementById('additionalInfo').value;
+
+        const officer = document.getElementById('officer').value;
+        const serialNumber = document.getElementById('serialNumber').value;
+        const callsign = document.getElementById('callsign').value;
+        const incidentNumber = document.getElementById('incidentNumber').value;
+        const division = document.getElementById('division').value;
+        const detail = document.getElementById('detail').value;
+        const supvInit = document.getElementById('supvInit').value;
 
         // Collect all checked checkboxes
         let checkedBoxes = [];
@@ -81,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 [tr]
 [tdwidth=1,black,transparent,top,left,30,5]
 [size=87]NAME (FIRST, MIDDLE, LAST)[/size]
-${fullName}
+${name}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,13,5]
 [size=87]PHONE[/size]
@@ -126,8 +138,21 @@ ${height}
 [table2=1,black,transparent,Arial]
 [tr]
 [tdwidth=1,black,transparent,top,left,30,5]
-[size=87]Additional Information / Narrative[/size]
-${additionalInfo}
+[size=87]Personal Oddities[/size]
+${oddities}
+[/tdwidth]
+[/tr]
+[/table2]
+
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,30,5]
+[size=87]Moniker / Alias[/size]
+${moniker}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,30,5]
+[size=87]Gang / Club[/size]
+${gang}
 [/tdwidth]
 [/tr]
 [/table2]
@@ -139,6 +164,48 @@ ${additionalInfo}
 [/tdwidth]
 [tdwidth=1,black,transparent,top,left,30,5]
 ${checkedBoxes.join('\n')}
+[/tdwidth]
+[/tr]
+[/table2]
+
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,30,5]
+[size=87]Additional Information / Narrative[/size]
+${additionalInfo}
+[/tdwidth]
+[/tr]
+[/table2]
+
+[table2=1,black,transparent,Arial]
+[tr]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]Officer[/size]
+${officer}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]Serial No.[/size]
+${serialNumber}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]Callsign[/size]
+${callsign}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]Incident No.[/size]
+${incidentNumber}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]Division[/size]
+${division}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]Detail[/size]
+${detail}
+[/tdwidth]
+[tdwidth=1,black,transparent,top,left,8,5]
+[size=87]Supv. Init.[/size]
+${supvInit}
 [/tdwidth]
 [/tr]
 [/table2]
