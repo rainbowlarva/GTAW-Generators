@@ -1,160 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Field Interview Card Generator</title>
-    <link rel="stylesheet" href="fi-card.css"> <!-- Link to CSS file -->
+  <meta charset="UTF-8">
+  <title>BBCode Generator</title>
+  <link rel="stylesheet" href="fi-card.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Field Interview Card Generator</h1>
+  <div class="container">
+    <h1>BBCode Generator</h1>
+    <form id="bbcodeForm" onsubmit="generateBBCode(); return false;">
+      
+      <h2>Front Card Information</h2>
+      <label for="field1">NAME (FIRST, MIDDLE, LAST):</label>
+      <input type="text" id="field1">
+      
+      <label for="field2">PHONE:</label>
+      <input type="text" id="field2">
+      
+      <label for="field3">SEX (M/F/O):</label>
+      <input type="text" id="field3">
+      
+      <label for="field4">HAIR:</label>
+      <input type="text" id="field4">
+      
+      <label for="field5">EYES:</label>
+      <input type="text" id="field5">
+      
+      <label for="field6">RESIDENCE:</label>
+      <input type="text" id="field6">
+      
+      <label for="field7">BIRTHDATE:</label>
+      <input type="text" id="field7">
+      
+      <label for="field8">DESCENT:</label>
+      <input type="text" id="field8">
+      
+      <label for="field9">HEIGHT:</label>
+      <input type="text" id="field9">
+      
+      <label for="field10">CLOTHING:</label>
+      <input type="text" id="field10">
+      
+      <label for="field11">PERSONAL ODDITIES:</label>
+      <input type="text" id="field11">
+      
+      <label for="field12">MONIKER / ALIAS:</label>
+      <input type="text" id="field12">
+      
+      <label for="field13">GANG / CLUB:</label>
+      <input type="text" id="field13">
+      
+      <label for="field14">VEH. MAKE:</label>
+      <input type="text" id="field14">
+      
+      <label for="field15">VEH. MODEL:</label>
+      <input type="text" id="field15">
+      
+      <label for="field16">TYPE:</label>
+      <input type="text" id="field16">
+      
+      <label for="field17">COLOR:</label>
+      <input type="text" id="field17">
+      
+      <label for="field18">VEH. LIC. NO.:</label>
+      <input type="text" id="field18">
+      
+      <h2>Back Card Information</h2>
+      <fieldset>
+        <legend>Person 1</legend>
+        <label for="field19">NAME (FIRST, MIDDLE, LAST):</label>
+        <input type="text" id="field19">
         
-        <a href="https://rainbowlarva.github.io/GTAW-Generators/">
-            <img src="../arrow.png" alt="Back" class="back-button">
-        </a>
+        <label for="field20">D.O.B:</label>
+        <input type="text" id="field20">
         
-        <!-- User Input Form -->
-        <form id="fiCardForm">
-            <h2>Field Interview Card (Front)</h2>
-            
-            <div>
-                <label for="name">Name (First, Middle, Last):</label>
-                <input type="text" id="name" name="name" placeholder="Enter name">
-            </div>
-            <div>
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" placeholder="Enter phone">
-            </div>
-            <div>
-                <label for="sex">Sex (M/F/O):</label>
-                <input type="text" id="sex" name="sex" placeholder="Enter sex">
-            </div>
-            <div>
-                <label for="hair">Hair:</label>
-                <input type="text" id="hair" name="hair" placeholder="Enter hair color">
-            </div>
-            <div>
-                <label for="eyes">Eyes:</label>
-                <input type="text" id="eyes" name="eyes" placeholder="Enter eye color">
-            </div>
-            <div>
-                <label for="residence">Residence:</label>
-                <input type="text" id="residence" name="residence" placeholder="Enter residence">
-            </div>
-            <div>
-                <label for="birthdate">Birthdate:</label>
-                <input type="text" id="birthdate" name="birthdate" placeholder="Enter birthdate">
-            </div>
-            <div>
-                <label for="descent">Descent:</label>
-                <input type="text" id="descent" name="descent" placeholder="Enter descent">
-            </div>
-            <div>
-                <label for="height">Height:</label>
-                <input type="text" id="height" name="height" placeholder="Enter height">
-            </div>
-            
-            <!-- Subject Checkboxes -->
-            <fieldset>
-                <legend>Subject Information:</legend>
-                <div class="checkbox-container">
-                    <label><input type="checkbox" name="cb" value="loiterer"> Loiterer</label>
-                    <label><input type="checkbox" name="cb" value="prowler"> Prowler</label>
-                    <label><input type="checkbox" name="cb" value="homeless"> Homeless</label>
-                    <label><input type="checkbox" name="cb" value="witness"> Witness</label>
-                    <label><input type="checkbox" name="cb" value="gangActivity"> Gang Activity</label>
-                    <label><input type="checkbox" name="cb" value="hasRecord"> Has Record</label>
-                    <label><input type="checkbox" name="cb" value="onParole"> On Parole</label>
-                    <label><input type="checkbox" name="cb" value="onProbation"> On Probation</label>
-                    <label><input type="checkbox" name="cb" value="driver"> Driver</label>
-                    <label><input type="checkbox" name="cb" value="passenger"> Passenger</label>
-                </div>
-            </fieldset>
-            
-            <!-- Vehicle Information -->
-            <h2>Vehicle Information</h2>
-            <div>
-                <label for="vehMake">Vehicle Make:</label>
-                <input type="text" id="vehMake" name="vehMake" placeholder="Enter vehicle make">
-            </div>
-            <div>
-                <label for="vehModel">Vehicle Model:</label>
-                <input type="text" id="vehModel" name="vehModel" placeholder="Enter vehicle model">
-            </div>
-            <div>
-                <label for="vehType">Vehicle Type:</label>
-                <input type="text" id="vehType" name="vehType" placeholder="Enter vehicle type">
-            </div>
-            <div>
-                <label for="vehColor">Vehicle Color:</label>
-                <input type="text" id="vehColor" name="vehColor" placeholder="Enter vehicle color">
-            </div>
-            
-            <fieldset>
-                <legend>Vehicle Features:</legend>
-                <div class="checkbox-container">
-                    <label><input type="checkbox" name="cb" value="bucketSeat"> Bucket Seat</label>
-                    <label><input type="checkbox" name="cb" value="damagedInside"> Damaged Inside</label>
-                    <label><input type="checkbox" name="cb" value="customWheels"> Custom Wheels</label>
-                    <label><input type="checkbox" name="cb" value="paintedMural"> Painted Mural</label>
-                    <label><input type="checkbox" name="cb" value="levelAlter"> Level Alteration</label>
-                    <label><input type="checkbox" name="cb" value="rustPrimer"> Rust / Primer</label>
-                    <label><input type="checkbox" name="cb" value="customPaint"> Custom Paint</label>
-                    <label><input type="checkbox" name="cb" value="vinylTop"> Vinyl Top</label>
-                </div>
-            </fieldset>            
-            
-            <h2>Field Interview Card (Back)</h2>
-            
-            <div id="subjectContainer">
-                <!-- Subject fields will be added here dynamically -->
-            </div>
-            <button type="button" id="addSubject">Add Subject</button>
-            
-            <div>
-                <label for="additionalInfo">Additional Info / Narrative:</label>
-                <textarea id="additionalInfo" name="additionalInfo" placeholder="Enter additional details"></textarea>
-            </div>
-            <div>
-                <label for="officer">Officer:</label>
-                <input type="text" id="officer" name="officer" placeholder="Enter officer name">
-            </div>
-            <div>
-                <label for="serialNo">Serial No.:</label>
-                <input type="text" id="serialNo" name="serialNo" placeholder="Enter serial number">
-            </div>
-            <div>
-                <label for="callsign">Callsign:</label>
-                <input type="text" id="callsign" name="callsign" placeholder="Enter callsign">
-            </div>
-            <div>
-                <label for="incidentNo">Incident No.:</label>
-                <input type="text" id="incidentNo" name="incidentNo" placeholder="Enter incident number">
-            </div>
-            <div>
-                <label for="division">Division:</label>
-                <input type="text" id="division" name="division" placeholder="Enter division">
-            </div>
-            <div>
-                <label for="detail">Detail:</label>
-                <input type="text" id="detail" name="detail" placeholder="Enter detail">
-            </div>
-            <div>
-                <label for="supervisor">Supervisor Initials:</label>
-                <input type="text" id="supervisor" name="supervisor" placeholder="Enter supervisor initials">
-            </div>
-            
-            <button type="submit">Generate BBCode</button>
-        </form>
-
-        <!-- Output Area -->
-        <div id="bbcodeOutput">
-            <h2>Generated BBCode:</h2>
-            <pre id="bbcodeText"></pre>
-        </div>
-    </div>
-
-    <script src="fi-card.js"></script> <!-- Link to JavaScript file -->
+        <label for="field21">SEX (M/F/O):</label>
+        <input type="text" id="field21">
+        
+        <label for="field22">GANG / MONIKER:</label>
+        <input type="text" id="field22">
+      </fieldset>
+      
+      <fieldset>
+        <legend>Person 2</legend>
+        <label for="field23">NAME (FIRST, MIDDLE, LAST):</label>
+        <input type="text" id="field23">
+        
+        <label for="field24">D.O.B:</label>
+        <input type="text" id="field24">
+        
+        <label for="field25">SEX (M/F/O):</label>
+        <input type="text" id="field25">
+        
+        <label for="field26">GANG / MONIKER:</label>
+        <input type="text" id="field26">
+      </fieldset>
+      
+      <label for="field27">ADDITIONAL INFO / NARRATIVE / INFORMATION:</label>
+      <textarea id="field27" rows="3"></textarea>
+      
+      <label for="field28">DATE:</label>
+      <input type="text" id="field28">
+      
+      <label for="field29">TIME:</label>
+      <input type="text" id="field29">
+      
+      <label for="field30">LOCATION:</label>
+      <input type="text" id="field30">
+      
+      <fieldset>
+        <legend>Officer 1</legend>
+        <label for="field31">OFFICER:</label>
+        <input type="text" id="field31">
+        
+        <label for="field32">SERIAL NO.:</label>
+        <input type="text" id="field32">
+      </fieldset>
+      
+      <fieldset>
+        <legend>Officer 2</legend>
+        <label for="field33">OFFICER:</label>
+        <input type="text" id="field33">
+        
+        <label for="field34">SERIAL NO.:</label>
+        <input type="text" id="field34">
+      </fieldset>
+      
+      <label for="field35">CALLSIGN:</label>
+      <input type="text" id="field35">
+      
+      <label for="field36">INCIDENT NO.:</label>
+      <input type="text" id="field36">
+      
+      <label for="field37">DIVISION:</label>
+      <input type="text" id="field37">
+      
+      <label for="field38">DETAIL:</label>
+      <input type="text" id="field38">
+      
+      <label for="field39">SUPV. INIT..:</label>
+      <input type="text" id="field39">
+      
+      <h2>Checkbox Options</h2>
+      
+      <fieldset>
+        <legend>Subject Info</legend>
+        <input type="checkbox" id="cb1">
+        <label for="cb1">LOITERER</label>
+        <input type="checkbox" id="cb2">
+        <label for="cb2">PROWLER</label>
+        
+        <input type="checkbox" id="cb3">
+        <label for="cb3">HOMELESS</label>
+        <input type="checkbox" id="cb4">
+        <label for="cb4">WITNESS</label>
+        
+        <input type="checkbox" id="cb5">
+        <label for="cb5">GANG ACTIVITY</label>
+        <input type="checkbox" id="cb6">
+        <label for="cb6">HAS RECORD</label>
+        
+        <input type="checkbox" id="cb7">
+        <label for="cb7">ON PAROLE</label>
+        <input type="checkbox" id="cb8">
+        <label for="cb8">ON PROBATION</label>
+        
+        <input type="checkbox" id="cb9">
+        <label for="cb9">DRIVER</label>
+        <input type="checkbox" id="cb10">
+        <label for="cb10">PASSENGER</label>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Vehicle Info</legend>
+        <input type="checkbox" id="cb11">
+        <label for="cb11">BUCKET SEAT</label>
+        <input type="checkbox" id="cb12">
+        <label for="cb12">DAMAGED INSIDE</label>
+        
+        <input type="checkbox" id="cb13">
+        <label for="cb13">CUSTOM WHEELS</label>
+        <input type="checkbox" id="cb14">
+        <label for="cb14">PAINTED MURAL</label>
+        
+        <input type="checkbox" id="cb15">
+        <label for="cb15">LEVEL ALTER</label>
+        <input type="checkbox" id="cb16">
+        <label for="cb16">RUST / PRIMER</label>
+        
+        <input type="checkbox" id="cb17">
+        <label for="cb17">CUSTOM PAINT</label>
+        <input type="checkbox" id="cb18">
+        <label for="cb18">VINYL TOP</label>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Body and Window Info</legend>
+        <!-- Body checkboxes -->
+        <input type="checkbox" id="cb19">
+        <label for="cb19">DAMAGE</label>
+        <input type="checkbox" id="cb20">
+        <label for="cb20">MODIFIED</label>
+        
+        <input type="checkbox" id="cb21">
+        <label for="cb21">STICKER</label>
+        
+        <input type="checkbox" id="cb22">
+        <label for="cb22">LEFT</label>
+        <input type="checkbox" id="cb23">
+        <label for="cb23">RIGHT</label>
+        
+        <input type="checkbox" id="cb24">
+        <label for="cb24">FRONT</label>
+        <input type="checkbox" id="cb25">
+        <label for="cb25">REAR</label>
+        
+        <!-- Window checkboxes -->
+        <input type="checkbox" id="cb26">
+        <label for="cb26">DAMAGE (Window)</label>
+        <input type="checkbox" id="cb27">
+        <label for="cb27">TINT</label>
+        
+        <input type="checkbox" id="cb28">
+        <label for="cb28">LEFT (Window)</label>
+        <input type="checkbox" id="cb29">
+        <label for="cb29">RIGHT (Window)</label>
+        
+        <input type="checkbox" id="cb30">
+        <label for="cb30">FRONT (Window)</label>
+        <input type="checkbox" id="cb31">
+        <label for="cb31">REAR (Window)</label>
+      </fieldset>
+      
+      <button type="submit">Generate BBCode</button>
+    </form>
+    
+    <h2>Generated BBCode</h2>
+    <pre id="bbcodeOutput"></pre>
+  </div>
+  
+  <script src="fi-card.js"></script>
 </body>
 </html>
