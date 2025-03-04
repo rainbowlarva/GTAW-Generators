@@ -55,19 +55,20 @@ textarea {
 /* Style checkboxes and labels */
 .checkbox-group {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column; /* Ensures checkboxes appear in a column */
+    gap: 8px;
+    padding: 5px;
 }
 
 .checkbox-group label {
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: 0.9rem;
+    gap: 8px;
+    font-size: 1rem; /* Slightly larger text */
 }
 
 input[type="checkbox"] {
-    transform: scale(1.2);
+    transform: scale(1.4); /* Makes checkboxes slightly larger */
     cursor: pointer;
 }
 
