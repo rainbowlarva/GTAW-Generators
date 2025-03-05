@@ -117,3 +117,10 @@ legend {
     font-weight: bold;
     color: white;
 }
+
+#propertyControls {
+    display: flex;
+    justify-content: space-between; /* 'Add' on left, 'Remove' on right */
+    gap: 10px; 
+    margin-bottom: 20px;
+}
