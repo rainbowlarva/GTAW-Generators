@@ -28,7 +28,7 @@ a {
   color: white;
   overflow: hidden; /* Prevent overflowing content */
   width: 100%;
-  padding-bottom: 05%;
+  padding-bottom: 5%;
 }
 
 .lspdlogo {
@@ -40,47 +40,41 @@ a {
   height: 300px;
 }
 
-.records-container {
-  display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 20px; /* Add space between buttons */
-  border: 1px solid #545454;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  background-color: #2b2b2b;
-}
-
-.mrd-container {
-  display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 20px; /* Add space between buttons */
-  border: 1px solid #545454;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  background-color: #2b2b2b;
-}
-
+/* 
+  CONTAINERS FOR BUTTONS 
+  - Gold outline (2px #E2B055)
+  - Wrap to next row after 4 buttons
+  - Auto-resize to fit content (width: fit-content) but max 860px wide
+  - Centered on the page with margin: 20px auto
+*/
+.records-container,
+.mrd-container,
 .ftp-container {
-  display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 20px; /* Add space between buttons */
-  border: 1px solid #545454;
+  display: flex;
+  flex-wrap: wrap;           /* Allows wrapping to multiple rows */
+  justify-content: center;   /* Center buttons horizontally */
+  gap: 20px;                 /* Spacing between buttons */
+  border: 2px solid #E2B055; /* Thicker gold border */
   border-radius: 5px;
-  margin-bottom: 15px;
-  margin-top: 15px;
   background-color: #2b2b2b;
+  
+  /* Auto-size, but stop after 4 buttons in a row (4 * 200px + 3 * 20px gap = 860px) */
+  width: fit-content;
+  max-width: 860px;
+  
+  margin: 20px auto; /* Center horizontally, add vertical spacing */
+  padding: 20px;     /* Internal padding around buttons */
 }
 
-/* Add some margin between rows */
+/* Add some margin between rows (if you have multiple .button-container divs) */
 .button-container + .button-container {
-  margin-top: 20px; /* Adjust the space between the first and second rows */
+  margin-top: 20px;
 }
 
+/* BUTTON STYLES */
 .image-button {
   transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
-  filter: grayscale(100%); /* Makes the image black and white */
+  filter: grayscale(100%);         /* Makes the image black and white */
 }
 
 .image-button:hover {
@@ -92,18 +86,18 @@ a {
   width: 200px;
   height: 208px;
   border: 2px solid black; /* Add a black border */
-  border-radius: 5px; /* Optional: Rounds the corners of the border */
+  border-radius: 5px;      /* Optional: Rounds the corners of the border */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 20px #6078FF; /* Black shadow on hover */
+  box-shadow: 0 0 20px #6078FF; /* Shadow on hover */
 }
 
 .image-button p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 200px; /* You can adjust this to control the width of the text */
+  white-space: normal; /* Allow text to wrap */
+  max-width: 200px;    /* Control the width of the text */
   transition: transform 0.3s ease; /* Smooth scale effect for the text */
 }
 
@@ -111,65 +105,66 @@ a {
   color: #DBDBDB;
 }
 
+/* Example "SWAT button" styling (remove if unused) */
 .swat-button {
-  width: 1000px; /* Set width to 1000px */
-  display: flex; /* Make sure it's a flex container to align the image and text */
-  flex-direction: column; /* Stack image and text vertically */
-  justify-content: center; /* Center the content vertically */
-  align-items: center; /* Center horizontally */
+  width: 1000px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .swat-button img {
-  width: 100%; /* Ensure the image scales to the width of the button */
-  max-width: 1000px; /* Prevent the image from becoming larger than the button */
-  height: auto; /* Keep the image's aspect ratio */
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
 }
 
 .swat-button p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
-  text-align: center; /* Center the text below the image */
-  margin-top: 10px; /* Add some space between image and text */
+  white-space: normal;
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .swat-button img:hover {
-  filter: grayscale(70%); /* Removes grayscale on hover */
+  filter: grayscale(70%);
 }
 
+/* Example "DB button" styling (remove if unused) */
 .db-button {
-  width: 1000px; /* Set width to 1000px */
-  display: flex; /* Make sure it's a flex container to align the image and text */
-  flex-direction: column; /* Stack image and text vertically */
-  justify-content: center; /* Center the content vertically */
-  align-items: center; /* Center horizontally */
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .db-button img {
-  width: 100%; /* Ensure the image scales to the width of the button */
-  max-width: 1000px; /* Prevent the image from becoming larger than the button */
-  height: auto; /* Keep the image's aspect ratio */
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
 }
 
 .db-button p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
-  text-align: center; /* Center the text below the image */
-  margin-top: 10px; /* Add some space between image and text */
+  white-space: normal;
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .db-button img:hover {
-  filter: grayscale(70%); /* Removes grayscale on hover */
+  filter: grayscale(70%);
 }
 
-/*DETECTIVES BUREAU PAGE*/
-
+/* DETECTIVES BUREAU PAGE */
 .db-container {
   display: flex;
-  flex-direction: column; /* Stack content vertically */
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Align items in the center */
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
   text-align: center;
   color: white;
   overflow: hidden;
@@ -179,12 +174,13 @@ a {
 
 .db-container p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
-  text-align: center; /* Center the text below the image */
-  margin-top: 10px; /* Add some space between image and text */
+  white-space: normal; 
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 10px;
 }
 
+/* Headings */
 h2 {
   color: #E2B055;
 }
