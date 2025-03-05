@@ -1,3 +1,4 @@
+// The exact text from after-action.txt as a multiline template.
 const afterActionTemplate = `[divbox=white][color=transparent]spacer[/color]
 
 [aligntable=right,0,0,15,0,0,transparent]LOS SANTOS POLICE DEPT.
@@ -127,11 +128,9 @@ function clearData() {
 
 /**
  * Generates BBCode from user input, displays it, and automatically highlights it.
+ * (No "event" argument because our button is type="button" and not triggering a form submit.)
  */
-function generateBBCode(event) {
-  // Prevent default form submission
-  event.preventDefault();
-
+function generateBBCode() {
   // Grab all inputs
   const reportNumber     = document.getElementById('reportNumber').value || 'XXX';
   const fullName         = document.getElementById('fullName').value || 'NAMEHERE';
@@ -183,7 +182,6 @@ function highlightBBCode() {
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
-  // Now the text is highlighted; user can press Ctrl + C (or Cmd + C).
 }
 
 /**
@@ -217,16 +215,4 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('input', saveData);
     }
   });
-
-  // 4) Handle form submission -> generate BBCode
-  const form = document.getElementById('afterActionForm');
-  if (form) {
-    form.addEventListener('submit', generateBBCode);
-  }
-
-  // 5) Handle "Clear" button
-  const clearButton = document.getElementById('clearButton');
-  if (clearButton) {
-    clearButton.addEventListener('click', clearData);
-  }
 });
