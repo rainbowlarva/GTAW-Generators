@@ -11,6 +11,7 @@ html, body {
 
 .background {
   background-color: #2A2E33;
+  background-image: url('ls.png');
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -49,7 +50,11 @@ a {
 */
 .records-container,
 .mrd-container,
-.ftp-container {
+.ftp-container,
+.traffic-container,
+.ged-container,
+.metro-container
+ {
   display: flex;
   flex-wrap: wrap;           /* Allows wrapping to multiple rows */
   justify-content: center;   /* Center buttons horizontally */
