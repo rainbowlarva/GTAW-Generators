@@ -34,6 +34,7 @@ a {
 .lspdlogo {
   display: flex; /* Use flexbox to arrange images in a row */
   justify-content: center; /* Center the buttons horizontally */
+  align-items: center;
   gap: 20px; /* Add space between buttons */
   width: 200px;
   height: 200px;
