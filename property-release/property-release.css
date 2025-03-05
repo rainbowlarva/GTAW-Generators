@@ -68,7 +68,7 @@ button {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
-    background-color: #0C7A87; /* Same teal as in uof.css */
+    background-color: #0C7A87; /* Teal */
     color: white;
     border: none;
     border-radius: 5px;
@@ -127,6 +127,7 @@ legend {
     margin-top: -6%;
 }
 
+/* The dynamic property row with 3 inputs side by side */
 .property-entry {
     display: flex;        /* place the inputs side by side */
     gap: 10px;            /* horizontal gap between inputs */
@@ -138,6 +139,20 @@ legend {
     min-width: 0;         /* avoid overflow issues in very narrow screens */
 }
 
-.property-entry input:not(:last-child) {
-    margin-right: -5px; /* horizontal gap between input boxes */
+/* The Clear button (red) */
+.clear-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #E73E3B; /* bright red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 4%;
+}
+
+.clear-button:hover {
+    background-color: #B8322F; /* darker shade of red on hover */
 }
