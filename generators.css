@@ -50,9 +50,8 @@ a {
 
 .mrdlogo {
   display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
-  align-items: center;
   gap: 20px; /* Add space between buttons */
+  align-items: center;
   width: 300px;
   height: 167px;
 }
