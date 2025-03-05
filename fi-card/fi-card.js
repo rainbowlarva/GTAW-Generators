@@ -7,10 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function clearData() {
       localStorage.clear(); // Clears all saved data
       document.querySelectorAll('input, textarea').forEach(input => input.value = ''); // Clears all text fields
-      document.getElementById('cb').innerHTML = ''; // Clears the employee list
-      document.getElementById('checkbox-container vehicle-info').innerHTML = ''; // Clears the employee list
-      document.getElementById('checkbox-container body-info').innerHTML = ''; // Clears the employee list
-      document.getElementById('checkbox-container window-info').innerHTML = ''; // Clears the employee list
   }
 
   // Attach the clearData function to the button
