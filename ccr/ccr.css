@@ -47,6 +47,10 @@ input, textarea {
     resize: none;
 }
 
+::placeholder {
+    color: #CECECE;
+}
+
 button {
     width: 101%;
     padding: 10px;
