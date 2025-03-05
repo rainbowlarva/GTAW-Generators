@@ -1,3 +1,21 @@
+// Wait for DOM to load before attaching event listeners
+document.addEventListener('DOMContentLoaded', function () {
+    // Select the Clear button
+    const clearButton = document.getElementById('clearButton');
+
+    // Function to clear all form fields and LocalStorage
+    function clearData() {
+        localStorage.clear(); // Clears all saved data
+        document.querySelectorAll('input, textarea').forEach(input => input.value = ''); // Clears all text fields
+        document.getElementById('employeeList').innerHTML = ''; // Clears the employee list
+    }
+
+    // Attach the clearData function to the button
+    if (clearButton) {
+        clearButton.addEventListener('click', clearData);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     // Function to auto-resize textareas
     function autoResizeTextarea(event) {
@@ -52,13 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const employeeList = document.getElementById('employeeList');
         employeeList.innerHTML = ''; // Clear existing list
         employees.forEach(name => addEmployee(name));
-    }
-
-    // Function to clear all form fields and localStorage
-    function clearData() {
-        localStorage.clear();
-        document.querySelectorAll('input, textarea').forEach(input => input.value = '');
-        document.getElementById('employeeList').innerHTML = '';
     }
 
     // Add event listeners to save data
