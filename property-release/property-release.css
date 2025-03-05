@@ -126,9 +126,15 @@ legend {
     margin-bottom: 20px;
 }
 
-/* Give a small gap between the three input boxes in each property row */
 .property-entry {
-    margin-bottom: 10px; /* vertical space between property rows */
+    display: flex;        /* place the inputs side by side */
+    gap: 10px;            /* horizontal gap between inputs */
+    margin-bottom: 10px;  /* small vertical space between rows */
+}
+
+.property-entry input {
+    flex: 1;              /* each input flexes to share the row evenly */
+    min-width: 0;         /* avoid overflow issues in very narrow screens */
 }
 
 .property-entry input:not(:last-child) {
