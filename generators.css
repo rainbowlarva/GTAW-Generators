@@ -41,14 +41,18 @@ a {
   margin: 10px;
 }
 
-.lslogo,
-.ftplogo,
-.traflogo,
-.gedlogo {
+.lslogo {
   display: flex; /* Use flexbox to arrange images in a row */
   justify-content: center; /* Center the buttons horizontally */
   align-items: center;
   gap: 20px; /* Add space between buttons */
+  width: 300px;
+  height: 300px;
+}
+
+.ftplogo,
+.traflogo,
+.gedlog {
   width: 300px;
   height: 300px;
 }
