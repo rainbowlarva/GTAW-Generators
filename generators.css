@@ -11,9 +11,10 @@ html, body {
 
 .background {
   background-color: #2A2E33;
-  background-image: url('ls.png');
+  background-image: url('lspd2.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: 900px 900px;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -34,7 +35,7 @@ a {
   padding-bottom: 5%;
 }
 
-.lspdlogo {
+.lslogo {
   display: flex; /* Use flexbox to arrange images in a row */
   justify-content: center; /* Center the buttons horizontally */
   align-items: center;
