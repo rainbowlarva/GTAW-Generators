@@ -11,76 +11,61 @@
     <a href="https://rainbowlarva.github.io/GTAW-Generators/">
         <img src="../arrow.png" alt="Back" class="back-button">
     </a>
+
     <form id="bbcodeForm" onsubmit="generateBBCode(); return false;">
-      
+
       <h2>Transfer Information</h2>
+      <!-- Basic Fields (1..8) -->
       <label for="field1">Release authorization by:</label>
       <input type="text" id="field1" placeholder="Officer authorizing the release.">
-      
+
       <label for="field2">Serial number:</label>
       <input type="text" id="field2" placeholder="Officer's serial number.">
-      
+
       <label for="field3">Division / Assignment:</label>
       <input type="text" id="field3" placeholder="Officer's division / assignment.">
-      
+
       <label for="field4">Person receiving property:</label>
-      <input type="text" id="field4" placeholder="Subject receiving the property">
-      
+      <input type="text" id="field4" placeholder="Subject receiving the property.">
+
       <label for="field5">Agency:</label>
-      <input type="text" id="field5" placeholder="Subject's agency (if applicable)">
-      
+      <input type="text" id="field5" placeholder="Subject's agency (if applicable).">
+
       <label for="field6">Serial number (Agency):</label>
-      <input type="text" id="field6" placeholder="Subject's serial number (if applicable)">
-      
+      <input type="text" id="field6" placeholder="Subject's serial number (if applicable).">
+
       <label for="field7">Date released:</label>
-      <input type="text" id="field7" placeholder="Date the property was released">
-      
+      <input type="text" id="field7" placeholder="Date the property was released.">
+
+      <label for="field8">Reason for transfer:</label>
+      <input type="text" id="field8" placeholder="Evidence exchange / destruction / indexing, etc.">
+
       <h2>Court Information</h2>
-      <label for="field8">CASE OF PEOPLE VS.:</label>
-      <input type="text" id="field8" placeholder="Enter the court case (if applicable)">
-      
-      <label for="field9">Received by (Court Clerk):</label>
-      <input type="text" id="field9" placeholder="Court clerk receiving the property (if applicable)">
-      
+      <!-- Basic Fields (9..10) -->
+      <label for="field9">CASE OF PEOPLE VS.:</label>
+      <input type="text" id="field9" placeholder="Enter the court case (if applicable).">
+
+      <label for="field10">Received by (Court Clerk):</label>
+      <input type="text" id="field10" placeholder="Court clerk receiving the property (if applicable).">
+
       <h2>Items to Transfer</h2>
-      
-      <h3>ITEM 1</h3>
-      <label for="field10">EL NO.:</label>
-      <input type="text" id="field10" placeholder="Evidence locker entry number.">
-      
-      <label for="field11">Description of Article:</label>
-      <input type="text" id="field11" placeholder="Descrption of the property being released.">
-      
-      <label for="field12">Quantity:</label>
-      <input type="text" id="field12" placeholder="Quantity of the item being released.">
-      
-      <h3>ITEM 2</h3>
-      <label for="field13">EL NO.:</label>
-      <input type="text" id="field13" placeholder="Evidence locker entry number.">
-      
-      <label for="field14">Description of Article:</label>
-      <input type="text" id="field14" placeholder="Descrption of the property being released.">
-      
-      <label for="field15">Quantity:</label>
-      <input type="text" id="field15" placeholder="Quantity of the item being released.">
-      
-      <h3>ITEM 3</h3>
-      <label for="field16">EL NO.:</label>
-      <input type="text" id="field16" placeholder="Evidence locker entry number.">
-      
-      <label for="field17">Description of Article:</label>
-      <input type="text" id="field17" placeholder="Descrption of the property being released.">
-      
-      <label for="field18">Quantity:</label>
-      <input type="text" id="field18" placeholder="Quantity of the item being released.">
-      
+
+      <!-- The dynamic list of evidence items will go here -->
+      <div id="evidenceList"></div>
+
+      <!-- Buttons to add or remove evidence items side by side -->
+      <div id="evidenceControls">
+        <button type="button" id="addEvidence">Add Evidence</button>
+        <button type="button" id="removeEvidence">Remove Evidence</button>
+      </div>
+
       <button type="submit">Generate BBCode</button>
     </form>
-    
+
     <h2>Generated BBCode</h2>
     <pre id="bbcodeOutput"></pre>
   </div>
-  
+
   <script src="property-release.js"></script>
 </body>
 </html>
