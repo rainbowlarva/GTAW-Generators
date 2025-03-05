@@ -5,12 +5,12 @@ function autoResizeTextarea(event) {
     textarea.style.height = 'auto';
     // Set the height to the scrollHeight of the textarea to expand as needed
     textarea.style.height = textarea.scrollHeight + 'px';
-  }
-  
-  // Attach the event listener to both the narrative and evidence textareas
-  document.getElementById('narrative').addEventListener('input', autoResizeTextarea);
-  document.getElementById('evidence').addEventListener('input', autoResizeTextarea);
-  
+}
+
+// Attach the event listener to both the narrative and evidence textareas
+document.getElementById('narrative').addEventListener('input', autoResizeTextarea);
+document.getElementById('evidence').addEventListener('input', autoResizeTextarea);
+
 // Save data to localStorage when user types in the fields
 function saveData() {
     localStorage.setItem('fullName', document.getElementById('fullName').value);
@@ -63,6 +63,12 @@ function clearData() {
     document.getElementById('casings').value = '';
     document.getElementById('narrative').value = '';
     document.getElementById('evidence').value = '';
+    
+    // Also clear the displayed BBCode text, if any
+    const bbcodeText = document.getElementById('bbcodeText');
+    if (bbcodeText) {
+        bbcodeText.textContent = '';
+    }
 }
 
 // Add event listeners to save data when user types in the fields
@@ -81,11 +87,12 @@ document.getElementById('evidence').addEventListener('input', saveData);
 window.onload = loadData;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the form and output elements
+    // Get the form, output elements, and the clear button
     const form = document.getElementById('ccrForm');
     const bbcodeText = document.getElementById('bbcodeText');
+    const clearButton = document.getElementById('clearButton');
 
-    // Add event listener for form submission
+    // Add event listener for form submission (Generate BBCode)
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting normally
 
@@ -157,4 +164,9 @@ ${evidence}
         selection.removeAllRanges();
         selection.addRange(range);
     });
+
+    // Attach the clear button event
+    if (clearButton) {
+        clearButton.addEventListener('click', clearData);
+    }
 });
