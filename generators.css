@@ -40,7 +40,29 @@ a {
   height: 300px;
 }
 
-.button-container {
+.records-container {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add space between buttons */
+  border: 1px solid #545454;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background-color: #2b2b2b;
+}
+
+.mrd-container {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add space between buttons */
+  border: 1px solid #545454;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background-color: #2b2b2b;
+}
+
+.ftp-container {
   display: flex; /* Use flexbox to arrange images in a row */
   justify-content: center; /* Center the buttons horizontally */
   gap: 20px; /* Add space between buttons */
