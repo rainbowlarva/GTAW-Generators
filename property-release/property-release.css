@@ -35,9 +35,9 @@ form div {
 /* Labels above inputs */
 label {
     font-size: 1rem;
-    margin-bottom: 5px; /* small gap between label and input */
     color: white;
     display: block;
+    margin-top: 2%;
 }
 
 /* Inputs & Textareas */
