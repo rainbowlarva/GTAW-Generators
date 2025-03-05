@@ -31,6 +31,14 @@ a {
   padding-bottom: 05%;
 }
 
+.lspdlogo {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add space between buttons */
+  width: 200px;
+  height: 200px;
+}
+
 .button-container {
   display: flex; /* Use flexbox to arrange images in a row */
   justify-content: center; /* Center the buttons horizontally */
@@ -61,7 +69,7 @@ a {
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 20px #262626; /* Black shadow on hover */
+  box-shadow: 0 0 20px #6078FF; /* Black shadow on hover */
 }
 
 .image-button p {
@@ -126,6 +134,8 @@ a {
 .db-button img:hover {
   filter: grayscale(70%); /* Removes grayscale on hover */
 }
+
+/*DETECTIVES BUREAU PAGE*/
 
 .db-container {
   display: flex;
