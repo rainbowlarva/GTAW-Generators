@@ -8,7 +8,7 @@ body {
     width: 80%;
     max-width: 800px;
     margin: 0 auto;
-    background-color: #3D3D3D;
+    background-color: #2A2E33;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -37,11 +37,16 @@ label {
     color: white;
 }
 
+::placeholder {
+    color: #CECECE;
+}
+
 input, textarea {
     width: 100%;
     padding: 05px;
     font-size: 1rem;
     border: 1px solid #545454;
+    background-color: #5D6770;
     border-radius: 5px;
     resize: none;
 }
@@ -50,15 +55,16 @@ button {
     width: 100%; /* Adjusted width to take full width of form */
     padding: 10px;
     font-size: 1rem;
-    background-color: #4CAF50;
+    background-color: #10B7CC;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0A4C54;
 }
 
 #bbcodeOutput {
