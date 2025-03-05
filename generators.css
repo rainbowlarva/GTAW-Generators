@@ -15,8 +15,7 @@ html, body {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 
 a {
@@ -28,83 +27,76 @@ a {
   color: white;
   overflow: hidden; /* Prevent overflowing content */
   width: 100%;
-  padding-bottom: 05%;
+  padding-bottom: 5%;
+}
+
+/* Header styling: Overlap the container border */
+.prdcontainer > h2 {
+  background-color: #2b2b2b;
+  display: inline-block;
+  padding: 0 10px;
+  margin-bottom: -10px; /* Overlap the container’s top border */
+  position: relative;
+  z-index: 1;
+  color: #E2B055;
 }
 
 .lspdlogo {
-  display: flex; /* Use flexbox to arrange images in a row */
+  display: flex; /* Arrange images in a row */
   justify-content: center; /* Center the buttons horizontally */
   align-items: center;
-  gap: 20px; /* Add space between buttons */
+  gap: 20px; /* Space between buttons */
   width: 300px;
   height: 300px;
 }
 
-.records-container {
-  display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 20px; /* Add space between buttons */
-  border: 1px solid #545454;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  background-color: #2b2b2b;
-}
-
-.mrd-container {
-  display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 20px; /* Add space between buttons */
-  border: 1px solid #545454;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  background-color: #2b2b2b;
-}
-
+/* Updated container styling for dynamic sizing and enhanced border */
+.records-container,
+.mrd-container,
 .ftp-container {
-  display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 20px; /* Add space between buttons */
-  border: 1px solid #545454;
+  display: inline-flex; /* Container width adjusts to content */
+  justify-content: center;
+  gap: 20px;
+  border: 2px solid #E2B055; /* Thicker, more visible border */
+  border-top: none; /* Remove top border so header can overlap */
   border-radius: 5px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin: 20px auto; /* Center container horizontally with vertical spacing */
   background-color: #2b2b2b;
+  padding: 20px;
 }
 
 /* Add some margin between rows */
 .button-container + .button-container {
-  margin-top: 20px; /* Adjust the space between the first and second rows */
+  margin-top: 20px; /* Adjust space between rows if used */
 }
 
 .image-button {
-  transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
-  filter: grayscale(100%); /* Makes the image black and white */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  filter: grayscale(100%); /* Make image black and white */
 }
 
 .image-button:hover {
-  transform: scale(1.1); /* Scale both the image and text */
-  filter: grayscale(0%); /* Removes grayscale on hover */
+  transform: scale(1.1); /* Scale image and text */
+  filter: grayscale(0%); /* Remove grayscale on hover */
 }
 
 .image-button img {
   width: 200px;
   height: 208px;
-  border: 2px solid black; /* Add a black border */
-  border-radius: 5px; /* Optional: Rounds the corners of the border */
+  border: 2px solid black; /* Black border around image */
+  border-radius: 5px; /* Rounded corners */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 20px #6078FF; /* Black shadow on hover */
+  box-shadow: 0 0 20px #6078FF; /* Shadow on hover */
 }
 
 .image-button p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 200px; /* You can adjust this to control the width of the text */
-  transition: transform 0.3s ease; /* Smooth scale effect for the text */
+  white-space: normal; /* Allow text to wrap */
+  max-width: 200px; /* Control text width */
+  transition: transform 0.3s ease; /* Smooth scale effect for text */
 }
 
 .image-button:hover p {
@@ -112,64 +104,63 @@ a {
 }
 
 .swat-button {
-  width: 1000px; /* Set width to 1000px */
-  display: flex; /* Make sure it's a flex container to align the image and text */
+  width: 1000px; /* Set width */
+  display: flex;
   flex-direction: column; /* Stack image and text vertically */
-  justify-content: center; /* Center the content vertically */
-  align-items: center; /* Center horizontally */
+  justify-content: center;
+  align-items: center;
 }
 
 .swat-button img {
-  width: 100%; /* Ensure the image scales to the width of the button */
-  max-width: 1000px; /* Prevent the image from becoming larger than the button */
-  height: auto; /* Keep the image's aspect ratio */
+  width: 100%; /* Scale image to button width */
+  max-width: 1000px; /* Prevent image from exceeding button size */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .swat-button p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
-  text-align: center; /* Center the text below the image */
-  margin-top: 10px; /* Add some space between image and text */
+  white-space: normal;
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 10px; /* Space between image and text */
 }
 
 .swat-button img:hover {
-  filter: grayscale(70%); /* Removes grayscale on hover */
+  filter: grayscale(70%);
 }
 
 .db-button {
-  width: 1000px; /* Set width to 1000px */
-  display: flex; /* Make sure it's a flex container to align the image and text */
-  flex-direction: column; /* Stack image and text vertically */
-  justify-content: center; /* Center the content vertically */
-  align-items: center; /* Center horizontally */
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .db-button img {
-  width: 100%; /* Ensure the image scales to the width of the button */
-  max-width: 1000px; /* Prevent the image from becoming larger than the button */
-  height: auto; /* Keep the image's aspect ratio */
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
 }
 
 .db-button p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
-  text-align: center; /* Center the text below the image */
-  margin-top: 10px; /* Add some space between image and text */
+  white-space: normal;
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .db-button img:hover {
-  filter: grayscale(70%); /* Removes grayscale on hover */
+  filter: grayscale(70%);
 }
 
-/*DETECTIVES BUREAU PAGE*/
-
+/* DETECTIVES BUREAU PAGE */
 .db-container {
   display: flex;
-  flex-direction: column; /* Stack content vertically */
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Align items in the center */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: white;
   overflow: hidden;
@@ -179,12 +170,13 @@ a {
 
 .db-container p {
   color: white;
-  white-space: normal; /* Allow the text to wrap */
-  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
-  text-align: center; /* Center the text below the image */
-  margin-top: 10px; /* Add some space between image and text */
+  white-space: normal;
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 h2 {
+  /* Fallback styling; headers in .prdcontainer use the more specific rule above */
   color: #E2B055;
 }
