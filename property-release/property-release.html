@@ -13,7 +13,6 @@
     </a>
 
     <form id="propertyForm" onsubmit="generateBBCode(); return false;">
-
       <h2>Transfer Information</h2>
       <!-- Fields 1..8 -->
       <label for="field1">Release authorization by:</label>
@@ -49,18 +48,17 @@
       <input type="text" id="field10" placeholder="Court clerk receiving the property (if applicable).">
 
       <h2>Items to Transfer</h2>
-      <!-- Dynamic property items go here -->
       <div id="propertyList"></div>
 
-      <!-- Two side-by-side buttons to add/remove property -->
       <div id="propertyControls">
         <button type="button" id="addProperty">Add Property</button>
         <button type="button" id="removeProperty">Remove Property</button>
       </div>
 
-      <!-- NEW Clear button (red), above the Generate BBCode button -->
+      <!-- The CLEAR button (red) -->
       <button type="button" id="clearButton" class="clear-button">Clear</button>
 
+      <!-- The Generate button (teal) -->
       <button type="submit">Generate BBCode</button>
     </form>
 
