@@ -49,6 +49,7 @@ input, textarea {
     background-color: #5D6770;
     border-radius: 5px;
     resize: none;
+    color: white;
 }
 
 button {
