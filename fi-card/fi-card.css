@@ -120,7 +120,7 @@ textarea::placeholder {
     display: none;
 }
 
-/* Style the label as a clickable button */
+/* Base, unchecked label state */
 .checkbox-container label {
     display: flex;
     align-items: center;
@@ -139,23 +139,25 @@ textarea::placeholder {
     -ms-user-select: none;
 }
 
-/* Hover effect for unchecked state */
+/* Hover for unchecked boxes => lighter teal */
 .checkbox-container label:hover {
-    background-color: #555;
+    background-color: #10B7CC;
+    border-color: #10B7CC;
     transform: scale(1.05);
 }
 
-/* Checked (active) state - teal color scheme */
+/* Checked state => darker teal, no highlight on hover */
 .checkbox-container input[type="checkbox"]:checked + label {
-    background-color: #10B7CC; /* Teal */
-    border-color: #10B7CC;
+    background-color: #0A4C54;
+    border-color: #0A4C54;
     color: white;
 }
 
-/* Hover effect when checked */
+/* When already checked, no hover effect => keep the same color */
 .checkbox-container input[type="checkbox"]:checked + label:hover {
     background-color: #0A4C54;
     border-color: #0A4C54;
+    transform: none;
 }
 
 /* Specific container classes for layout */
