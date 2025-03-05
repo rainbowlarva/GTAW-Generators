@@ -12,6 +12,8 @@ html, body {
 .background {
   background-color: #2A2E33;
   background-image: url('ls.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
