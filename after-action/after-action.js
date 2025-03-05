@@ -1,13 +1,3 @@
-/*****************************************************
- * AFTER ACTION JS - WITH EXTRA FEATURES
- * 1) Auto-resize textareas
- * 2) Save/load data from localStorage
- * 3) Clear data
- * 4) Auto-copy BBCode upon generation
- *****************************************************/
-
-// The exact text from after-action.txt as a multiline template.
-// Keep all line breaks & spacing exactly as in the file.
 const afterActionTemplate = `[divbox=white][color=transparent]spacer[/color]
 
 [aligntable=right,0,0,15,0,0,transparent]LOS SANTOS POLICE DEPT.
@@ -61,7 +51,6 @@ LOS SANTOS
 
 /**
  * Auto-resize textarea as user types.
- * Resets height to auto, then sets it to the scrollHeight.
  */
 function autoResizeTextarea(event) {
   const textarea = event.target;
@@ -137,11 +126,11 @@ function clearData() {
 }
 
 /**
- * Generates BBCode from user input, displays it, and auto-copies it.
+ * Generates BBCode from user input, displays it, and automatically highlights it.
  */
 function generateBBCode(event) {
-  // Prevent default form submission (if triggered by <button type="submit">)
-  if (event) event.preventDefault();
+  // Prevent default form submission
+  event.preventDefault();
 
   // Grab all inputs
   const reportNumber     = document.getElementById('reportNumber').value || 'XXX';
@@ -158,7 +147,7 @@ function generateBBCode(event) {
   // Make a copy of the template
   let finalText = afterActionTemplate;
 
-  // Replace placeholders carefully to preserve line breaks/spaces
+  // Replace placeholders
   finalText = finalText.replace('AFTER ACTION REPORT #XXX', `AFTER ACTION REPORT #${reportNumber}`);
   finalText = finalText.replace('[b]Full name:[/b] NAMEHERE', `[b]Full name:[/b] ${fullName}`);
   finalText = finalText.replace('[b]Departmental rank:[/b] NAMEHERE', `[b]Departmental rank:[/b] ${departmentalRank}`);
@@ -167,6 +156,8 @@ function generateBBCode(event) {
   finalText = finalText.replace('[b]Time and date:[/b] NAMEHERE', `[b]Time and date:[/b] ${timeDate}`);
   finalText = finalText.replace('[b]Street:[/b] NAMEHERE', `[b]Street:[/b] ${street}`);
   finalText = finalText.replace('[b]Area:[/b] NAMEHERE', `[b]Area:[/b] ${area}`);
+
+  // Narrative & Extra Details
   finalText = finalText.replace('\n NAMEHERE\n\n[hr][/hr]', `\n ${narrative}\n\n[hr][/hr]`);
   finalText = finalText.replace('\n NAMEHERE[/indent]', `\n ${extraDetails}[/indent]`);
 
@@ -176,59 +167,46 @@ function generateBBCode(event) {
     bbcodeOutput.innerHTML = `<pre>${finalText}</pre>`;
   }
 
-  // Auto-copy the generated BBCode
-  autoCopyBBCode();
+  // Automatically highlight the BBCode so user can press Ctrl+C
+  highlightBBCode();
 }
 
 /**
- * Automatically selects and copies the generated BBCode to clipboard.
+ * Selects (highlights) the generated BBCode, so user can manually copy.
  */
-function autoCopyBBCode() {
+function highlightBBCode() {
   const codeElement = document.querySelector('#bbcodeOutput pre');
-  if (!codeElement) return; // No code to copy yet
+  if (!codeElement) return;
 
-  // Select the text inside the <pre>
   const range = document.createRange();
   range.selectNodeContents(codeElement);
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
-
-  // Attempt to copy
-  try {
-    document.execCommand('copy');
-    // Modern approach (uncomment if needed):
-    // navigator.clipboard.writeText(codeElement.innerText);
-    alert('BBCode has been copied to your clipboard!');
-  } catch (err) {
-    console.warn('Copy failed: ', err);
-  }
+  // Now the text is highlighted; user can press Ctrl + C (or Cmd + C).
 }
 
 /**
- * Initialize the page:
- * - Load data from localStorage
- * - Attach event listeners for auto-resizing, saving, clearing, etc.
+ * Initialize everything on DOMContentLoaded.
  */
 document.addEventListener('DOMContentLoaded', () => {
   // 1) Load data from localStorage
   loadData();
 
-  // 2) Auto-resize textareas: attach to any multi-line fields
+  // 2) Auto-resize textareas
   const textareasToAutoResize = ['otherOfficers', 'narrative', 'extraDetails'];
   textareasToAutoResize.forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      // Resize immediately on page load
+      // Resize on load
       el.style.height = 'auto';
       el.style.height = el.scrollHeight + 'px';
-
       // Listen for input changes
       el.addEventListener('input', autoResizeTextarea);
     }
   });
 
-  // 3) Save data on input for all relevant fields
+  // 3) Save data on input
   const fieldsToSave = [
     'reportNumber', 'fullName', 'departmentalRank', 'badgeNumber',
     'otherOfficers', 'timeDate', 'street', 'area', 'narrative', 'extraDetails'
