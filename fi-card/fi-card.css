@@ -103,11 +103,12 @@ legend {
 }
 
 /* Style placeholders for input fields */
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: #bbb;
 }
 
-/* Checkbox Styling as Button */
+/* Checkbox containers (grid layout) */
 .checkbox-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -125,33 +126,44 @@ input::placeholder, textarea::placeholder {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: 2px solid white;
+    border: 2px solid #444;
     border-radius: 5px;
     background-color: #444;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.1rem;
+    /* Prevent text from being highlighted */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
-/* Mouseover highlight and slight expansion */
+/* Hover effect for unchecked state */
 .checkbox-container label:hover {
     background-color: #555;
     transform: scale(1.05);
 }
 
-/* When the hidden checkbox is checked, style the adjacent label as green */
+/* Checked (active) state - teal color scheme */
 .checkbox-container input[type="checkbox"]:checked + label {
-    background-color: #4CAF50;
-    border-color: #4CAF50;
+    background-color: #10B7CC; /* Teal */
+    border-color: #10B7CC;
     color: white;
 }
 
+/* Hover effect when checked */
+.checkbox-container input[type="checkbox"]:checked + label:hover {
+    background-color: #0A4C54;
+    border-color: #0A4C54;
+}
+
+/* Specific container classes for layout */
 .checkbox-container.subject-info {
     grid-template-columns: repeat(5, 1fr);
 }
 
 .checkbox-container.vehicle-info {
-    /* Force four columns */
     grid-template-columns: repeat(4, 1fr);
 }
 
@@ -161,4 +173,4 @@ input::placeholder, textarea::placeholder {
 
 .checkbox-container.window-info {
     grid-template-columns: repeat(3, 1fr);
-  }
+}
