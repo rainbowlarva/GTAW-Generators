@@ -157,3 +157,7 @@ a {
   text-align: center; /* Center the text below the image */
   margin-top: 10px; /* Add some space between image and text */
 }
+
+h2 {
+  color: #003060;
+}
