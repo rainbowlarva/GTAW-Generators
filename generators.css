@@ -54,9 +54,9 @@ a {
   flex-wrap: wrap;           /* Allows wrapping to multiple rows */
   justify-content: center;   /* Center buttons horizontally */
   gap: 20px;                 /* Spacing between buttons */
-  border: 2px solid #E2B055; /* Thicker gold border */
+  border: 2px solid #32383E; /* Thicker gold border */
   border-radius: 5px;
-  background-color: #2b2b2b;
+  background-color: #3C4349;
   
   /* Auto-size, but stop after 4 buttons in a row (4 * 200px + 3 * 20px gap = 860px) */
   width: fit-content;
@@ -91,7 +91,7 @@ a {
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 10px #E2B055; /* Shadow on hover */
+  box-shadow: 0 0 10px #2A2E33; /* Shadow on hover */
 }
 
 .image-button p {
