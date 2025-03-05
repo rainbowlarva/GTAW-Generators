@@ -1,0 +1,50 @@
+[divbox=white][color=transparent]spacer[/color]
+
+[aligntable=right,0,0,15,0,0,transparent]LOS SANTOS POLICE DEPT.
+OFFICE OF OPERATIONS
+MISSION ROW POLICE STATION
+SINNER STREET 1
+LOS SANTOS
+
+
+
+[/aligntable][aligntable=left,0,15,0,0,0,transparent][lspdlogo=130][/lspdlogo][/aligntable]
+
+[color=transparent]tt[/color]
+
+[color=transparent]tt[/color]
+
+
+[color=transparent]tt[/color]
+
+[hr][/hr]
+[center][b]AFTER ACTION REPORT #XXX[/b][/center]
+
+[indent=10][b]PERSONNEL DETAILS[/b]
+[b]Full name:[/b] NAMEHERE
+[b]Departmental rank:[/b] NAMEHERE
+[b]Badge number:[/b] NAMEHERE
+[b]Ranks and names of other officers present during the incident:[/b]
+[list][*] NAMEHERE
+[/list][/indent]
+
+
+[hr][/hr]
+[color=transparent]spacer[/color]
+[b]TIME AND LOCATION[/b]
+[b]Time and date:[/b] NAMEHERE
+[b]Street:[/b] NAMEHERE
+[b]Area:[/b] NAMEHERE
+[color=transparent]spacer[/color]
+[hr][/hr]
+
+[indent=10][b]NARRATIVE[/b]
+
+ NAMEHERE
+
+[hr][/hr]
+
+[b]EXTRA DETAILS / FURTHER RECOMMENDATIONS[/b]
+
+ NAMEHERE[/indent]
+[color=transparent]spacer[/color][/divbox]

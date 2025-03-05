@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #212121;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #2A2E33;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #545454;
+    background-color: #5D6770;
+    border-radius: 5px;
+    resize: none;
+    color: white;
+}
+
+::placeholder {
+    color: #CECECE;
+}
+
+/* Default button styling (teal) */
+button {
+    width: 101%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #0C7A87;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* small space under each button */
+}
+
+button:hover {
+    background-color: #0A4C54;
+}
+
+#bbcodeOutput {
+    margin-top: 20px;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px; /* Adjust for the distance from the top */
+    left: 10px; /* Adjust for the distance from the left */
+    width: 50px; /* Adjust the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+/* The Clear button (red) */
+.clear-button {
+    width: 101%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #E73E3B; /* bright red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* space under the Clear button */
+}
+
+.clear-button:hover {
+    background-color: #B8322F; /* darker shade of red on hover */
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>After Action BBCode Generator</title>
+  <link rel="stylesheet" href="after-action.css" />
+</head>
+<body>
+  <!-- Optional Back Button (remove if not needed) -->
+  <img src="back-button.png" class="back-button" alt="Back" 
+       onclick="window.history.back()" />
+
+  <div class="container">
+    <h1>After Action Report BBCode Generator</h1>
+
+    <!-- The Form -->
+    <form id="afterActionForm">
+      <div>
+        <label for="reportNumber">Report Number (replaces #XXX):</label>
+        <input type="text" id="reportNumber" placeholder="e.g. 1234" />
+      </div>
+
+      <div>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="John Doe" />
+      </div>
+
+      <div>
+        <label for="departmentalRank">Departmental Rank:</label>
+        <input type="text" id="departmentalRank" placeholder="Officer II" />
+      </div>
+
+      <div>
+        <label for="badgeNumber">Badge Number:</label>
+        <input type="text" id="badgeNumber" placeholder="12345" />
+      </div>
+
+      <div>
+        <label for="otherOfficers">Other Officers Present:</label>
+        <textarea id="otherOfficers" rows="2" 
+                  placeholder="Officer Smith, Officer Davis, etc."></textarea>
+      </div>
+
+      <div>
+        <label for="timeDate">Time &amp; Date:</label>
+        <input type="text" id="timeDate" placeholder="07/03/2025 15:00" />
+      </div>
+
+      <div>
+        <label for="street">Street:</label>
+        <input type="text" id="street" placeholder="Sinner Street" />
+      </div>
+
+      <div>
+        <label for="area">Area:</label>
+        <input type="text" id="area" placeholder="Mission Row" />
+      </div>
+
+      <div>
+        <label for="narrative">Narrative:</label>
+        <textarea id="narrative" rows="5" 
+                  placeholder="Describe the events..."></textarea>
+      </div>
+
+      <div>
+        <label for="extraDetails">Extra Details / Recommendations:</label>
+        <textarea id="extraDetails" rows="3" 
+                  placeholder="Additional info..."></textarea>
+      </div>
+
+      <button type="button" onclick="generateBBCode()">Generate BBCode</button>
+      <button type="button" class="clear-button" onclick="clearForm()">Clear</button>
+      <button type="button" onclick="copyBBCode()">Copy BBCode</button>
+    </form>
+
+    <!-- The output area -->
+    <div id="bbcodeOutput"></div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="after-action.js"></script>
+</body>
+</html>
