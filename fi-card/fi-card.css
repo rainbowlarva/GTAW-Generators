@@ -174,3 +174,19 @@ textarea::placeholder {
 .checkbox-container.window-info {
     grid-template-columns: repeat(3, 1fr);
 }
+
+.clear-button {
+    background-color: #E73E3B; /* Bright Red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.clear-button:hover {
+    background-color: #B8322F; /* Darker Red */
+}
