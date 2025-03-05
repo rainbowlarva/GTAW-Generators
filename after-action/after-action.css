@@ -108,3 +108,9 @@ pre {
 .clear-button:hover {
     background-color: #B8322F; /* darker shade of red on hover */
 }
+
+#employeeControls {
+    display: flex;       /* Place them on one line */
+    gap: 10px;           /* Space between buttons */
+    margin-bottom: 20px; /* Extra spacing below */
+}
