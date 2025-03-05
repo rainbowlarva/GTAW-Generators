@@ -91,7 +91,7 @@ a {
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 20px #6078FF; /* Shadow on hover */
+  box-shadow: 0 0 10px #E2B055; /* Shadow on hover */
 }
 
 .image-button p {
