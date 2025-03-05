@@ -118,9 +118,19 @@ legend {
     color: white;
 }
 
+/* Two side-by-side buttons to add/remove property */
 #propertyControls {
     display: flex;
     justify-content: space-between; /* 'Add' on left, 'Remove' on right */
     gap: 10px; 
     margin-bottom: 20px;
+}
+
+/* Give a small gap between the three input boxes in each property row */
+.property-entry {
+    margin-bottom: 10px; /* vertical space between property rows */
+}
+
+.property-entry input:not(:last-child) {
+    margin-right: 10px; /* horizontal gap between input boxes */
 }
