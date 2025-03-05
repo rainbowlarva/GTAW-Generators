@@ -1,40 +1,36 @@
-/* ------------------------------
-   GLOBAL & PAGE-WIDE STYLES
------------------------------- */
+/* -------------------------------------
+   GLOBAL / PAGE-WIDE STYLES
+------------------------------------- */
 html, body {
+  margin: 0;
   width: 100%;
-  margin: 0; /* Remove default margins */
-  overflow-y: auto; /* Allow vertical scrolling */
+  overflow-y: auto;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
-  align-items: center; /* Center horizontally */
   position: relative;
 }
 
 .background {
   background-color: #2A2E33;
   font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
 }
 
 a {
-  text-decoration: none; /* Remove underline from links globally */
+  text-decoration: none;
 }
 
-/* Container that wraps all headings/sections */
 .prdcontainer {
   text-align: center;
   color: white;
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
   padding-bottom: 5%;
 }
 
-/* LSPD Logo */
+/* Logo */
 .lspdlogo {
   display: flex;
   justify-content: center;
@@ -44,73 +40,75 @@ a {
   height: 300px;
 }
 
-/* ------------------------------
-   HEADINGS & BOX CONTAINERS
------------------------------- */
-/*
-  1) Style each H2 so it can overlap the box below it.
-  2) Then style the box (.records-container, .mrd-container, .ftp-container)
-     so it lines up nicely beneath the heading.
-*/
-
-/* Make all h2 headings gold and center them.
-   Negative bottom margin overlaps the box’s top border. */
-h2 {
-  color: #E2B055;
-  margin: 40px auto -10px auto; /* 40px top margin, -10px bottom overlap */
-  background-color: #2B2B2B;    /* Matches box background */
-  display: inline-block;
-  padding: 0 10px;
+/* -------------------------------------
+   HEADING + CONTAINER PAIRS
+------------------------------------- */
+/* 1) Wrapper that holds each heading and its container. */
+.heading-box-pair {
   position: relative;
-  z-index: 1;
+  margin: 40px auto; /* Space above each heading+box pair */
   text-align: center;
+  width: fit-content; /* Shrink to content width (so container can auto-size) */
 }
 
-/* For any heading immediately followed by one of these containers,
-   remove the top border and let the heading “cut in” at the top. */
-h2 + .records-container,
-h2 + .mrd-container,
-h2 + .ftp-container {
-  display: inline-flex;       /* Shrink or expand based on button count */
-  justify-content: center;
+/* 2) Style the heading to slightly overlap the container. */
+.heading-box-pair h2 {
+  /* Make the heading block-level, but only as wide as its text */
+  display: block;
+  width: fit-content;
+  margin: 0 auto -10px auto; /* Negative bottom margin for overlap */
+  padding: 0 10px;
+  background-color: #2B2B2B;
+  position: relative;
+  z-index: 2;
+  color: #E2B055;
+}
+
+/* 3) Style the container to appear under the heading, with no top border. */
+.heading-box-pair .records-container,
+.heading-box-pair .mrd-container,
+.heading-box-pair .ftp-container {
+  display: inline-flex;         /* Auto-width based on button count */
   gap: 20px;
-  border: 2px solid #E2B055;  /* Thicker gold border */
-  border-top: none;           /* Remove top border (heading overlaps here) */
-  border-radius: 0 0 5px 5px; /* Rounded bottom corners only */
-  margin: 0 auto 20px auto;   /* Center horizontally, add bottom spacing */
+  border: 2px solid #E2B055;    /* Thicker border */
+  border-top: none;             /* No top border: heading overlaps it */
+  border-radius: 0 0 5px 5px;   /* Rounded bottom corners only */
   background-color: #2B2B2B;
   padding: 20px;
+  position: relative;
+  z-index: 1; /* ensures container is behind the heading */
+  margin: 0 auto 20px auto; /* center horizontally + bottom spacing */
 }
 
-/* ------------------------------
-   BUTTONS & HOVER EFFECTS
------------------------------- */
+/* -------------------------------------
+   IMAGE BUTTONS / HOVER EFFECTS
+------------------------------------- */
 .image-button {
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
-  filter: grayscale(100%);         /* Makes the image black and white */
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
 }
 
 .image-button:hover {
-  transform: scale(1.1); /* Scale both the image and text */
-  filter: grayscale(0%); /* Removes grayscale on hover */
+  transform: scale(1.1);
+  filter: grayscale(0%);
 }
 
 .image-button img {
   width: 200px;
   height: 208px;
-  border: 2px solid black; /* Black border around the image */
+  border: 2px solid black;
   border-radius: 5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 20px #6078FF; /* Blue-ish glow on hover */
+  box-shadow: 0 0 20px #6078FF;
 }
 
 .image-button p {
   color: white;
-  white-space: normal; /* Allow text to wrap */
-  max-width: 200px;    /* Control text width */
+  white-space: normal;
+  max-width: 200px;
   transition: transform 0.3s ease;
 }
 
