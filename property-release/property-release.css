@@ -124,6 +124,7 @@ legend {
     justify-content: space-between; /* 'Add' on left, 'Remove' on right */
     gap: 10px; 
     margin-bottom: 20px;
+    margin-top: -6%;
 }
 
 .property-entry {
@@ -138,5 +139,5 @@ legend {
 }
 
 .property-entry input:not(:last-child) {
-    margin-right: 10px; /* horizontal gap between input boxes */
+    margin-right: -5px; /* horizontal gap between input boxes */
 }
