@@ -54,7 +54,7 @@ a {
   flex-wrap: wrap;           /* Allows wrapping to multiple rows */
   justify-content: center;   /* Center buttons horizontally */
   gap: 20px;                 /* Spacing between buttons */
-  border: 2px solid #32383E; /* Thicker gold border */
+  border: 12px solid #32383E; /* Thicker gold border */
   border-radius: 5px;
   background-color: #3C4349;
   
