@@ -37,10 +37,8 @@ a {
 }
 
 .prdcontainer img {
-  display: flex; /* Use flexbox to arrange images in a row */
-  gap: 20px; /* Add space between buttons */
-  justify-content: center;
-  align-items: center;
+  display: inline-block; /* Use flexbox to arrange images in a row */
+  margin: 10px;
 }
 
 .lslogo,
