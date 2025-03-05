@@ -55,9 +55,9 @@ a {
   justify-content: center;   /* Center buttons horizontally */
   gap: 20px;                 /* Spacing between buttons */
   border: 5px solid #32383E; /* Thicker gold border */
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: #3C4349;
-  box-shadow: 0 0 10px #2A2E33;
+  box-shadow: 0 0 15px #000000;
   
   /* Auto-size, but stop after 4 buttons in a row (4 * 200px + 3 * 20px gap = 860px) */
   width: fit-content;
