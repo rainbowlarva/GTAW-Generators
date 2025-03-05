@@ -1,4 +1,3 @@
-// The exact text from after-action.txt as a multiline template.
 const afterActionTemplate = `[divbox=white][color=transparent]spacer[/color]
 
 [aligntable=right,0,0,15,0,0,transparent]LOS SANTOS POLICE DEPT.
@@ -25,7 +24,7 @@ LOS SANTOS
 [b]Full name:[/b] NAMEHERE
 [b]Departmental rank:[/b] NAMEHERE
 [b]Badge number:[/b] NAMEHERE
-[b]Ranks and names of other officers present during the incident:[/b]
+[b]Ranks and names of other employees present during the incident:[/b]
 [list][*] NAMEHERE
 [/list][/indent]
 
@@ -60,66 +59,77 @@ function autoResizeTextarea(event) {
 }
 
 /**
- * Save data to localStorage when user types in the fields.
+ * Save data to localStorage whenever user types in any field.
  */
 function saveData() {
-  localStorage.setItem('reportNumber', document.getElementById('reportNumber').value);
-  localStorage.setItem('fullName', document.getElementById('fullName').value);
-  localStorage.setItem('departmentalRank', document.getElementById('departmentalRank').value);
-  localStorage.setItem('badgeNumber', document.getElementById('badgeNumber').value);
-  localStorage.setItem('otherOfficers', document.getElementById('otherOfficers').value);
-  localStorage.setItem('timeDate', document.getElementById('timeDate').value);
-  localStorage.setItem('street', document.getElementById('street').value);
-  localStorage.setItem('area', document.getElementById('area').value);
-  localStorage.setItem('narrative', document.getElementById('narrative').value);
-  localStorage.setItem('extraDetails', document.getElementById('extraDetails').value);
+  localStorage.setItem('reportNumber',      document.getElementById('reportNumber').value);
+  localStorage.setItem('fullName',          document.getElementById('fullName').value);
+  localStorage.setItem('departmentalRank',  document.getElementById('departmentalRank').value);
+  localStorage.setItem('badgeNumber',       document.getElementById('badgeNumber').value);
+  localStorage.setItem('timeDate',          document.getElementById('timeDate').value);
+  localStorage.setItem('street',            document.getElementById('street').value);
+  localStorage.setItem('area',              document.getElementById('area').value);
+  localStorage.setItem('narrative',         document.getElementById('narrative').value);
+  localStorage.setItem('extraDetails',      document.getElementById('extraDetails').value);
+
+  // Save the dynamic employees
+  const employees = [];
+  document.querySelectorAll('.employee-input').forEach(input => employees.push(input.value));
+  localStorage.setItem('involvedEmployees', JSON.stringify(employees));
 }
 
 /**
- * Load data from localStorage when the page loads.
+ * Load data from localStorage on page load.
  */
 function loadData() {
   document.getElementById('reportNumber').value      = localStorage.getItem('reportNumber')      || '';
   document.getElementById('fullName').value          = localStorage.getItem('fullName')          || '';
   document.getElementById('departmentalRank').value  = localStorage.getItem('departmentalRank')  || '';
   document.getElementById('badgeNumber').value       = localStorage.getItem('badgeNumber')       || '';
-  document.getElementById('otherOfficers').value     = localStorage.getItem('otherOfficers')     || '';
   document.getElementById('timeDate').value          = localStorage.getItem('timeDate')          || '';
   document.getElementById('street').value            = localStorage.getItem('street')            || '';
   document.getElementById('area').value              = localStorage.getItem('area')              || '';
   document.getElementById('narrative').value         = localStorage.getItem('narrative')         || '';
   document.getElementById('extraDetails').value      = localStorage.getItem('extraDetails')      || '';
+
+  // Load the dynamic employees
+  const employees = JSON.parse(localStorage.getItem('involvedEmployees')) || [];
+  const employeeList = document.getElementById('employeeList');
+  employeeList.innerHTML = ''; // Clear existing
+  employees.forEach(name => addEmployee(name));
 }
 
 /**
- * Clears data from localStorage and resets form fields + output.
+ * Clear the form and localStorage.
  */
-function clearData() {
-  // Remove items from localStorage
+function clearForm() {
   localStorage.removeItem('reportNumber');
   localStorage.removeItem('fullName');
   localStorage.removeItem('departmentalRank');
   localStorage.removeItem('badgeNumber');
-  localStorage.removeItem('otherOfficers');
   localStorage.removeItem('timeDate');
   localStorage.removeItem('street');
   localStorage.removeItem('area');
   localStorage.removeItem('narrative');
   localStorage.removeItem('extraDetails');
+  localStorage.removeItem('involvedEmployees');
 
-  // Reset the form fields
+  // Reset all inputs
   document.getElementById('reportNumber').value      = '';
   document.getElementById('fullName').value          = '';
   document.getElementById('departmentalRank').value  = '';
   document.getElementById('badgeNumber').value       = '';
-  document.getElementById('otherOfficers').value     = '';
   document.getElementById('timeDate').value          = '';
   document.getElementById('street').value            = '';
   document.getElementById('area').value              = '';
   document.getElementById('narrative').value         = '';
   document.getElementById('extraDetails').value      = '';
 
-  // Clear output
+  // Clear employee list
+  const employeeList = document.getElementById('employeeList');
+  employeeList.innerHTML = '';
+
+  // Clear BBCode output
   const bbcodeOutput = document.getElementById('bbcodeOutput');
   if (bbcodeOutput) {
     bbcodeOutput.innerHTML = '';
@@ -127,23 +137,63 @@ function clearData() {
 }
 
 /**
- * Generates BBCode from user input, displays it, and automatically highlights it.
- * (No "event" argument because our button is type="button" and not triggering a form submit.)
+ * Add a new employee input field.
+ */
+function addEmployee(name = '') {
+  const employeeList = document.getElementById('employeeList');
+
+  // Create a container
+  const div = document.createElement('div');
+  div.classList.add('employee-entry');
+
+  // Create the input
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.classList.add('employee-input');
+  input.placeholder = 'Enter employee name/rank';
+  input.value = name;
+
+  // Save to localStorage on input
+  input.addEventListener('input', saveData);
+
+  div.appendChild(input);
+  employeeList.appendChild(div);
+}
+
+/**
+ * Remove the last employee input field.
+ */
+function removeEmployee() {
+  const employeeList = document.getElementById('employeeList');
+  if (employeeList.lastChild) {
+    employeeList.removeChild(employeeList.lastChild);
+    saveData(); // Update localStorage after removing
+  }
+}
+
+/**
+ * Generate BBCode, place it into #bbcodeOutput, and highlight it.
  */
 function generateBBCode() {
-  // Grab all inputs
-  const reportNumber     = document.getElementById('reportNumber').value || 'XXX';
-  const fullName         = document.getElementById('fullName').value || 'NAMEHERE';
-  const departmentalRank = document.getElementById('departmentalRank').value || 'NAMEHERE';
-  const badgeNumber      = document.getElementById('badgeNumber').value || 'NAMEHERE';
-  const otherOfficers    = document.getElementById('otherOfficers').value || 'NAMEHERE';
-  const timeDate         = document.getElementById('timeDate').value || 'NAMEHERE';
-  const street           = document.getElementById('street').value || 'NAMEHERE';
-  const area             = document.getElementById('area').value || 'NAMEHERE';
-  const narrative        = document.getElementById('narrative').value || 'NAMEHERE';
-  const extraDetails     = document.getElementById('extraDetails').value || 'NAMEHERE';
+  // Gather data
+  const reportNumber     = (document.getElementById('reportNumber').value || 'XXX').trim();
+  const fullName         = (document.getElementById('fullName').value || 'NAMEHERE').trim();
+  const departmentalRank = (document.getElementById('departmentalRank').value || 'NAMEHERE').trim();
+  const badgeNumber      = (document.getElementById('badgeNumber').value || 'NAMEHERE').trim();
+  const timeDate         = (document.getElementById('timeDate').value || 'NAMEHERE').trim();
+  const street           = (document.getElementById('street').value || 'NAMEHERE').trim();
+  const area             = (document.getElementById('area').value || 'NAMEHERE').trim();
+  const narrative        = (document.getElementById('narrative').value || 'NAMEHERE').trim();
+  const extraDetails     = (document.getElementById('extraDetails').value || 'NAMEHERE').trim();
 
-  // Make a copy of the template
+  // Gather employees from dynamic inputs
+  const employees = [];
+  document.querySelectorAll('.employee-input').forEach(input => {
+    const val = input.value.trim();
+    if (val) employees.push(val);
+  });
+
+  // Copy the template
   let finalText = afterActionTemplate;
 
   // Replace placeholders
@@ -151,32 +201,38 @@ function generateBBCode() {
   finalText = finalText.replace('[b]Full name:[/b] NAMEHERE', `[b]Full name:[/b] ${fullName}`);
   finalText = finalText.replace('[b]Departmental rank:[/b] NAMEHERE', `[b]Departmental rank:[/b] ${departmentalRank}`);
   finalText = finalText.replace('[b]Badge number:[/b] NAMEHERE', `[b]Badge number:[/b] ${badgeNumber}`);
-  finalText = finalText.replace('[list][*] NAMEHERE', `[list][*] ${otherOfficers}`);
+
+  // If employees exist, build a bullet list. Otherwise keep NAMEHERE.
+  if (employees.length > 0) {
+    const employeeBBCode = employees.map(emp => `[*] ${emp}`).join('\n');
+    finalText = finalText.replace('[list][*] NAMEHERE', `[list]\n${employeeBBCode}\n[/list]`);
+  } else {
+    // No employees => keep the default placeholder
+    finalText = finalText.replace('[list][*] NAMEHERE', `[list][*] NAMEHERE[/list]`);
+  }
+
   finalText = finalText.replace('[b]Time and date:[/b] NAMEHERE', `[b]Time and date:[/b] ${timeDate}`);
   finalText = finalText.replace('[b]Street:[/b] NAMEHERE', `[b]Street:[/b] ${street}`);
   finalText = finalText.replace('[b]Area:[/b] NAMEHERE', `[b]Area:[/b] ${area}`);
-
-  // Narrative & Extra Details
   finalText = finalText.replace('\n NAMEHERE\n\n[hr][/hr]', `\n ${narrative}\n\n[hr][/hr]`);
   finalText = finalText.replace('\n NAMEHERE[/indent]', `\n ${extraDetails}[/indent]`);
 
-  // Display the final BBCode in a <pre> block
+  // Output
   const bbcodeOutput = document.getElementById('bbcodeOutput');
   if (bbcodeOutput) {
     bbcodeOutput.innerHTML = `<pre>${finalText}</pre>`;
   }
 
-  // Automatically highlight the BBCode so user can press Ctrl+C
+  // Highlight for easy copy
   highlightBBCode();
 }
 
 /**
- * Selects (highlights) the generated BBCode, so user can manually copy.
+ * Select/highlight the BBCode text so user can Ctrl+C.
  */
 function highlightBBCode() {
   const codeElement = document.querySelector('#bbcodeOutput pre');
   if (!codeElement) return;
-
   const range = document.createRange();
   range.selectNodeContents(codeElement);
   const selection = window.getSelection();
@@ -184,35 +240,33 @@ function highlightBBCode() {
   selection.addRange(range);
 }
 
-/**
- * Initialize everything on DOMContentLoaded.
- */
+// On DOMContentLoaded, load data and set up event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) Load data from localStorage
   loadData();
 
-  // 2) Auto-resize textareas
-  const textareasToAutoResize = ['otherOfficers', 'narrative', 'extraDetails'];
+  // Auto-resize certain textareas
+  const textareasToAutoResize = ['narrative', 'extraDetails'];
   textareasToAutoResize.forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      // Resize on load
       el.style.height = 'auto';
       el.style.height = el.scrollHeight + 'px';
-      // Listen for input changes
       el.addEventListener('input', autoResizeTextarea);
     }
   });
 
-  // 3) Save data on input
-  const fieldsToSave = [
-    'reportNumber', 'fullName', 'departmentalRank', 'badgeNumber',
-    'otherOfficers', 'timeDate', 'street', 'area', 'narrative', 'extraDetails'
-  ];
-  fieldsToSave.forEach(id => {
+  // Save data on input for all relevant fields
+  [
+    'reportNumber','fullName','departmentalRank','badgeNumber',
+    'timeDate','street','area','narrative','extraDetails'
+  ].forEach(id => {
     const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', saveData);
-    }
+    if (el) el.addEventListener('input', saveData);
   });
+
+  // Handle Add/Remove Employee
+  const addEmployeeBtn = document.getElementById('addEmployee');
+  const removeEmployeeBtn = document.getElementById('removeEmployee');
+  if (addEmployeeBtn) addEmployeeBtn.addEventListener('click', () => addEmployee());
+  if (removeEmployeeBtn) removeEmployeeBtn.addEventListener('click', removeEmployee);
 });
