@@ -150,7 +150,7 @@ function addEmployee(name = '') {
   const input = document.createElement('input');
   input.type = 'text';
   input.classList.add('employee-input');
-  input.placeholder = 'RANK, NAME';
+  input.placeholder = 'Employee rank, name';
   input.value = name;
 
   // Save to localStorage on input
