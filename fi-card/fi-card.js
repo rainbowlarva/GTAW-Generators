@@ -1,3 +1,24 @@
+// Wait for DOM to load before attaching event listeners
+document.addEventListener('DOMContentLoaded', function () {
+  // Select the Clear button
+  const clearButton = document.getElementById('clearButton');
+
+  // Function to clear all form fields and LocalStorage
+  function clearData() {
+      localStorage.clear(); // Clears all saved data
+      document.querySelectorAll('input, textarea').forEach(input => input.value = ''); // Clears all text fields
+      document.getElementById('checkbox-container subject-info').innerHTML = ''; // Clears the employee list
+      document.getElementById('checkbox-container vehicle-info').innerHTML = ''; // Clears the employee list
+      document.getElementById('checkbox-container body-info').innerHTML = ''; // Clears the employee list
+      document.getElementById('checkbox-container window-info').innerHTML = ''; // Clears the employee list
+  }
+
+  // Attach the clearData function to the button
+  if (clearButton) {
+      clearButton.addEventListener('click', clearData);
+  }
+});
+
 // Wait for DOM to load before attaching event listeners and restoring saved data
 document.addEventListener("DOMContentLoaded", function() {
     const totalFields = 39;
@@ -417,4 +438,4 @@ document.addEventListener("DOMContentLoaded", function() {
       sel.removeAllRanges();
       sel.addRange(range);
     }
-  }  
+  }
