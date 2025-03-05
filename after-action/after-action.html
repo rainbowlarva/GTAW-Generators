@@ -7,8 +7,7 @@
 </head>
 <body>
   <!-- Optional Back Button (remove if not needed) -->
-  <img src="back-button.png" class="back-button" alt="Back" 
-       onclick="window.history.back()" />
+  <img src="back-button.png" class="back-button" alt="Back" onclick="window.history.back()" />
 
   <div class="container">
     <h1>After Action Report BBCode Generator</h1>
@@ -35,10 +34,14 @@
         <input type="text" id="badgeNumber" placeholder="12345" />
       </div>
 
-      <div>
-        <label for="otherOfficers">Other Officers Present:</label>
-        <textarea id="otherOfficers" rows="2" 
-                  placeholder="Officer Smith, Officer Davis, etc."></textarea>
+      <!-- Involved Employees -->
+      <h2>Involved Employee(s)</h2>
+      <div id="employeeList">
+        <!-- Dynamically added employee inputs go here -->
+      </div>
+      <div id="employeeControls">
+        <button type="button" id="addEmployee">Add Employee</button>
+        <button type="button" id="removeEmployee">Remove Employee</button>
       </div>
 
       <div>
@@ -58,16 +61,15 @@
 
       <div>
         <label for="narrative">Narrative:</label>
-        <textarea id="narrative" rows="5" 
-                  placeholder="Describe the events..."></textarea>
+        <textarea id="narrative" rows="5" placeholder="Describe the events..."></textarea>
       </div>
 
       <div>
         <label for="extraDetails">Extra Details / Recommendations:</label>
-        <textarea id="extraDetails" rows="3" 
-                  placeholder="Additional info..."></textarea>
+        <textarea id="extraDetails" rows="3" placeholder="Additional info..."></textarea>
       </div>
 
+      <!-- Buttons -->
       <button type="button" class="clear-button" onclick="clearForm()">Clear</button>
       <button type="button" onclick="generateBBCode()">Generate BBCode</button>
     </form>
