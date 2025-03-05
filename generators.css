@@ -1,10 +1,13 @@
+/* ------------------------------
+   GLOBAL & PAGE-WIDE STYLES
+------------------------------ */
 html, body {
   width: 100%;
   margin: 0; /* Remove default margins */
   overflow-y: auto; /* Allow vertical scrolling */
   display: flex;
-  flex-direction: column; /* Allow content to flow down */
-  justify-content: flex-start; /* Align items to the top */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: flex-start;
   align-items: center; /* Center horizontally */
   position: relative;
 }
@@ -22,99 +25,112 @@ a {
   text-decoration: none; /* Remove underline from links globally */
 }
 
+/* Container that wraps all headings/sections */
 .prdcontainer {
   text-align: center;
   color: white;
-  overflow: hidden; /* Prevent overflowing content */
+  overflow: hidden;
   width: 100%;
   padding-bottom: 5%;
 }
 
-/* Header styling: Overlap the container border */
-.prdcontainer > h2 {
-  background-color: #2b2b2b;
-  display: inline-block;
-  padding: 0 10px;
-  margin-bottom: -10px; /* Overlap the container’s top border */
-  position: relative;
-  z-index: 1;
-  color: #E2B055;
-}
-
+/* LSPD Logo */
 .lspdlogo {
-  display: flex; /* Arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 20px; /* Space between buttons */
+  gap: 20px;
   width: 300px;
   height: 300px;
 }
 
-/* Updated container styling for dynamic sizing and enhanced border */
-.records-container,
-.mrd-container,
-.ftp-container {
-  display: inline-flex; /* Container width adjusts to content */
+/* ------------------------------
+   HEADINGS & BOX CONTAINERS
+------------------------------ */
+/*
+  1) Style each H2 so it can overlap the box below it.
+  2) Then style the box (.records-container, .mrd-container, .ftp-container)
+     so it lines up nicely beneath the heading.
+*/
+
+/* Make all h2 headings gold and center them.
+   Negative bottom margin overlaps the box’s top border. */
+h2 {
+  color: #E2B055;
+  margin: 40px auto -10px auto; /* 40px top margin, -10px bottom overlap */
+  background-color: #2B2B2B;    /* Matches box background */
+  display: inline-block;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* For any heading immediately followed by one of these containers,
+   remove the top border and let the heading “cut in” at the top. */
+h2 + .records-container,
+h2 + .mrd-container,
+h2 + .ftp-container {
+  display: inline-flex;       /* Shrink or expand based on button count */
   justify-content: center;
   gap: 20px;
-  border: 2px solid #E2B055; /* Thicker, more visible border */
-  border-top: none; /* Remove top border so header can overlap */
-  border-radius: 5px;
-  margin: 20px auto; /* Center container horizontally with vertical spacing */
-  background-color: #2b2b2b;
+  border: 2px solid #E2B055;  /* Thicker gold border */
+  border-top: none;           /* Remove top border (heading overlaps here) */
+  border-radius: 0 0 5px 5px; /* Rounded bottom corners only */
+  margin: 0 auto 20px auto;   /* Center horizontally, add bottom spacing */
+  background-color: #2B2B2B;
   padding: 20px;
 }
 
-/* Add some margin between rows */
-.button-container + .button-container {
-  margin-top: 20px; /* Adjust space between rows if used */
-}
-
+/* ------------------------------
+   BUTTONS & HOVER EFFECTS
+------------------------------ */
 .image-button {
   transition: transform 0.3s ease; /* Smooth transition for scaling */
-  filter: grayscale(100%); /* Make image black and white */
+  filter: grayscale(100%);         /* Makes the image black and white */
 }
 
 .image-button:hover {
-  transform: scale(1.1); /* Scale image and text */
-  filter: grayscale(0%); /* Remove grayscale on hover */
+  transform: scale(1.1); /* Scale both the image and text */
+  filter: grayscale(0%); /* Removes grayscale on hover */
 }
 
 .image-button img {
   width: 200px;
   height: 208px;
-  border: 2px solid black; /* Black border around image */
-  border-radius: 5px; /* Rounded corners */
+  border: 2px solid black; /* Black border around the image */
+  border-radius: 5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 20px #6078FF; /* Shadow on hover */
+  box-shadow: 0 0 20px #6078FF; /* Blue-ish glow on hover */
 }
 
 .image-button p {
   color: white;
   white-space: normal; /* Allow text to wrap */
-  max-width: 200px; /* Control text width */
-  transition: transform 0.3s ease; /* Smooth scale effect for text */
+  max-width: 200px;    /* Control text width */
+  transition: transform 0.3s ease;
 }
 
 .image-button:hover p {
   color: #DBDBDB;
 }
 
+/* SWAT button (example from your code, can be removed if not used) */
 .swat-button {
-  width: 1000px; /* Set width */
+  width: 1000px;
   display: flex;
-  flex-direction: column; /* Stack image and text vertically */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .swat-button img {
-  width: 100%; /* Scale image to button width */
-  max-width: 1000px; /* Prevent image from exceeding button size */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
 }
 
 .swat-button p {
@@ -122,13 +138,14 @@ a {
   white-space: normal;
   max-width: 1000px;
   text-align: center;
-  margin-top: 10px; /* Space between image and text */
+  margin-top: 10px;
 }
 
 .swat-button img:hover {
   filter: grayscale(70%);
 }
 
+/* DB button (example) */
 .db-button {
   width: 1000px;
   display: flex;
@@ -174,9 +191,4 @@ a {
   max-width: 1000px;
   text-align: center;
   margin-top: 10px;
-}
-
-h2 {
-  /* Fallback styling; headers in .prdcontainer use the more specific rule above */
-  color: #E2B055;
 }
