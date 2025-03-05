@@ -1,181 +1,175 @@
-/* -------------------------------------
-   GLOBAL / PAGE-WIDE STYLES
-------------------------------------- */
 html, body {
-  margin: 0;
   width: 100%;
-  overflow-y: auto;
+  margin: 0; /* Remove default margins */
+  overflow-y: auto; /* Allow vertical scrolling */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column; /* Allow content to flow down */
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center; /* Center horizontally */
   position: relative;
 }
 
 .background {
   background-color: #2A2E33;
   font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none; /* Remove underline from links globally */
 }
 
 .prdcontainer {
   text-align: center;
   color: white;
+  overflow: hidden; /* Prevent overflowing content */
   width: 100%;
-  overflow: hidden;
-  padding-bottom: 5%;
+  padding-bottom: 05%;
 }
 
-/* Logo */
 .lspdlogo {
-  display: flex;
-  justify-content: center;
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
   align-items: center;
-  gap: 20px;
+  gap: 20px; /* Add space between buttons */
   width: 300px;
   height: 300px;
 }
 
-/* -------------------------------------
-   HEADING + CONTAINER PAIRS
-------------------------------------- */
-/* 1) Wrapper that holds each heading and its container. */
-.heading-box-pair {
-  position: relative;
-  margin: 40px auto; /* Space above each heading+box pair */
-  text-align: center;
-  width: fit-content; /* Shrink to content width (so container can auto-size) */
+.records-container {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add space between buttons */
+  border: 1px solid #545454;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background-color: #2b2b2b;
 }
 
-/* 2) Style the heading to slightly overlap the container. */
-.heading-box-pair h2 {
-  /* Make the heading block-level, but only as wide as its text */
-  display: block;
-  width: fit-content;
-  margin: 0 auto -10px auto; /* Negative bottom margin for overlap */
-  padding: 0 10px;
-  background-color: #2B2B2B;
-  position: relative;
-  z-index: 2;
-  color: #E2B055;
+.mrd-container {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add space between buttons */
+  border: 1px solid #545454;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background-color: #2b2b2b;
 }
 
-/* 3) Style the container to appear under the heading, with no top border. */
-.heading-box-pair .records-container,
-.heading-box-pair .mrd-container,
-.heading-box-pair .ftp-container {
-  display: inline-flex;         /* Auto-width based on button count */
-  gap: 20px;
-  border: 2px solid #E2B055;    /* Thicker border */
-  border-top: none;             /* No top border: heading overlaps it */
-  border-radius: 0 0 5px 5px;   /* Rounded bottom corners only */
-  background-color: #2B2B2B;
-  padding: 20px;
-  position: relative;
-  z-index: 1; /* ensures container is behind the heading */
-  margin: 0 auto 20px auto; /* center horizontally + bottom spacing */
+.ftp-container {
+  display: flex; /* Use flexbox to arrange images in a row */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add space between buttons */
+  border: 1px solid #545454;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background-color: #2b2b2b;
 }
 
-/* -------------------------------------
-   IMAGE BUTTONS / HOVER EFFECTS
-------------------------------------- */
+/* Add some margin between rows */
+.button-container + .button-container {
+  margin-top: 20px; /* Adjust the space between the first and second rows */
+}
+
 .image-button {
-  transition: transform 0.3s ease;
-  filter: grayscale(100%);
+  transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
+  filter: grayscale(100%); /* Makes the image black and white */
 }
 
 .image-button:hover {
-  transform: scale(1.1);
-  filter: grayscale(0%);
+  transform: scale(1.1); /* Scale both the image and text */
+  filter: grayscale(0%); /* Removes grayscale on hover */
 }
 
 .image-button img {
   width: 200px;
   height: 208px;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 2px solid black; /* Add a black border */
+  border-radius: 5px; /* Optional: Rounds the corners of the border */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 20px #6078FF;
+  box-shadow: 0 0 20px #6078FF; /* Black shadow on hover */
 }
 
 .image-button p {
   color: white;
-  white-space: normal;
-  max-width: 200px;
-  transition: transform 0.3s ease;
+  white-space: normal; /* Allow the text to wrap */
+  max-width: 200px; /* You can adjust this to control the width of the text */
+  transition: transform 0.3s ease; /* Smooth scale effect for the text */
 }
 
 .image-button:hover p {
   color: #DBDBDB;
 }
 
-/* SWAT button (example from your code, can be removed if not used) */
 .swat-button {
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 1000px; /* Set width to 1000px */
+  display: flex; /* Make sure it's a flex container to align the image and text */
+  flex-direction: column; /* Stack image and text vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center horizontally */
 }
 
 .swat-button img {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
+  width: 100%; /* Ensure the image scales to the width of the button */
+  max-width: 1000px; /* Prevent the image from becoming larger than the button */
+  height: auto; /* Keep the image's aspect ratio */
 }
 
 .swat-button p {
   color: white;
-  white-space: normal;
-  max-width: 1000px;
-  text-align: center;
-  margin-top: 10px;
+  white-space: normal; /* Allow the text to wrap */
+  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
+  text-align: center; /* Center the text below the image */
+  margin-top: 10px; /* Add some space between image and text */
 }
 
 .swat-button img:hover {
-  filter: grayscale(70%);
+  filter: grayscale(70%); /* Removes grayscale on hover */
 }
 
-/* DB button (example) */
 .db-button {
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 1000px; /* Set width to 1000px */
+  display: flex; /* Make sure it's a flex container to align the image and text */
+  flex-direction: column; /* Stack image and text vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center horizontally */
 }
 
 .db-button img {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
+  width: 100%; /* Ensure the image scales to the width of the button */
+  max-width: 1000px; /* Prevent the image from becoming larger than the button */
+  height: auto; /* Keep the image's aspect ratio */
 }
 
 .db-button p {
   color: white;
-  white-space: normal;
-  max-width: 1000px;
-  text-align: center;
-  margin-top: 10px;
+  white-space: normal; /* Allow the text to wrap */
+  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
+  text-align: center; /* Center the text below the image */
+  margin-top: 10px; /* Add some space between image and text */
 }
 
 .db-button img:hover {
-  filter: grayscale(70%);
+  filter: grayscale(70%); /* Removes grayscale on hover */
 }
 
-/* DETECTIVES BUREAU PAGE */
+/*DETECTIVES BUREAU PAGE*/
+
 .db-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Align items in the center */
   text-align: center;
   color: white;
   overflow: hidden;
@@ -185,8 +179,12 @@ a {
 
 .db-container p {
   color: white;
-  white-space: normal;
-  max-width: 1000px;
-  text-align: center;
-  margin-top: 10px;
+  white-space: normal; /* Allow the text to wrap */
+  max-width: 1000px; /* Ensure text doesn't overflow beyond the width */
+  text-align: center; /* Center the text below the image */
+  margin-top: 10px; /* Add some space between image and text */
+}
+
+h2 {
+  color: #E2B055;
 }
