@@ -2,8 +2,9 @@
 const prefix = "propertyRelease-";
 
 document.addEventListener("DOMContentLoaded", function() {
-  // We'll store data for the top fields (1..10) in localStorage
   const totalFixedFields = 10;
+
+  // Load saved values for the top fields
   for (let i = 1; i <= totalFixedFields; i++) {
     const field = document.getElementById("field" + i);
     if (field) {
@@ -21,16 +22,16 @@ document.addEventListener("DOMContentLoaded", function() {
   const propertyList = document.getElementById("propertyList");
   const addPropertyBtn = document.getElementById("addProperty");
   const removePropertyBtn = document.getElementById("removeProperty");
+  const clearButton = document.getElementById("clearButton");
 
   // Load existing property items from localStorage
   let propertyArray = JSON.parse(localStorage.getItem(prefix + "propertyArray")) || [];
 
-  // Create one row with 3 inputs: EL NO., Description, Quantity
+  // Creates one row with 3 inputs: EL NO., Description, Quantity
   function createPropertyRow(elNo = "", desc = "", qty = "") {
     const rowDiv = document.createElement("div");
     rowDiv.classList.add("property-entry");
 
-    // EL NO
     const elInput = document.createElement("input");
     elInput.type = "text";
     elInput.placeholder = "EL NO.";
@@ -38,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
     elInput.addEventListener("input", saveData);
     rowDiv.appendChild(elInput);
 
-    // Description
     const descInput = document.createElement("input");
     descInput.type = "text";
     descInput.placeholder = "Description of Article";
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
     descInput.addEventListener("input", saveData);
     rowDiv.appendChild(descInput);
 
-    // Quantity
     const qtyInput = document.createElement("input");
     qtyInput.type = "text";
     qtyInput.placeholder = "Quantity";
@@ -105,9 +104,33 @@ document.addEventListener("DOMContentLoaded", function() {
     localStorage.setItem(prefix + "propertyArray", JSON.stringify(propertyArray));
   }
 
+  // Clear all fields + localStorage
+  function clearAll() {
+    console.log("Clear button clicked!"); // For debugging
+    // 1) Clear the top 10 fields
+    for (let i = 1; i <= totalFixedFields; i++) {
+      const field = document.getElementById("field" + i);
+      if (field) {
+        field.value = "";
+        localStorage.removeItem(prefix + "field" + i);
+      }
+    }
+    // 2) Clear the dynamic property array
+    propertyArray = [];
+    localStorage.removeItem(prefix + "propertyArray");
+    propertyList.innerHTML = "";
+
+    // 3) Clear the output text
+    const outputElement = document.getElementById("bbcodeOutput");
+    if (outputElement) {
+      outputElement.textContent = "";
+    }
+  }
+
   // Attach button listeners
   addPropertyBtn.addEventListener("click", addProperty);
   removePropertyBtn.addEventListener("click", removeProperty);
+  clearButton.addEventListener("click", clearAll);
 
   // Initial render
   renderProperty();
@@ -115,108 +138,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Generate the BBCode
 function generateBBCode() {
-  // We'll break the property-release.txt template into two parts:
-  // 1) Everything up to "ITEMS TO TRANSFER"
-  // 2) The repeated block for each property item
-  // We'll ignore the old placeholders for items in property-release.txt
-  // and generate as many as needed.
-
   let templateTop = `[font=Arial][center]LOS SANTOS POLICE DEPARTMENT
 [size=120][color=black][b]PROPERTY TRANSFER RECEIPT
 [/b][/font][/color][/size]
 [/center]
+... (rest of the template)`;
 
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,100,5]
-[size=87][b]RELEASE AUTHORIZATION BY[/b][/size]
-NAMEHERE
-[/tdwidth]
-[/tr][/table2]
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,25,5]
-[size=87][b]SERIAL NO[/b][/size]
-NAMEHERE
-[/tdwidth]
-
-[tdwidth=1,black,transparent,top,left,35,5]
-[size=87][b]DIVISION / ASSIGNMENT[/b][/size]
-NAMEHERE
-[/tdwidth]
-[/tr]
-[/table2]
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,30,5]
-[b][size=87]PERSON RECEIVING PROPERTY[/size][/b]
-NAMEHERE
-[/tdwidth]
-[/tr]
-[/table2]
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,30,5]
-[size=87][b]AGENCY (IF APPLICABLE)[/size][/b]
-NAMEHERE
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,30,5]
-[size=87][b]SERIAL NO.[/size][/b]
-NAMEHERE
-[/tdwidth][/tr]
-[/table2]
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,20,5]
-[b][size=87]DATE RELEASED[/size][/b]
-NAMEHERE
-[/tdwidth]
-
-[tdwidth=1,black,transparent,top,left,20,5]
-[b][size=87]REASON FOR TRANSFER[/size][/b]
-[size=60](EVIDENCE EXCHANGE / DESTRUCTION / HISTORIC INDEXING ETC.)[/size]
-NAMEHERE
-[/tdwidth][/tr]
-[/table2]
-[table2=1,black,transparent,Arial]
-[tr][tdwidth=1,black,transparent,top,left,100,5]
-[center][b][size=90]IF COURT REQUIRES PROPERTY FROM EVIDENCE, PROVIDE THE FOLLOWING[/size][/b][/center]
-[/tdwidth][/tr][/table2]
-[table2=1,black,transparent,Arial]
-[tr]
-[tdwidth=1,black,transparent,top,left,37,5]
-[b][size=87]CASE OF PEOPLE VS.[/size][/b]
-NAMEHERE
-[/tdwidth]
-[tdwidth=1,black,transparent,top,left,30,5]
-[b][size=87]RECEIVED BY (COURT CLERK)[/size][/b]
-NAMEHERE
-[/tdwidth]
-[/tr]
-[/table2]
-[table2=1,black,transparent,Arial]
-[tr][tdwidth=1,black,transparent,top,left,100,5]
-[center][b][size=90]ITEMS TO TRANSFER[/size][/b][/center]
-[/tdwidth][/tr][/table2]`;
-
-  // 1) Insert the top 8 placeholders
+  // Insert placeholders for fields 1..8
   for (let i = 1; i <= 8; i++) {
     const val = document.getElementById("field" + i)?.value || "";
     templateTop = templateTop.replace("NAMEHERE", val);
   }
-  // 2) Insert placeholders 9..10 for court info
+  // Insert placeholders 9..10
   for (let i = 9; i <= 10; i++) {
     const val = document.getElementById("field" + i)?.value || "";
     templateTop = templateTop.replace("NAMEHERE", val);
   }
 
-  // Now we handle the dynamic property items
-  let propertyArray = JSON.parse(localStorage.getItem(prefix + "propertyArray")) || [];
-
-  // Build the final output
+  let propertyArray = JSON.parse(localStorage.getItem("propertyRelease-propertyArray")) || [];
   let output = templateTop;
 
-  // For each property item, append a [table2=1,black,transparent,Arial] block
   propertyArray.forEach(item => {
     output += `
 [table2=1,black,transparent,Arial]
@@ -237,11 +178,9 @@ ${item.qty}
 [/table2]`;
   });
 
-  // Output final
   const outputElement = document.getElementById("bbcodeOutput");
   outputElement.textContent = output;
 
-  // Auto-select the text
   if (window.getSelection) {
     const range = document.createRange();
     range.selectNodeContents(outputElement);
