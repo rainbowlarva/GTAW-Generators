@@ -9,13 +9,13 @@
   <div class="container">
     <h1>Property Transfer Receipt Generator</h1>
     <a href="https://rainbowlarva.github.io/GTAW-Generators/">
-        <img src="../arrow.png" alt="Back" class="back-button">
+      <img src="../arrow.png" alt="Back" class="back-button">
     </a>
 
-    <form id="bbcodeForm" onsubmit="generateBBCode(); return false;">
+    <form id="propertyForm" onsubmit="generateBBCode(); return false;">
 
       <h2>Transfer Information</h2>
-      <!-- Basic Fields (1..8) -->
+      <!-- Fields 1..8 -->
       <label for="field1">Release authorization by:</label>
       <input type="text" id="field1" placeholder="Officer authorizing the release.">
 
@@ -41,7 +41,7 @@
       <input type="text" id="field8" placeholder="Evidence exchange / destruction / indexing, etc.">
 
       <h2>Court Information</h2>
-      <!-- Basic Fields (9..10) -->
+      <!-- Fields 9..10 -->
       <label for="field9">CASE OF PEOPLE VS.:</label>
       <input type="text" id="field9" placeholder="Enter the court case (if applicable).">
 
@@ -49,14 +49,13 @@
       <input type="text" id="field10" placeholder="Court clerk receiving the property (if applicable).">
 
       <h2>Items to Transfer</h2>
+      <!-- Dynamic property items go here -->
+      <div id="propertyList"></div>
 
-      <!-- The dynamic list of evidence items will go here -->
-      <div id="evidenceList"></div>
-
-      <!-- Buttons to add or remove evidence items side by side -->
-      <div id="evidenceControls">
-        <button type="button" id="addEvidence">Add Evidence</button>
-        <button type="button" id="removeEvidence">Remove Evidence</button>
+      <!-- Two side-by-side buttons to add/remove property -->
+      <div id="propertyControls">
+        <button type="button" id="addProperty">Add Property</button>
+        <button type="button" id="removeProperty">Remove Property</button>
       </div>
 
       <button type="submit">Generate BBCode</button>
