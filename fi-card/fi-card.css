@@ -120,7 +120,7 @@ textarea::placeholder {
     display: none;
 }
 
-/* Base, unchecked label => lighter teal (#10B7CC) */
+/* Unchecked: lighter teal (#10B7CC) */
 .checkbox-container label {
     display: flex;
     align-items: center;
@@ -132,28 +132,28 @@ textarea::placeholder {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.1rem;
-    user-select: none;         /* no text highlight */
-    -webkit-user-select: none; 
-    -moz-user-select: none;    
+    user-select: none;  /* no text highlight */
+    -webkit-user-select: none;
+    -moz-user-select: none;
     -ms-user-select: none;
-    color: white;              /* ensure text is visible on teal */
+    color: white;       /* ensure text is visible on teal */
 }
 
-/* Hover for unchecked => darker teal (#0A4C54) */
+/* Hover (unchecked): same color, but slight scale transform */
 .checkbox-container label:hover {
-    background-color: #0A4C54;
-    border-color: #0A4C54;
+    background-color: #10B7CC; /* No color change */
+    border-color: #10B7CC;
     transform: scale(1.05);
 }
 
-/* Checked => darker teal (#0A4C54), no highlight on hover */
+/* Checked => darker teal (#0A4C54), no color/transform on hover */
 .checkbox-container input[type="checkbox"]:checked + label {
     background-color: #0A4C54;
     border-color: #0A4C54;
     color: white;
 }
 
-/* If checked, no hover effect => remain #0A4C54 with no transform */
+/* If checked, no transform or color change on hover */
 .checkbox-container input[type="checkbox"]:checked + label:hover {
     background-color: #0A4C54;
     border-color: #0A4C54;
