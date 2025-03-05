@@ -141,18 +141,12 @@ legend {
 
 /* The Clear button (red) */
 .clear-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
     background-color: #E73E3B; /* bright red */
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     margin-top: 4%;
+    margin-bottom: -2%;
+    transition: background-color 0.3s ease;
 }
-
 .clear-button:hover {
-    background-color: #B8322F; /* darker shade of red on hover */
+    background-color: #B8322F; /* darker red */
 }
