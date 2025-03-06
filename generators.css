@@ -104,16 +104,23 @@ a {
   padding: 20px;
 }
 
-/* BUTTON STYLES */
+/* =========================
+   BUTTON STYLES
+========================= */
+
+/* Always grayscale, but we allow a scale on hover. */
 .image-button {
+  filter: grayscale(100%);        /* Stays grayscale all the time */
+  text-align: center;             /* Center the text under the image */
   transition: transform 0.3s ease;
-  filter: grayscale(100%);
 }
 
+/* On hover, scale up slightly (no color). */
 .image-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);         /* Grows a bit on hover */
 }
 
+/* The image inside the button. */
 .image-button img {
   width: 200px;
   height: 208px;
@@ -122,17 +129,20 @@ a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image-button img:hover {
+/* On hover, we add a subtle box shadow. */
+.image-button:hover img {
   box-shadow: 0 0 10px #2A2E33;
 }
 
+/* The text under the image. */
 .image-button p {
   color: white;
   white-space: normal;
   max-width: 200px;
-  transition: transform 0.3s ease;
+  transition: color 0.3s ease;
 }
 
+/* On hover, lighten the text color slightly. */
 .image-button:hover p {
   color: #DBDBDB;
 }
@@ -157,13 +167,15 @@ h2 {
   opacity: 1;
 }
 
-/* Animate child .image-button elements */
+/* Base state for buttons inside a collapsed container:
+   slightly slid down & invisible. */
 .collapse .image-button {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* When container is open, move them into place. */
 .collapse.open .image-button {
   opacity: 1;
   transform: translateY(0);
