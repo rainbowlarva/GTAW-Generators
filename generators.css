@@ -117,11 +117,6 @@ a {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* On hover, move up slightly & scale a bit, still grayscale. */
-.image-button:hover {
-  transform: translateY(-3px) scale(1.05);
-}
-
 /* The image inside the button. */
 .image-button img {
   width: 200px;
@@ -133,7 +128,7 @@ a {
 
 /* On hover, add a subtle box shadow. */
 .image-button:hover img {
-  box-shadow: 0 0 10px #2A2E33;
+  box-shadow: 0 0 10px #4C3B1D;
   transform: translateY(-3px) scale(1.05);
 }
 
