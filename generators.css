@@ -50,15 +50,12 @@ a {
   height: 300px;
 }
 
+.mrdlogo,
 .ftplogo,
 .traflogo,
 .gitlogo,
-.drdlogo {
-  width: 300px;
-  height: 300px;
-}
-
-.mrdlogo {
+.drdlogo,
+.swatlogo {
   width: 300px;
   height: 300px;
 }
@@ -143,6 +140,10 @@ a {
 /* On hover, lighten the text color slightly. */
 .image-button:hover p {
   color: #DBDBDB;
+}
+
+h1 {
+  color: #AD0000;
 }
 
 /* Headings (if used) */
