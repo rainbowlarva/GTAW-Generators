@@ -1,105 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>LSPD Generators</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSPD Generators</title>
 
-<!--Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
 
-<!--CSS Style Sheet-->
-    <link rel="stylesheet" href="generators.css">
+  <!-- CSS Style Sheet -->
+  <link rel="stylesheet" href="generators.css">
 </head>
-
 <body class="background">
-  <img src="ls2.png" class="lslogo">
-    <div class="prdcontainer">
-        <h2>DEPARTMENT RECORDS DATABASE</h2>
-        <div class="records-container">
-          <!-- Image Buttons -->
-          <a href="ccr/ccr.html" class="image-button">
-            <img src="thumbnails/ccr.png" alt="CCR">
-                <p>Crime Complaint Report</p>
-          </a>
-          <a href="uof/uof.html" class="image-button">
-            <img src="thumbnails/uof.png" alt="Uof">
-                <p>Use of Force Report</p>
-          </a>
-          <a href="fi-card/fi-card.html" class="image-button">
-            <img src="thumbnails/ficard.png" alt="FICard">
-                <p>Field Interview Card</p>
-          </a>
-          <a href="property-release/property-release.html" class="image-button">
-            <img src="thumbnails/property.png" alt="Property">
-                <p>Property Release Receipt</p>
-          </a>
-          <a href="after-action/after-action.html" class="image-button">
-            <img src="thumbnails/aar.png" alt="AAR">
-                <p>After Action Report</p>
-          </a>
-          <a href="fleet-service/fleet-service.html" class="image-button">
-            <img src="thumbnails/fsr.png" alt="FSR">
-                <p>Fleet Services Request</p>
-          </a>
-        </div>
+  <!-- Top Logo -->
+  <img src="ls2.png" class="lslogo" />
 
-        <img src="mrd.png" class="mrdlogo">
-        <h2>MISSION ROW DIVISION</h2>
-            <!-- Second Row of Image Buttons -->
-        <div class="mrd-container">
-          <a href="page6.html" class="image-button">
-            <img src="thumbnails/vinewood.png" alt="Vinewood">
-            <p>Vinewood Area Notes</p>
-          </a>
-          <a href="page7.html" class="image-button">
-            <img src="thumbnails/westvalley.png" alt="West Valley">
-            <p>West Valley Area Notes</p>
-          </a>
-          <a href="page8.html" class="image-button">
-            <img src="thumbnails/southcentral.png" alt="South Central">
-            <p>South Central Area Notes</p>
-          </a>
-        </div>
+  <div class="prdcontainer">
 
-        <img src="ftp.png" class="ftplogo">
-        <h2>FIELD TRAINING PROGRAM</h2>
-        <div class="ftp-container">
-            <!-- Third Row of Buttons -->
-            <a href="page9.html" class="image-button">
-              <img src="thumbnails/orientation.png" alt="Orientation">
-              <p>Orientation Report</p>
-            </a>
-            <a href="page10.html" class="image-button">
-              <img src="thumbnails/dor.png" alt="DOR">
-              <p>Daily Observation Report</p>
-            </a>
-            <a href="page11.html" class="image-button">
-              <img src="thumbnails/fto-record.png" alt="FTO Record">
-              <p>FTO Record</p>
-            </a>
-            <a href="page12.html" class="image-button">
-              <img src="thumbnails/fto-monthly.png" alt="FTO Monthly">
-              <p>FTO Monthly Record</p>
-            </a>
-            <a href="page13.html" class="image-button">
-              <img src="thumbnails/weeklymeeting.png" alt="Weekly Meeting">
-              <p>Weekly Evaluation Report (FTM USE)</p>
-            </a>
-            <a href="page14.html" class="image-button">
-              <img src="thumbnails/sit-in.png" alt="Sit In">
-              <p>Sit-in (FTM USE)</p>
-            </a>
-          </div>
-
-          <h2>TRAFFIC DIVISION</h2>
-        <div class="traffic-container">
-
-        </div>
+    <!-- 1) Records Section -->
+    <button class="toggle-button" onclick="toggleSection('recordsSection')">
+      DEPARTMENT RECORDS DATABASE
+    </button>
+    <div id="recordsSection" class="records-container collapse">
+      <!-- Image Buttons -->
+      <a href="ccr/ccr.html" class="image-button">
+        <img src="thumbnails/ccr.png" alt="CCR">
+        <p>Crime Complaint Report</p>
+      </a>
+      <a href="uof/uof.html" class="image-button">
+        <img src="thumbnails/uof.png" alt="Uof">
+        <p>Use of Force Report</p>
+      </a>
+      <a href="fi-card/fi-card.html" class="image-button">
+        <img src="thumbnails/ficard.png" alt="FICard">
+        <p>Field Interview Card</p>
+      </a>
+      <a href="property-release/property-release.html" class="image-button">
+        <img src="thumbnails/property.png" alt="Property">
+        <p>Property Release Receipt</p>
+      </a>
+      <a href="after-action/after-action.html" class="image-button">
+        <img src="thumbnails/aar.png" alt="AAR">
+        <p>After Action Report</p>
+      </a>
+      <a href="fleet-service/fleet-service.html" class="image-button">
+        <img src="thumbnails/fsr.png" alt="FSR">
+        <p>Fleet Services Request</p>
+      </a>
     </div>
-</body>
 
+    <!-- 2) Mission Row -->
+    <img src="mrd.png" class="mrdlogo" />
+    <button class="toggle-button" onclick="toggleSection('mrdSection')">
+      MISSION ROW DIVISION
+    </button>
+    <div id="mrdSection" class="mrd-container collapse">
+      <a href="page6.html" class="image-button">
+        <img src="thumbnails/vinewood.png" alt="Vinewood">
+        <p>Vinewood Area Notes</p>
+      </a>
+      <a href="page7.html" class="image-button">
+        <img src="thumbnails/westvalley.png" alt="West Valley">
+        <p>West Valley Area Notes</p>
+      </a>
+      <a href="page8.html" class="image-button">
+        <img src="thumbnails/southcentral.png" alt="South Central">
+        <p>South Central Area Notes</p>
+      </a>
+    </div>
+
+    <!-- 3) Field Training -->
+    <img src="ftp.png" class="ftplogo" />
+    <button class="toggle-button" onclick="toggleSection('ftpSection')">
+      FIELD TRAINING PROGRAM
+    </button>
+    <div id="ftpSection" class="ftp-container collapse">
+      <a href="page9.html" class="image-button">
+        <img src="thumbnails/orientation.png" alt="Orientation">
+        <p>Orientation Report</p>
+      </a>
+      <a href="page10.html" class="image-button">
+        <img src="thumbnails/dor.png" alt="DOR">
+        <p>Daily Observation Report</p>
+      </a>
+      <a href="page11.html" class="image-button">
+        <img src="thumbnails/fto-record.png" alt="FTO Record">
+        <p>FTO Record</p>
+      </a>
+      <a href="page12.html" class="image-button">
+        <img src="thumbnails/fto-monthly.png" alt="FTO Monthly">
+        <p>FTO Monthly Record</p>
+      </a>
+      <a href="page13.html" class="image-button">
+        <img src="thumbnails/weeklymeeting.png" alt="Weekly Meeting">
+        <p>Weekly Evaluation Report (FTM USE)</p>
+      </a>
+      <a href="page14.html" class="image-button">
+        <img src="thumbnails/sit-in.png" alt="Sit In">
+        <p>Sit-in (FTM USE)</p>
+      </a>
+    </div>
+
+    <!-- 4) Traffic Division -->
+    <button class="toggle-button" onclick="toggleSection('trafficSection')">
+      TRAFFIC DIVISION
+    </button>
+    <div id="trafficSection" class="traffic-container collapse">
+      <!-- Currently empty, add your traffic buttons here if needed -->
+    </div>
+
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="collapsible.js"></script>
+</body>
 </html>
