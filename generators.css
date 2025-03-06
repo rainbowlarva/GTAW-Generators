@@ -148,7 +148,6 @@ a {
 
 /* On hover, add a subtle box shadow. */
 .db-button:hover img {
-  box-shadow: 0 0 16px #5F6972;
   transform: translateY(-3px) scale(1.05);
 }
 
@@ -160,8 +159,21 @@ a {
   transition: color 0.3s ease;
 }
 
+/* The text under the image. */
+.db-button p {
+  color: white;
+  white-space: normal;
+  max-width: 200px;
+  transition: color 0.3s ease;
+}
+
 /* On hover, lighten the text color slightly. */
 .image-button:hover p {
+  color: #DBDBDB;
+}
+
+/* On hover, lighten the text color slightly. */
+.db-button:hover p {
   color: #DBDBDB;
 }
 
