@@ -114,6 +114,14 @@ a {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Keep everything grayscale, but allow transform changes on hover. */
+.db-button {
+  text-align: center;
+  /* Merge transforms in a single property. Start at scale(1), no shift. */
+  transform: translateY(0) scale(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 /* The image inside the button. */
 .image-button img {
   width: 200px;
@@ -123,8 +131,23 @@ a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* The image inside the button. */
+.db-button img {
+  width: 200px;
+  height: 208px;
+  border: 2px solid black;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* On hover, add a subtle box shadow. */
 .image-button:hover img {
+  box-shadow: 0 0 16px #5F6972;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* On hover, add a subtle box shadow. */
+.db-button:hover img {
   box-shadow: 0 0 16px #5F6972;
   transform: translateY(-3px) scale(1.05);
 }
@@ -143,7 +166,7 @@ a {
 }
 
 h1 {
-  color: #712320;
+  color: #E2B055;
 }
 
 /* Headings (if used) */
