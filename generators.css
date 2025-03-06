@@ -128,7 +128,7 @@ a {
 
 /* On hover, add a subtle box shadow. */
 .image-button:hover img {
-  box-shadow: 0 0 10px #4C3B1D;
+  box-shadow: 0 0 16px #5F6972;
   transform: translateY(-3px) scale(1.05);
 }
 
