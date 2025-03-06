@@ -52,7 +52,7 @@ a {
 
 .ftplogo,
 .traflogo,
-.gedlog,
+.gitlog,
 .drdlogo {
   width: 300px;
   height: 300px;
@@ -88,7 +88,7 @@ a {
 .mrd-container,
 .ftp-container,
 .traffic-container,
-.ged-container,
+.git-container,
 .metro-container {
   display: flex;
   flex-wrap: wrap;
