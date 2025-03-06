@@ -108,16 +108,18 @@ a {
    BUTTON STYLES
 ========================= */
 
-/* Always grayscale, but we allow a scale on hover. */
+/* Keep everything grayscale, but allow transform changes on hover. */
 .image-button {
-  filter: grayscale(100%);        /* Stays grayscale all the time */
-  text-align: center;             /* Center the text under the image */
-  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+  text-align: center;
+  /* Merge transforms in a single property. Start at scale(1), no shift. */
+  transform: translateY(0) scale(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* On hover, scale up slightly (no color). */
+/* On hover, move up slightly & scale a bit, still grayscale. */
 .image-button:hover {
-  transform: scale(1.05);         /* Grows a bit on hover */
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* The image inside the button. */
@@ -129,7 +131,7 @@ a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* On hover, we add a subtle box shadow. */
+/* On hover, add a subtle box shadow. */
 .image-button:hover img {
   box-shadow: 0 0 10px #2A2E33;
 }
@@ -167,18 +169,24 @@ h2 {
   opacity: 1;
 }
 
-/* Base state for buttons inside a collapsed container:
-   slightly slid down & invisible. */
+/* 
+   Inside the collapsed container, we start each button 
+   slightly below & invisible.
+*/
 .collapse .image-button {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) scale(1);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* When container is open, move them into place. */
+/* 
+   Once the container is open, we bring them up to translateY(0) scale(1).
+   Then the .image-button:hover rule can still apply an extra -3px shift 
+   and scale(1.05) on top of that.
+*/
 .collapse.open .image-button {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* Stagger effect for up to 6 buttons */
