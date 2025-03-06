@@ -135,7 +135,6 @@ a {
 .db-button img {
   width: 200px;
   height: 208px;
-  border: 2px solid black;
   border-radius: 5px;
   transition: transform 0.3s ease;
 }
