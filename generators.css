@@ -3,9 +3,9 @@ html, body {
   margin: 0; /* Remove default margins */
   overflow-y: auto; /* Allow vertical scrolling */
   display: flex;
-  flex-direction: column; /* Allow content to flow down */
-  justify-content: flex-start; /* Align items to the top */
-  align-items: center; /* Center horizontally */
+  flex-direction: column; /* Stack the entire page vertically */
+  justify-content: flex-start;
+  align-items: center;
   position: relative;
 }
 
@@ -20,8 +20,7 @@ html, body {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 
 a {
@@ -36,16 +35,17 @@ a {
   padding-bottom: 5%;
 }
 
+/* The top LSPD logo */
 .prdcontainer img {
-  display: inline-block; 
+  display: inline-block;
   margin: 10px;
 }
 
 .lslogo {
-  display: flex; /* Use flexbox to arrange images in a row */
-  justify-content: center; /* Center the buttons horizontally */
+  display: flex; 
+  justify-content: center; 
   align-items: center;
-  gap: 20px; /* Add space between buttons */
+  gap: 20px;
   width: 300px;
   height: 300px;
 }
@@ -62,12 +62,26 @@ a {
   height: 167px;
 }
 
+/* =========================
+   TWO-COLUMN LAYOUT
+========================= */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 20px;
+  width: 90%;         /* adjust as needed */
+  margin: 0 auto;     /* center the grid container */
+}
+
+.section-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* 
   CONTAINERS FOR BUTTONS 
-  - Grayish outline
-  - Wrap to next row after 4 buttons
-  - Auto-resize to fit content (width: fit-content) but max 860px wide
-  - Centered on the page with margin: 20px auto
+  (records-container, mrd-container, etc.)
 */
 .records-container,
 .mrd-container,
@@ -76,118 +90,85 @@ a {
 .ged-container,
 .metro-container {
   display: flex;
-  flex-wrap: wrap;           /* Allows wrapping to multiple rows */
-  justify-content: center;   /* Center buttons horizontally */
-  gap: 20px;                 /* Spacing between buttons */
-  border: 5px solid #32383E; /* Thicker border */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  border: 5px solid #32383E;
   border-radius: 10px;
   background-color: #3C4349;
   box-shadow: 0 0 5px #000000;
-  
-  /* Auto-size, but stop after 4 buttons in a row (4 * 200px + 3 * 20px gap = 860px) */
-  width: fit-content;
-  max-width: 860px;
-  
-  margin: 20px auto; /* Center horizontally, add vertical spacing */
-  padding: 20px;     /* Internal padding around buttons */
-}
-
-/* Add some margin between rows if you have multiple .button-container divs */
-.button-container + .button-container {
-  margin-top: 20px;
+  width: fit-content;   /* auto-size */
+  max-width: 860px;     /* wrap after ~4 buttons */
+  margin: 20px auto;    /* center + vertical spacing */
+  padding: 20px;
 }
 
 /* BUTTON STYLES */
 .image-button {
-  transition: transform 0.3s ease; /* Smooth transition for scaling the entire button */
-  filter: grayscale(100%);         /* Makes the image black and white */
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
 }
 
 .image-button:hover {
-  transform: scale(1.1); /* Scale both the image and text */
+  transform: scale(1.1);
 }
 
 .image-button img {
   width: 200px;
   height: 208px;
-  border: 2px solid black; /* Add a black border */
-  border-radius: 5px;      /* Optional: Rounds the corners of the border */
+  border: 2px solid black;
+  border-radius: 5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-button img:hover {
-  box-shadow: 0 0 10px #2A2E33; /* Shadow on hover */
+  box-shadow: 0 0 10px #2A2E33;
 }
 
 .image-button p {
   color: white;
-  white-space: normal; /* Allow text to wrap */
-  max-width: 200px;    /* Control the width of the text */
-  transition: transform 0.3s ease; /* Smooth scale effect for the text */
+  white-space: normal;
+  max-width: 200px;
+  transition: transform 0.3s ease;
 }
 
 .image-button:hover p {
   color: #DBDBDB;
 }
 
-/* DETECTIVES BUREAU PAGE (if needed) */
-.db-container {
-  display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  text-align: center;
-  color: white;
-  overflow: hidden;
-  width: 100%;
-  padding-bottom: 5%;
-}
-
-.db-container p {
-  color: white;
-  white-space: normal; 
-  max-width: 1000px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* Headings (if you keep any h2) */
+/* Headings (if used) */
 h2 {
   color: #E2B055;
 }
 
-/* ========================= */
-/*   NEW COLLAPSIBLE STYLES  */
-/* ========================= */
-
-/* Hide container by default */
+/* ================
+   COLLAPSIBLE 
+================ */
 .collapse {
-  max-height: 0;       /* no visible height */
-  overflow: hidden;    /* hide the content */
-  opacity: 0;          /* fade out */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
-/* When toggled "open", show container */
 .collapse.open {
-  max-height: 1000px;  /* large enough to fit your content */
+  max-height: 1000px; /* large enough to fit your content */
   opacity: 1;
 }
 
-/* Animate child .image-button elements (fade + slight slide) */
+/* Animate child .image-button elements */
 .collapse .image-button {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* On open, animate them in */
 .collapse.open .image-button {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Staggered effect for up to 6 buttons */
+/* Stagger effect for up to 6 buttons */
 .collapse.open .image-button:nth-child(1) { transition-delay: 0.05s; }
 .collapse.open .image-button:nth-child(2) { transition-delay: 0.10s; }
 .collapse.open .image-button:nth-child(3) { transition-delay: 0.15s; }
@@ -204,8 +185,8 @@ h2 {
   border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
-  margin: 20px auto;
-  display: block;  /* center horizontally */
+  margin: 20px auto 0; /* center horizontally, spacing above container */
+  display: block;
   text-align: center;
   transition: background-color 0.3s;
 }
