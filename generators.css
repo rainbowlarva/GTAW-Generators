@@ -137,7 +137,7 @@ a {
   height: 208px;
   border: 2px solid black;
   border-radius: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 /* On hover, add a subtle box shadow. */
