@@ -37,7 +37,7 @@ a {
 }
 
 .prdcontainer img {
-  display: inline-block; /* Use flexbox to arrange images in a row */
+  display: inline-block; 
   margin: 10px;
 }
 
@@ -64,7 +64,7 @@ a {
 
 /* 
   CONTAINERS FOR BUTTONS 
-  - Gold outline (2px #E2B055)
+  - Grayish outline
   - Wrap to next row after 4 buttons
   - Auto-resize to fit content (width: fit-content) but max 860px wide
   - Centered on the page with margin: 20px auto
@@ -74,17 +74,15 @@ a {
 .ftp-container,
 .traffic-container,
 .ged-container,
-.metro-container
- {
+.metro-container {
   display: flex;
   flex-wrap: wrap;           /* Allows wrapping to multiple rows */
   justify-content: center;   /* Center buttons horizontally */
   gap: 20px;                 /* Spacing between buttons */
-  border: 5px solid #32383E; /* Thicker gold border */
+  border: 5px solid #32383E; /* Thicker border */
   border-radius: 10px;
   background-color: #3C4349;
   box-shadow: 0 0 5px #000000;
-  
   
   /* Auto-size, but stop after 4 buttons in a row (4 * 200px + 3 * 20px gap = 860px) */
   width: fit-content;
@@ -94,7 +92,7 @@ a {
   padding: 20px;     /* Internal padding around buttons */
 }
 
-/* Add some margin between rows (if you have multiple .button-container divs) */
+/* Add some margin between rows if you have multiple .button-container divs */
 .button-container + .button-container {
   margin-top: 20px;
 }
@@ -132,61 +130,7 @@ a {
   color: #DBDBDB;
 }
 
-/* Example "SWAT button" styling (remove if unused) */
-.swat-button {
-  width: 1000px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.swat-button img {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-}
-
-.swat-button p {
-  color: white;
-  white-space: normal;
-  max-width: 1000px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.swat-button img:hover {
-  filter: grayscale(70%);
-}
-
-/* Example "DB button" styling (remove if unused) */
-.db-button {
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.db-button img {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-}
-
-.db-button p {
-  color: white;
-  white-space: normal;
-  max-width: 1000px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.db-button img:hover {
-  filter: grayscale(70%);
-}
-
-/* DETECTIVES BUREAU PAGE */
+/* DETECTIVES BUREAU PAGE (if needed) */
 .db-container {
   display: flex;
   flex-direction: column; 
@@ -207,7 +151,65 @@ a {
   margin-top: 10px;
 }
 
-/* Headings */
+/* Headings (if you keep any h2) */
 h2 {
   color: #E2B055;
+}
+
+/* ========================= */
+/*   NEW COLLAPSIBLE STYLES  */
+/* ========================= */
+
+/* Hide container by default */
+.collapse {
+  max-height: 0;       /* no visible height */
+  overflow: hidden;    /* hide the content */
+  opacity: 0;          /* fade out */
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+/* When toggled "open", show container */
+.collapse.open {
+  max-height: 1000px;  /* large enough to fit your content */
+  opacity: 1;
+}
+
+/* Animate child .image-button elements (fade + slight slide) */
+.collapse .image-button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* On open, animate them in */
+.collapse.open .image-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered effect for up to 6 buttons */
+.collapse.open .image-button:nth-child(1) { transition-delay: 0.05s; }
+.collapse.open .image-button:nth-child(2) { transition-delay: 0.10s; }
+.collapse.open .image-button:nth-child(3) { transition-delay: 0.15s; }
+.collapse.open .image-button:nth-child(4) { transition-delay: 0.20s; }
+.collapse.open .image-button:nth-child(5) { transition-delay: 0.25s; }
+.collapse.open .image-button:nth-child(6) { transition-delay: 0.30s; }
+
+/* Toggle buttons */
+.toggle-button {
+  background-color: #3C4349;
+  color: #E2B055;
+  font-size: 1.2rem;
+  border: 3px solid #32383E;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;  /* center horizontally */
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+  background-color: #4B5359;
 }
