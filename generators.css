@@ -178,11 +178,13 @@ a {
 
 h1 {
   color: #E2B055;
+  font-weight: bold;
 }
 
 /* Headings (if used) */
 h2 {
   color: #E2B055;
+  font-weight: bold;
 }
 
 /* ================
