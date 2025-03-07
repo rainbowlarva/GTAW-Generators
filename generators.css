@@ -299,16 +299,16 @@ body.background {
   position: relative;
 }
 
+/* Remove border from the dropdown button, fill entire sidebar width */
 .dropdown-btn {
   width: 100%;
-  background-color: #3C4349;
+  background-color: #34393D; /* Use new color */
   color: #E2B055;
   padding: 10px;
   font-size: 1rem;
   outline: none;
-  border: 1px solid #32383E;
-  border-bottom: none; 
-  border-radius: 5px 5px 0 0;
+  border: none;
+  border-radius: 0;
   text-align: left;
   cursor: pointer;
   display: flex;
@@ -329,13 +329,17 @@ body.background {
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.4s ease;
-  background-color: #3C4349;
-  border: 1px solid #32383E;
-  border-top: none; 
-  border-radius: 0 0 5px 5px;
+
+  /* Solid backdrop that extends across the sidebar */
+  background-color: #34393D;
+  width: 100%;
+
+  /* Remove border & corner rounding */
+  border: none;
+  border-radius: 0;
 }
 
-/* Each link inside the dropdown */
+/* Links inside the dropdown */
 .dropdown-content a {
   display: block;
   color: #fff;
@@ -347,7 +351,8 @@ body.background {
   background-color: #545B60;
 }
 
+/* When 'active', reveal content with animation */
 .dropdown.active .dropdown-content {
-  max-height: 500px; /* big enough to fit your links */
+  max-height: 500px; /* enough space for your links */
   opacity: 1;
 }
