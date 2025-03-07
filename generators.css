@@ -234,6 +234,7 @@ h2 {
 .toggle-button {
   background-color: #3C4349;
   color: #E2B055;
+  font-weight: bold;
   font-size: 1.2rem;
   border: 3px solid #32383E;
   border-radius: 10px;
