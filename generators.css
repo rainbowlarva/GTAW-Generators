@@ -209,7 +209,6 @@ h2 {
   background-color: #3C4349;
   border: 5px solid #32383E;
   box-shadow: 0 0 5px #000000;
-  padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
   z-index: 9999;
@@ -246,7 +245,7 @@ body.background {
 /* Dropdown button: no border, full width, background #34393D */
 .dropdown-btn {
   width: 100%;
-  background-color: #34393D;
+  background-color: #32383E;
   color: #E2B055;
   padding: 10px;
   font-size: 1rem;
@@ -273,7 +272,7 @@ body.background {
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.4s ease;
-  background-color: #34393D;
+  background-color: #32383E;
   width: 100%;
   /* Remove any border, corner rounding, etc. */
   border: none;
