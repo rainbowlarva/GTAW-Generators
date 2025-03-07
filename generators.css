@@ -1,9 +1,9 @@
 html, body {
   width: 100%;
-  margin: 0; /* Remove default margins */
-  overflow-y: auto; /* Allow vertical scrolling */
+  margin: 0;
+  overflow-y: auto;
   display: flex;
-  flex-direction: column; /* Stack the entire page vertically */
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   position: relative;
@@ -24,13 +24,13 @@ html, body {
 }
 
 a {
-  text-decoration: none; /* Remove underline from links globally */
+  text-decoration: none;
 }
 
 .prdcontainer {
   text-align: center;
   color: white;
-  overflow: hidden; /* Prevent overflowing content */
+  overflow: hidden;
   width: 100%;
   padding-bottom: 5%;
 }
@@ -42,8 +42,8 @@ a {
 }
 
 .lslogo {
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   width: 300px;
@@ -60,15 +60,13 @@ a {
   height: 300px;
 }
 
-/* =========================
-   TWO-COLUMN LAYOUT
-========================= */
+/* 2-COLUMN LAYOUT */
 .two-column-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
-  width: 90%;         /* adjust as needed */
-  margin: 0 auto;     /* center the grid container */
+  width: 90%;
+  margin: 0 auto;
 }
 
 .section-block {
@@ -77,10 +75,7 @@ a {
   align-items: center;
 }
 
-/* 
-  CONTAINERS FOR BUTTONS 
-  (records-container, mrd-container, etc.)
-*/
+/* Containers for the button groups (records, ftp, etc.) */
 .records-container,
 .mrd-container,
 .ftp-container,
@@ -95,70 +90,45 @@ a {
   border-radius: 10px;
   background-color: #3C4349;
   box-shadow: 0 0 5px #000000;
-  width: fit-content;   /* auto-size */
-  max-width: 860px;     /* wrap after ~4 buttons */
-  margin: 20px auto;    /* center + vertical spacing */
+  width: fit-content;
+  max-width: 860px;
+  margin: 20px auto;
   padding: 20px;
 }
 
-/* =========================
-   BUTTON STYLES
-========================= */
-
-/* Keep everything grayscale, but allow transform changes on hover. */
+/* Button styles */
 .image-button {
   filter: grayscale(100%);
   text-align: center;
-  /* Merge transforms in a single property. Start at scale(1), no shift. */
   transform: translateY(0) scale(1);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Keep everything grayscale, but allow transform changes on hover. */
 .db-button {
   text-align: center;
-  /* Merge transforms in a single property. Start at scale(1), no shift. */
   transform: translateY(0) scale(1);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* The image inside the button. */
-.image-button img {
-  width: 200px;
-  height: 208px;
-  border: 2px solid black;
-  border-radius: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* The image inside the button. */
+.image-button img,
 .db-button img {
   width: 200px;
   height: 208px;
   border-radius: 5px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* On hover, add a subtle box shadow. */
+/* Add a subtle box shadow on hover */
 .image-button:hover img {
   box-shadow: 0 0 16px #5F6972;
   transform: translateY(-3px) scale(1.05);
 }
-
-/* On hover, add a subtle box shadow. */
 .db-button:hover img {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* The text under the image. */
-.image-button p {
-  color: white;
-  white-space: normal;
-  max-width: 200px;
-  transition: color 0.3s ease;
-}
-
-/* The text under the image. */
+/* Text under each button */
+.image-button p,
 .db-button p {
   color: white;
   white-space: normal;
@@ -166,71 +136,50 @@ a {
   transition: color 0.3s ease;
 }
 
-/* On hover, lighten the text color slightly. */
-.image-button:hover p {
-  color: #DBDBDB;
-}
-
-/* On hover, lighten the text color slightly. */
+/* Lighten text color on hover */
+.image-button:hover p,
 .db-button:hover p {
   color: #DBDBDB;
 }
 
+/* Headings */
 h1 {
   color: #E2B055;
   font-weight: bold;
 }
-
-/* Headings (if used) */
 h2 {
   color: #E2B055;
   font-weight: bold;
 }
 
-/* ================
-   COLLAPSIBLE 
-================ */
+/* Collapsible content animations */
 .collapse {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
-
 .collapse.open {
-  max-height: 1000px; /* large enough to fit your content */
+  max-height: 1000px;
   opacity: 1;
 }
-
-/* 
-   Inside the collapsed container, we start each button 
-   slightly below & invisible.
-*/
 .collapse .image-button {
   opacity: 0;
   transform: translateY(20px) scale(1);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-/* 
-   Once the container is open, we bring them up to translateY(0) scale(1).
-   Then the .image-button:hover rule can still apply an extra -3px shift 
-   and scale(1.05) on top of that.
-*/
 .collapse.open .image-button {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+.collapse.open .image-button:nth-child(1)  { transition-delay: 0.05s; }
+.collapse.open .image-button:nth-child(2)  { transition-delay: 0.10s; }
+.collapse.open .image-button:nth-child(3)  { transition-delay: 0.15s; }
+.collapse.open .image-button:nth-child(4)  { transition-delay: 0.20s; }
+.collapse.open .image-button:nth-child(5)  { transition-delay: 0.25s; }
+.collapse.open .image-button:nth-child(6)  { transition-delay: 0.30s; }
 
-/* Stagger effect for up to 6 buttons */
-.collapse.open .image-button:nth-child(1) { transition-delay: 0.05s; }
-.collapse.open .image-button:nth-child(2) { transition-delay: 0.10s; }
-.collapse.open .image-button:nth-child(3) { transition-delay: 0.15s; }
-.collapse.open .image-button:nth-child(4) { transition-delay: 0.20s; }
-.collapse.open .image-button:nth-child(5) { transition-delay: 0.25s; }
-.collapse.open .image-button:nth-child(6) { transition-delay: 0.30s; }
-
-/* Toggle buttons */
+/* Toggle button styling */
 .toggle-button {
   background-color: #3C4349;
   color: #E2B055;
@@ -240,13 +189,12 @@ h2 {
   border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
-  margin: 20px auto 0; /* center horizontally, spacing above container */
+  margin: 20px auto 0;
   display: block;
   text-align: center;
   transition: background-color 0.3s;
   box-shadow: 0 0 8px #212121;
 }
-
 .toggle-button:hover {
   background-color: #4B5359;
 }
@@ -258,21 +206,21 @@ h2 {
   top: 0;
   width: 250px;
   height: 100vh;
-  background-color: #3C4349; /* same as dropdown background */
-  border: 5px solid #32383E; /* same outline color as dropdowns */
-  box-shadow: 0 0 5px #000000; /* same subtle shadow */
+  background-color: #3C4349;
+  border: 5px solid #32383E;
+  box-shadow: 0 0 5px #000000;
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
   z-index: 9999;
 }
 
-/* Shift the main content to the right so it's not behind the sidebar */
+/* Shift main content to the right of the sidebar */
 body.background {
-  margin-left: 250px; /* same width as sidebar */
+  margin-left: 250px;
 }
 
-/* The placeholder image at top of sidebar */
+/* Sidebar image placeholder */
 .sidebar-image {
   width: 100%;
   height: auto;
@@ -280,7 +228,7 @@ body.background {
   margin-bottom: 10px;
 }
 
-/* Text beneath the image in sidebar */
+/* Sidebar text beneath image */
 .sidebar-text {
   color: #E2B055;
   text-align: center;
@@ -291,24 +239,19 @@ body.background {
 /* Dropdown container inside the sidebar */
 .dropdown {
   margin-bottom: 10px;
-}
-
-/* Container for each dropdown group */
-.dropdown {
-  margin-bottom: 10px;
   position: relative;
+  width: 100%; /* Ensure full width inside sidebar */
 }
 
-/* Remove border from the dropdown button, fill entire sidebar width */
+/* Dropdown button: no border, full width, background #34393D */
 .dropdown-btn {
   width: 100%;
-  background-color: #34393D; /* Use new color */
+  background-color: #34393D;
   color: #E2B055;
   padding: 10px;
   font-size: 1rem;
   outline: none;
   border: none;
-  border-radius: 0;
   text-align: left;
   cursor: pointer;
   display: flex;
@@ -316,25 +259,23 @@ body.background {
   align-items: center;
 }
 
+/* Small arrow on the right side of the button */
 .dropdown-btn::after {
-  content: "\25BC"; /* small down arrow */
+  content: "\25BC";
   font-size: 0.9rem;
   color: #E2B055;
   margin-left: 5px;
 }
 
-/* The hidden dropdown content (links) */
+/* Hidden dropdown content (animated) */
 .dropdown-content {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.4s ease;
-
-  /* Solid backdrop that extends across the sidebar */
   background-color: #34393D;
   width: 100%;
-
-  /* Remove border & corner rounding */
+  /* Remove any border, corner rounding, etc. */
   border: none;
   border-radius: 0;
 }
@@ -346,13 +287,12 @@ body.background {
   padding: 8px 10px;
   text-decoration: none;
 }
-
 .dropdown-content a:hover {
   background-color: #545B60;
 }
 
-/* When 'active', reveal content with animation */
+/* Expand the dropdown with smooth animation */
 .dropdown.active .dropdown-content {
-  max-height: 500px; /* enough space for your links */
+  max-height: 500px;
   opacity: 1;
 }
