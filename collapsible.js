@@ -17,3 +17,15 @@ function toggleSection(sectionId) {
       });
     });
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+    dropdownButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Find the parent .dropdown
+        const dropdown = button.closest('.dropdown');
+        // Toggle the "active" class
+        dropdown.classList.toggle('active');
+      });
+    });
+  });
