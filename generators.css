@@ -250,16 +250,18 @@ h2 {
 
 /* === SIDEBAR STYLES === */
 .sidebar {
-  position: fixed;       /* Keep it pinned on the left */
+  position: fixed;
   left: 0;
   top: 0;
   width: 250px;
-  height: 100vh;         /* full viewport height */
-  background-color: #2A2E33;
+  height: 100vh;
+  background-color: #3C4349; /* same as dropdown background */
+  border: 5px solid #32383E; /* same outline color as dropdowns */
+  box-shadow: 0 0 5px #000000; /* same subtle shadow */
   padding: 20px;
   box-sizing: border-box;
-  overflow-y: auto;      /* scroll if content is tall */
-  z-index: 9999;         /* on top of everything else */
+  overflow-y: auto;
+  z-index: 9999;
 }
 
 /* Shift the main content to the right so it's not behind the sidebar */
