@@ -293,26 +293,45 @@ body.background {
   margin-bottom: 10px;
 }
 
+/* Container for each dropdown group */
+.dropdown {
+  margin-bottom: 10px;
+  position: relative; /* so we can position arrow if needed */
+}
+
 /* The button that toggles the dropdown links */
 .dropdown-btn {
   width: 100%;
   background-color: #3C4349;
   color: #E2B055;
   padding: 10px;
-  border: none;
+  border: 1px solid #32383E; /* small box around the button */
   text-align: left;
   cursor: pointer;
   font-size: 1rem;
   border-radius: 5px;
   outline: none;
-  margin-bottom: 5px;
+  display: flex;        /* so we can place arrow on the right */
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* The hidden dropdown content */
+/* Add a small arrow on the right side of the button */
+.dropdown-btn::after {
+  content: "\25BC"; /* small down arrow */
+  font-size: 0.9rem;
+  color: #E2B055;
+  margin-left: 5px;
+}
+
+/* The hidden dropdown content (links) */
 .dropdown-content {
-  display: none;
+  display: none;        /* hidden by default */
   background-color: #3C4349;
+  border: 1px solid #32383E;
   border-radius: 5px;
+  margin-top: 5px;
+  overflow: hidden;
 }
 
 /* Each link inside the dropdown */
@@ -327,7 +346,7 @@ body.background {
   background-color: #545B60;
 }
 
-/* Show the dropdown on hover */
-.dropdown:hover .dropdown-content {
+/* When the dropdown is "active", we show the content */
+.dropdown.active .dropdown-content {
   display: block;
 }
