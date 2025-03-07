@@ -1,3 +1,7 @@
+/**
+ * Toggles the "open" class on a collapsible section.
+ * @param {string} sectionId - The ID of the container div to expand/collapse.
+ */
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (!section) return;
@@ -8,18 +12,6 @@ function toggleSection(sectionId) {
     // Select all .dropdown-btn elements
     const dropdownButtons = document.querySelectorAll('.dropdown-btn');
 
-    dropdownButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Find the parent .dropdown
-        const dropdown = button.closest('.dropdown');
-        // Toggle the "active" class
-        dropdown.classList.toggle('active');
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const dropdownButtons = document.querySelectorAll('.dropdown-btn');
     dropdownButtons.forEach(button => {
       button.addEventListener('click', () => {
         // Find the parent .dropdown
