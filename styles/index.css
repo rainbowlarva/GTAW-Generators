@@ -1,0 +1,296 @@
+html, body {
+  width: 100%;
+  margin: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.background {
+  background-color: #2A2E33;
+  background-image: linear-gradient(#2A2E33, #26292D);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+a {
+  text-decoration: none;
+}
+
+.prdcontainer {
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+/* The top LSPD logo */
+.prdcontainer img {
+  display: inline-block;
+  margin: 10px;
+}
+
+.lslogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 300px;
+  height: 300px;
+}
+
+.mrdlogo,
+.ftplogo,
+.traflogo,
+.gitlogo,
+.drdlogo,
+.swatlogo {
+  width: 300px;
+  height: 300px;
+}
+
+/* 2-COLUMN LAYOUT */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.section-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Containers for the button groups (records, ftp, etc.) */
+.records-container,
+.mrd-container,
+.ftp-container,
+.traffic-container,
+.git-container,
+.metro-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  border: 5px solid #32383E;
+  border-radius: 10px;
+  background-color: #3C4349;
+  box-shadow: 0 0 5px #000000;
+  width: fit-content;
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Button styles */
+.image-button {
+  filter: grayscale(100%);
+  text-align: center;
+  transform: translateY(0) scale(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.db-button {
+  text-align: center;
+  transform: translateY(0) scale(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-button img,
+.db-button img {
+  width: 200px;
+  height: 208px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a subtle box shadow on hover */
+.image-button:hover img {
+  box-shadow: 0 0 16px #5F6972;
+  transform: translateY(-3px) scale(1.05);
+}
+.db-button:hover img {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Text under each button */
+.image-button p,
+.db-button p {
+  color: white;
+  white-space: normal;
+  max-width: 200px;
+  transition: color 0.3s ease;
+}
+
+/* Lighten text color on hover */
+.image-button:hover p,
+.db-button:hover p {
+  color: #DBDBDB;
+}
+
+/* Headings */
+h1 {
+  color: #E2B055;
+  font-weight: bold;
+}
+h2 {
+  color: #E2B055;
+  font-weight: bold;
+}
+
+/* Collapsible content animations */
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.collapse.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+.collapse .image-button {
+  opacity: 0;
+  transform: translateY(20px) scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.collapse.open .image-button {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.collapse.open .image-button:nth-child(1)  { transition-delay: 0.05s; }
+.collapse.open .image-button:nth-child(2)  { transition-delay: 0.10s; }
+.collapse.open .image-button:nth-child(3)  { transition-delay: 0.15s; }
+.collapse.open .image-button:nth-child(4)  { transition-delay: 0.20s; }
+.collapse.open .image-button:nth-child(5)  { transition-delay: 0.25s; }
+.collapse.open .image-button:nth-child(6)  { transition-delay: 0.30s; }
+
+/* Toggle button styling */
+.toggle-button {
+  background-color: #3C4349;
+  color: #E2B055;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 3px solid #32383E;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 20px auto 0;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 8px #212121;
+}
+.toggle-button:hover {
+  background-color: #4B5359;
+}
+
+/* === SIDEBAR STYLES === */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #3C4349;
+  border-right: 5px solid #32383E;
+  box-shadow: 0 0 5px #000000;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+/* Shift main content to the right of the sidebar */
+body.background {
+  margin-left: 250px;
+}
+
+/* Sidebar image placeholder */
+.sidebar-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Sidebar text beneath image */
+.sidebar-text {
+  color: #E2B055;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* Dropdown container inside the sidebar */
+.dropdown {
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%; /* Ensure full width inside sidebar */
+}
+
+/* Dropdown button: no border, full width, background #34393D */
+.dropdown-btn {
+  width: 100%;
+  background-color: #32383E;
+  color: #E2B055;
+  padding: 10px;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Small arrow on the right side of the button */
+.dropdown-btn::after {
+  content: "\25BC";
+  font-size: 0.9rem;
+  color: #E2B055;
+  margin-left: 5px;
+}
+
+/* Hidden dropdown content (animated) */
+.dropdown-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  background-color: #32383E;
+  width: 100%;
+  /* Remove any border, corner rounding, etc. */
+  border: none;
+  border-radius: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  display: block;
+  color: #fff;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  background-color: #545B60;
+}
+
+/* Expand the dropdown with smooth animation */
+.dropdown.active .dropdown-content {
+  max-height: 500px;
+  opacity: 1;
+}

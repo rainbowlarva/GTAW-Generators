@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>After Action Report</title>
+  <link rel="stylesheet" href="styles/after-action.css" />
+</head>
+<body>
+  <div class="container">
+    <a href="https://rainbowlarva.github.io/GTAW-Generators/">
+        <img src="images/arrow.png" alt="Back" class="back-button">
+    </a>
+    <h1>After Action Report</h1>
+
+    <!-- The Form -->
+    <form id="afterActionForm">
+      <div>
+        <label for="reportNumber">Report Number:</label>
+        <input type="text" id="reportNumber" placeholder="#XXX" />
+      </div>
+
+      <div>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="Reporting employee's name." />
+      </div>
+
+      <div>
+        <label for="departmentalRank">Departmental Rank:</label>
+        <input type="text" id="departmentalRank" placeholder="Reporting employee's rank." />
+      </div>
+
+      <div>
+        <label for="badgeNumber">Badge Number:</label>
+        <input type="text" id="badgeNumber" placeholder="Reporting employee's badge number." />
+      </div>
+
+      <!-- Involved Employees -->
+      <h2>Involved Employee(s)</h2>
+      <div id="employeeList">
+        <!-- Dynamically added employee inputs go here -->
+      </div>
+      <div id="employeeControls">
+        <button type="button" id="addEmployee">Add Employee</button>
+        <button type="button" id="removeEmployee">Remove Employee</button>
+      </div>
+
+      <div>
+        <label for="timeDate">Time &amp; Date:</label>
+        <input type="text" id="timeDate" placeholder="DD/MMM/YYYY - 00:00" />
+      </div>
+
+      <div>
+        <label for="street">Street:</label>
+        <input type="text" id="street" placeholder="Sinner Street" />
+      </div>
+
+      <div>
+        <label for="area">Area:</label>
+        <input type="text" id="area" placeholder="Mission Row" />
+      </div>
+
+      <div>
+        <label for="narrative">Narrative:</label>
+        <textarea id="narrative" rows="5" placeholder="Insert a thoroughly detailed narrative of the incident here."></textarea>
+      </div>
+
+      <div>
+        <label for="extraDetails">Extra Details / Recommendations:</label>
+        <textarea id="extraDetails" rows="3" placeholder="Insert any relevant extra information, evidence or recommendations following the incident here."></textarea>
+      </div>
+
+      <!-- Buttons -->
+      <button type="button" class="clear-button" onclick="clearForm()">Clear</button>
+      <button type="button" onclick="generateBBCode()">Generate BBCode</button>
+    </form>
+
+    <!-- The output area -->
+    <div id="bbcodeOutput"></div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script/after-action.js"></script>
+</body>
+</html>

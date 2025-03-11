@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #212121;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #2A2E33;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* For a consistent look with uof.css, remove or reduce the border radius */
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    color: white;
+}
+
+h3 {
+    color: white;
+    margin-top: 6%;
+    margin-bottom: 0%;
+}
+
+/* Form Layout */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Each label/input pair gets spacing at the bottom */
+form div {
+    margin-bottom: 15px;
+}
+
+/* Labels above inputs */
+label {
+    font-size: 1rem;
+    color: white;
+    display: block;
+    margin-top: 2%;
+}
+
+/* Inputs & Textareas */
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #545454;
+    background-color: #5D6770;
+    border-radius: 5px;
+    resize: none;
+    color: white;
+    margin: 0; /* remove extra bottom margin for consistent spacing */
+}
+
+::placeholder {
+    color: #CECECE;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #0C7A87; /* Teal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 4%;
+}
+
+button:hover {
+    background-color: #0A4C54; /* Darker teal on hover */
+}
+
+/* Output Area */
+#bbcodeOutput {
+    margin-top: 20px;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Fieldset & Legend (kept from original property-release.css) */
+fieldset {
+    border: 1px solid #545454;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #2b2b2b;
+}
+
+legend {
+    font-weight: bold;
+    color: white;
+}
+
+/* Two side-by-side buttons to add/remove property */
+#propertyControls {
+    display: flex;
+    justify-content: space-between; /* 'Add' on left, 'Remove' on right */
+    gap: 10px; 
+    margin-bottom: 20px;
+    margin-top: -6%;
+}
+
+/* The dynamic property row with 3 inputs side by side */
+.property-entry {
+    display: flex;        /* place the inputs side by side */
+    gap: 10px;            /* horizontal gap between inputs */
+    margin-bottom: 10px;  /* small vertical space between rows */
+}
+
+.property-entry input {
+    flex: 1;              /* each input flexes to share the row evenly */
+    min-width: 0;         /* avoid overflow issues in very narrow screens */
+}
+
+/* The Clear button (red) */
+.clear-button {
+    background-color: #E73E3B; /* bright red */
+    color: white;
+    margin-top: 4%;
+    margin-bottom: -2%;
+    transition: background-color 0.3s ease;
+}
+.clear-button:hover {
+    background-color: #B8322F; /* darker red */
+}

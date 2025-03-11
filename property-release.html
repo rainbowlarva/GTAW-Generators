@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Property Transfer Receipt Generator</title>
+  <link rel="stylesheet" href="styles/property-release.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Property Transfer Receipt Generator</h1>
+    <a href="https://rainbowlarva.github.io/GTAW-Generators/">
+      <img src="images/arrow.png" alt="Back" class="back-button">
+    </a>
+
+    <form id="propertyForm" onsubmit="generateBBCode(); return false;">
+      <h2>Transfer Information</h2>
+      <!-- Fields 1..8 -->
+      <label for="field1">Release authorization by:</label>
+      <input type="text" id="field1" placeholder="Officer authorizing the release.">
+
+      <label for="field2">Serial number:</label>
+      <input type="text" id="field2" placeholder="Officer's serial number.">
+
+      <label for="field3">Division / Assignment:</label>
+      <input type="text" id="field3" placeholder="Officer's division / assignment.">
+
+      <label for="field4">Person receiving property:</label>
+      <input type="text" id="field4" placeholder="Subject receiving the property.">
+
+      <label for="field5">Agency:</label>
+      <input type="text" id="field5" placeholder="Subject's agency (if applicable).">
+
+      <label for="field6">Serial number (Agency):</label>
+      <input type="text" id="field6" placeholder="Subject's serial number (if applicable).">
+
+      <label for="field7">Date released:</label>
+      <input type="text" id="field7" placeholder="Date the property was released.">
+
+      <label for="field8">Reason for transfer:</label>
+      <input type="text" id="field8" placeholder="Evidence exchange / destruction / indexing, etc.">
+
+      <h2>Court Information</h2>
+      <!-- Fields 9..10 -->
+      <label for="field9">CASE OF PEOPLE VS.:</label>
+      <input type="text" id="field9" placeholder="Enter the court case (if applicable).">
+
+      <label for="field10">Received by (Court Clerk):</label>
+      <input type="text" id="field10" placeholder="Court clerk receiving the property (if applicable).">
+
+      <h2>Items to Transfer</h2>
+      <div id="propertyList"></div>
+
+      <div id="propertyControls">
+        <button type="button" id="addProperty">Add Property</button>
+        <button type="button" id="removeProperty">Remove Property</button>
+      </div>
+
+      <!-- The CLEAR button (red) -->
+      <button type="button" id="clearButton" class="clear-button">Clear</button>
+
+      <!-- The Generate button (teal) -->
+      <button type="submit">Generate BBCode</button>
+    </form>
+
+    <h2>Generated BBCode</h2>
+    <pre id="bbcodeOutput"></pre>
+  </div>
+
+  <script src="script/property-release.js"></script>
+</body>
+</html>

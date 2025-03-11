@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBCode Generator</title>
+    <link rel="stylesheet" href="styles/ccr.css"> <!-- Link to your CSS file -->
+</head>
+<body class="background">
+    <div class="container">
+        <h1>Crime Complaint Report Generator</h1>
+        
+        <a href="https://rainbowlarva.github.io/GTAW-Generators/">
+            <img src="images/arrow.png" alt="Back" class="back-button">
+        </a>
+        
+        <!-- User Input Form -->
+        <form id="ccrForm">
+            <div>
+                <label for="fullName">Full name(s):</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter full name(s)">
+            </div>
+            <div>
+                <label for="rank">Departmental rank(s):</label>
+                <input type="text" id="rank" name="rank" placeholder="Enter rank(s)">
+            </div>
+            <div>
+                <label for="badgeNumber">Badge number(s):</label>
+                <input type="text" id="badgeNumber" name="badgeNumber" placeholder="Enter badge number(s)">
+            </div>
+            <div>
+                <label for="callsign">Duty callsign:</label>
+                <input type="text" id="callsign" name="callsign" placeholder="Enter duty callsign">
+            </div>
+            <div>
+                <label for="timeDate">Time and date:</label>
+                <input type="text" id="timeDate" name="timeDate" placeholder="Enter time and date">
+            </div>
+            <div>
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" placeholder="Enter street name">
+            </div>
+            <div>
+                <label for="area">Area:</label>
+                <input type="text" id="area" name="area" placeholder="Enter area name">
+            </div>
+            <div>
+                <label for="casings">Casings label:</label>
+                <input type="text" id="casings" name="casings" placeholder="Enter casings label">
+            </div>
+            <div>
+                <label for="narrative">Narrative:</label>
+                <textarea id="narrative" name="narrative" placeholder="Enter narrative"></textarea>
+            </div>
+            <div>
+                <label for="evidence">Evidence:</label>
+                <textarea id="evidence" name="evidence" placeholder="Enter evidence"></textarea>
+            </div>
+
+            <!-- Clear button (red) -->
+            <button type="button" id="clearButton" class="clear-button">Clear</button>
+
+            <!-- Generate BBCode button -->
+            <button type="submit">Generate BBCode</button>
+        </form>
+
+        <!-- Output Area -->
+        <div id="bbcodeOutput">
+            <h2>Generated BBCode:</h2>
+            <pre id="bbcodeText"></pre>
+        </div>
+    </div>
+
+    <script src="script/ccr.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use of Force Report Generator</title>
+    <link rel="stylesheet" href="styles/uof.css"> <!-- Link to your CSS file -->
+</head>
+<body class="background">
+    <div class="container">
+        <h1>Use of Force Report Generator</h1>
+        
+        <a href="https://rainbowlarva.github.io/GTAW-Generators/">
+            <img src="images/arrow.png" alt="Back" class="back-button">
+        </a>
+        
+        <!-- User Input Form -->
+        <form id="uofForm">
+            <div>
+                <label for="reportingEmployee">Reporting Employee:</label>
+                <input type="text" id="reportingEmployee" name="reportingEmployee" placeholder="Enter name">
+            </div>
+            <div>
+                <label for="incidentDateTime">Date and Time of Incident:</label>
+                <input type="text" id="incidentDateTime" name="incidentDateTime" placeholder="Enter date and time">
+            </div>
+            <div>
+                <label for="incidentLocation">Location of Incident:</label>
+                <input type="text" id="incidentLocation" name="incidentLocation" placeholder="Enter location">
+            </div>
+            <div>
+                <label for="uofType">Type of Use of Force:</label>
+                <input type="text" id="uofType" name="uofType" placeholder="Enter type of UOF">
+            </div>
+            <div>
+                <label for="firearmSubmission">Service Firearm Submitted to Armory:</label>
+                <input type="text" id="firearmSubmission" name="firearmSubmission" placeholder="Yes / No">
+            </div>
+            <div>
+                <label for="narrative">Narrative:</label>
+                <textarea id="narrative" name="narrative" placeholder="Enter details"></textarea>
+            </div>
+
+            <!-- Involved Subjects -->
+            <h2>Involved Subjects</h2>
+            <div>
+                <label for="subjectName">Subject Name:</label>
+                <input type="text" id="subjectName" name="subjectName" placeholder="Enter subject name">
+            </div>
+            <div>
+                <label for="mdcRecord">MDC Record:</label>
+                <input type="text" id="mdcRecord" name="mdcRecord" placeholder="Enter MDC link">
+            </div>
+            <div>
+                <label for="subjectStatus">Status:</label>
+                <input type="text" id="subjectStatus" name="subjectStatus" placeholder="Enter status">
+            </div>
+            <div>
+                <label for="subjectNotes">Notes:</label>
+                <textarea id="subjectNotes" name="subjectNotes" placeholder="Enter notes"></textarea>
+            </div>
+
+            <!-- Involved Employees (Dynamic List) -->
+            <h2>Involved Employee(s)</h2>
+            <!-- Remove the "Remove" button from the default row -->
+            <div id="employeeList">
+                <div class="employee-entry">
+                    <input type="text" name="involvedEmployee" placeholder="Enter employee name">
+                </div>
+            </div>
+            <div id="employeeControls">
+                <button type="button" id="addEmployee">Add Employee</button>
+                <button type="button" id="removeEmployee">Remove Employee</button>
+            </div>
+
+            <!-- Supervisor -->
+            <div>
+                <label for="supervisor">Supervisor:</label>
+                <input type="text" id="supervisor" name="supervisor" placeholder="Enter supervisor name">
+            </div>
+
+            <!-- Evidence -->
+            <div>
+                <label for="evidence">Evidence:</label>
+                <textarea id="evidence" name="evidence" placeholder="Enter evidence details"></textarea>
+            </div>
+
+            <!-- Clear Button (Red) -->
+            <button type="button" id="clearButton" class="clear-button">Clear</button>
+
+            <button type="submit">Generate BBCode</button>
+        </form>
+
+        <!-- Output Area -->
+        <div id="bbcodeOutput">
+            <h2>Generated BBCode:</h2>
+            <pre id="bbcodeText"></pre>
+        </div>
+    </div>
+
+    <script src="script/uof.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
